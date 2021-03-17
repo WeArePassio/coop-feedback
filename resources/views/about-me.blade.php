@@ -22,10 +22,10 @@
 <input type="text" name="name" id="name">
 
 <label for="who-am-i">Who am I? Where am I from? What is important to me?</label>
-<textarea type="text" name="who-am-i" id="who-am-i"></textarea>
+<textarea placeholder='Type here...' type="text" name="who-am-i" id="who-am-i"></textarea>
 
 <label for="why-am-i-here">Why am I here and what would I like to get from the project?</label>
-<textarea type="text" name="why-am-i-here" id="why-am-i-here"></textarea>
+<textarea placeholder='Type here...' type="text" name="why-am-i-here" id="why-am-i-here"></textarea>
 
 <h3>About Me</h3>
 <p>
@@ -33,6 +33,6 @@ Use this section to upload a photo of a drawing or doodle or any pictures that r
 </p>
 
 <div class='button-row'>
-    <button onclick="window.location.href='/rating-1'">Next</button>
+    <button onclick="window.location.href='/my-journey'">Next</button>
 </div>
 @endsection
