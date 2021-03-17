@@ -56,18 +56,14 @@ const MyJourney = () => {
             />
           ))}
         </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={6}>
-              <p>
-                Do you have any extra comments or pictures you would like to share on the topic of
-                confidence?
-              </p>
-              <textarea placeholder='Type here...'></textarea>
-            </td>
-          </tr>
-        </tfoot>
       </table>
+      <div className='panel'>
+        <p>
+          Do you have any extra comments or pictures you would like to share on the topic of
+          confidence?
+        </p>
+        <textarea placeholder='Type here...'></textarea>
+      </div>
 
       <div className='button-row'>
         <button onClick={() => (window.location.href = '/my-journey-2')}>Next</button>

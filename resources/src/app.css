@@ -17,7 +17,7 @@ header {
 
 main {
   width: 90%;
-  max-width: 548px;
+  max-width: 600px;
   margin: 0 auto;
   margin-bottom: 50px;
 }
@@ -116,6 +116,11 @@ textarea {
 
 .rating-table {
   width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.rating-table tbody td {
+  border-bottom: 1px solid var(--mid-grey);
 }
 .rating-table thead {
   background-color: var(--purple);
@@ -123,10 +128,17 @@ textarea {
 }
 .rating-table th,
 .rating-table td {
-  padding: 10px;
+  padding: 6px;
 }
 .rating-table thead tr {
   height: 68px;
+}
+.rating-table td.rating-cell {
+  background-color: var(--light-grey);
+  width: 50px;
+}
+.rating-table td.rating-cell label {
+  margin-bottom: 0px;
 }
 
 .rating-table thead tr th:first-child,
@@ -150,5 +162,5 @@ input[type='radio'] + img {
   border-radius: 50%;
 }
 input[type='radio']:focus + img {
-  box-shadow: 0 0 10px var(--mid-grey);
+  box-shadow: 0 0 5px var(--mid-grey);
 }

@@ -13,7 +13,7 @@ import rating5Checked from '../img/rating-5-checked.svg';
 
 const RatingRadio = ({question_id, radioValue, value, setValue, icon, iconChecked}) => {
   return (
-    <td>
+    <td className='rating-cell'>
       <label>
         <input
           type='radio'
