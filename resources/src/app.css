@@ -145,13 +145,10 @@ input[type='radio'] {
   height: 0;
 }
 /* IMAGE STYLES */
-[type='radio'] + img {
-  border: 2px solid transparent;
+input[type='radio'] + img {
   cursor: pointer;
-}
-
-/* CHECKED STYLES */
-[type='radio']:checked + img {
-  border: 2px solid black;
   border-radius: 50%;
+}
+input[type='radio']:focus + img {
+  box-shadow: 0 0 10px var(--mid-grey);
 }

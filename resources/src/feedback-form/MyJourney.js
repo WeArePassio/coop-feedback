@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import start from '../img/start.svg';
 import RatingRow from './RatingRow';
 
 const MyJourney = () => {
+  const [questions, setQuestions] = useState([
+    {
+      id: 1,
+      title: 'How confident do you feel in general?',
+      value: undefined,
+    },
+    {
+      id: 2,
+      title: 'How easy do you find it to try new things?',
+      value: undefined,
+    },
+  ]);
   return (
     <>
       <img src={start} className='flag' alt='A flag with the word Start' />
@@ -30,11 +42,19 @@ const MyJourney = () => {
           </tr>
         </thead>
         <tbody>
-          <RatingRow question='How confident do you feel in general?' question_id='general' />
-          <RatingRow
-            question='How easy do you find it to try new things?'
-            question_id='new-things'
-          />
+          {questions.map(({id, title, value}) => (
+            <RatingRow
+              key={id}
+              question={title}
+              question_id={`question-${id}`}
+              value={value}
+              setValue={(value) => {
+                const newQuestions = [...questions];
+                newQuestions.find((question) => question.id === id).value = value;
+                setQuestions(newQuestions);
+              }}
+            />
+          ))}
         </tbody>
         <tfoot>
           <tr>
