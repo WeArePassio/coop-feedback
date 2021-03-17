@@ -136,3 +136,22 @@ textarea {
 .rating-table tr td:not(:first-child) {
     text-align: center;
 }
+
+/* Hide the actual radio  */
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+/* IMAGE STYLES */
+[type="radio"] + img {
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type="radio"]:checked + img {
+    border: 2px solid black;
+    border-radius: 50%;
+}
