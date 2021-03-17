@@ -13,9 +13,11 @@ function App() {
       <header>
         <img src={coopLogo} alt='' />
       </header>
-      <Intro />
-      <AboutMe />
-      <MyJourney />
+      <main>
+        <Intro />
+        <AboutMe />
+        <MyJourney />
+      </main>
     </>
   );
 }
