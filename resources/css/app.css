@@ -1,3 +1,82 @@
+:root {
+    --purple: #59358c;
+    --light-grey: #f4f4f6;
+    --grey: #50535e;
+    --blue: #8ca9d9;
+}
 body {
     font-family: "Open Sans", sans-serif;
+    color: var(--grey);
+}
+
+header {
+    padding: 20px 14px;
+}
+
+main {
+    width: 90%;
+    max-width: 548px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-weight: 600;
+    line-height: 1.4;
+    font-size: 35px;
+    color: var(--purple);
+}
+
+h2 {
+    font-weight: 600;
+    line-height: 1.4;
+    font-size: 20px;
+}
+
+img.flag {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    max-width: 80%;
+}
+
+.line {
+    width: 70px;
+    height: 4px;
+    margin: 0 auto;
+    background-color: var(--purple);
+}
+
+.panel {
+    background-color: var(--light-grey);
+    padding: 17px 42px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.panel section::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: var(--blue);
+    position: absolute;
+    left: -8px;
+    top: 50%;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button.next {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.429;
+    background-color: var(--purple);
+    color: white;
+    border-radius: 3px;
+    padding: 10px 20px;
 }

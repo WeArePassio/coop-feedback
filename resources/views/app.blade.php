@@ -14,6 +14,11 @@
         <link href='/css/app.css' rel='stylesheet'>
     </head>
     <body class="">
-        @yield('content')
+        <header>
+          <img src='/img/coop-logo.svg' />
+        </header>
+        <main>
+          @yield('content')
+        </main>
     </body>
 </html>
