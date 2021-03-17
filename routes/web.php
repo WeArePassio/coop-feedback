@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::fallback(function () {
     return File::get(public_path() . '/feedback-form.html');
 });

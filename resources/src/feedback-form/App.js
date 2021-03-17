@@ -1,7 +1,6 @@
 import React from 'react';
+import {Redirect, Route, Switch, Link} from 'react-router-dom';
 
-import '../normalize.css';
-import '../app.css';
 import coopLogo from '../img/coop-logo.svg';
 import Intro from './Intro';
 import MyJourney from './MyJourney';
@@ -11,12 +10,23 @@ function App() {
   return (
     <>
       <header>
-        <img src={coopLogo} alt='' />
+        <Link to='/' className='authenticated-banner'>
+          <img src={coopLogo} alt='' />
+        </Link>
       </header>
       <main>
-        <Intro />
-        <AboutMe />
-        <MyJourney />
+        <Switch>
+          <Route path='/intro'>
+            <Intro />
+          </Route>
+          <Route path='/about-me'>
+            <AboutMe />
+          </Route>
+          <Route path='/my-journey'>
+            <MyJourney />
+          </Route>
+          <Redirect to='/intro' />
+        </Switch>
       </main>
     </>
   );

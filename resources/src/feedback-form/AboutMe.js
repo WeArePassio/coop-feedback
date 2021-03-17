@@ -1,8 +1,10 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 import start from '../img/start.svg';
 
 const AboutMe = () => {
+  const history = useHistory();
   return (
     <>
       <header>
@@ -44,7 +46,7 @@ const AboutMe = () => {
       </p>
 
       <div className='button-row'>
-        <button onClick={() => (window.location.href = '/my-journey')}>Next</button>
+        <button onClick={() => history.push('/my-journey')}>Next</button>
       </div>
     </>
   );

@@ -1,8 +1,10 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 import start from '../img/start.svg';
 
 const Intro = () => {
+  const history = useHistory();
   return (
     <>
       <header>
@@ -30,7 +32,7 @@ const Intro = () => {
         </section>
       </div>
       <div className='button-row'>
-        <button onClick={() => (window.location.href = '/about-me')}>Next</button>
+        <button onClick={() => history.push('/about-me')}>Next</button>
       </div>
     </>
   );
