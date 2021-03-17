@@ -24,6 +24,6 @@
     </section>
 </div>
 <div class='button-row'>
-    <button class='next'>Next</button>
+    <button onclick="window.location.href='/about-me'">Next</button>
 </div>
 @endsection
