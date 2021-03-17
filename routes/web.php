@@ -14,13 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('intro');
-});
-
-Route::get('/about-me', function () {
-    return view('about-me');
-});
-
-Route::get('/my-journey', function () {
-    return view('my-journey');
+    return File::get(public_path() . '/feedback-form.html');
 });
