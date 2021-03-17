@@ -1,11 +1,7 @@
 import React from 'react';
 
 import start from '../img/start.svg';
-import rating1 from '../img/rating-1.svg';
-import rating2 from '../img/rating-2.svg';
-import rating3 from '../img/rating-3.svg';
-import rating4 from '../img/rating-4.svg';
-import rating5 from '../img/rating-5.svg';
+import RatingRow from './RatingRow';
 
 const MyJourney = () => {
   return (
@@ -34,39 +30,11 @@ const MyJourney = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>How confident do you feel in general?</td>
-            <td>
-              <label>
-                <input type='radio' name='general' value='1' />
-                <img src={rating1} />
-              </label>
-            </td>
-            <td>
-              <label>
-                <input type='radio' name='general' value='2' />
-                <img src={rating2} />
-              </label>
-            </td>
-            <td>
-              <label>
-                <input type='radio' name='general' value='3' />
-                <img src={rating3} />
-              </label>
-            </td>
-            <td>
-              <label>
-                <input type='radio' name='general' value='4' />
-                <img src={rating4} />
-              </label>
-            </td>
-            <td>
-              <label>
-                <input type='radio' name='general' value='5' />
-                <img src={rating5} />
-              </label>
-            </td>
-          </tr>
+          <RatingRow question='How confident do you feel in general?' question_id='general' />
+          <RatingRow
+            question='How easy do you find it to try new things?'
+            question_id='new-things'
+          />
         </tbody>
         <tfoot>
           <tr>
