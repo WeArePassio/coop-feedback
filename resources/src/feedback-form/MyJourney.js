@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 
 import start from '../img/start.svg';
 import RatingRow from './RatingRow';
 import {useQuestions} from './QuestionsProvider';
 
 const MyJourney = () => {
+  const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
   const {questionThemes, fetchQuestions, responses, setResponse} = useQuestions();
 
@@ -19,7 +21,7 @@ const MyJourney = () => {
     if (themeIndex < questionThemes.length - 1) {
       setThemeIndex(themeIndex + 1);
     } else {
-      console.log(responses);
+      history.push('/complete');
     }
   };
 

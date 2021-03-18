@@ -6,6 +6,7 @@ import coopLogo from '../img/coop-logo.svg';
 import Intro from './Intro';
 import MyJourney from './MyJourney';
 import AboutMe from './AboutMe';
+import Complete from './Complete';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path='/my-journey'>
             <MyJourney />
+          </Route>
+          <Route path='/complete'>
+            <Complete />
           </Route>
           <Redirect to='/intro' />
         </Switch>
