@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\QuestionTheme;
+use App\Http\Controllers\BeginningFeedbackSubmissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/questions', function() {
     return QuestionTheme::all();
 });
+
+Route::post('/submissions', [BeginningFeedbackSubmissionController::class, 'submit']);
