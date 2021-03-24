@@ -8,6 +8,7 @@ import Intro from './Intro';
 import MyJourney from './MyJourney';
 import AboutMe from './AboutMe';
 import Complete from './Complete';
+import Submissions from './Submissions';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path='/complete'>
               <Complete />
+            </Route>
+            <Route path='/submissions'>
+              <Submissions />
             </Route>
             <Redirect to='/intro' />
           </Switch>

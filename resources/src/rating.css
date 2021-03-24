@@ -15,7 +15,7 @@
   margin-bottom: 20px;
 }
 .rating-table-desktop tbody td,
-.rating-table tbody tr:nth-child(even) td {
+.rating-table-mobile tbody tr:nth-child(even) td {
   border-bottom: 1px solid var(--mid-grey);
 }
 .rating-table thead {
@@ -61,4 +61,8 @@ input[type='radio'] + img {
 }
 input[type='radio']:focus + img {
   box-shadow: 0 0 5px var(--mid-grey);
+}
+
+.rating-table.submission-table {
+  border: 1px solid var(--mid-grey);
 }
