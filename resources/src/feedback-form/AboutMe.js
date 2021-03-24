@@ -1,17 +1,10 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import start from '../img/start.svg';
-
 const AboutMe = () => {
   const history = useHistory();
   return (
     <>
-      <header>
-        <h1>Welcome to your Co-operative College course!</h1>
-        <div className='line'></div>
-      </header>
-      <img src={start} className='flag' alt='A flag with the word Start' />
       <div className='panel'>
         <section>
           <h2>About Me</h2>

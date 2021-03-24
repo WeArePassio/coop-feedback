@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 
-import start from '../img/start.svg';
 import RatingRow from './RatingRow';
 import {useQuestions} from './QuestionsProvider';
 
@@ -27,7 +26,6 @@ const MyJourney = () => {
 
   return (
     <>
-      <img src={start} className='flag' alt='A flag with the word Start' />
       <div className='panel'>
         <section>
           <h2>My Journey</h2>
