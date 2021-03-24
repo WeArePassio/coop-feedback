@@ -1,9 +1,21 @@
+@media only screen and (max-width: 767px) {
+  .rating-table-desktop {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .rating-table-mobile {
+    display: none;
+  }
+}
+
 .rating-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
-.rating-table tbody td {
+.rating-table-desktop tbody td,
+.rating-table tbody tr:nth-child(even) td {
   border-bottom: 1px solid var(--mid-grey);
 }
 .rating-table thead {
@@ -18,6 +30,7 @@
   height: 68px;
 }
 .rating-table td.rating-cell {
+  text-align: center;
   width: 50px;
 }
 .rating-table td.rating-cell label {
@@ -26,11 +39,11 @@
   background-color: var(--light-grey);
 }
 
-.rating-table thead tr th:first-child,
-.rating-table tbody tr td:first-child {
+.rating-table-desktop thead tr th:first-child,
+.rating-table-desktop tbody tr td:first-child {
   text-align: left;
 }
-.rating-table tr td:not(:first-child) {
+.rating-table-desktop tr td:not(:first-child) {
   text-align: center;
 }
 
