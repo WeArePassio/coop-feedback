@@ -48,3 +48,7 @@
 .empty {
   border: 12px solid var(--light-grey);
 }
+
+.progress:first-child {
+  margin-top: 50px;
+}
