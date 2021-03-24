@@ -9,6 +9,7 @@ class BeginningFeedbackSubmission extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'who_am_i', 'why_am_i_here'];
+    protected $with = ['beginningFeedbackRatings'];
 
     public function beginningFeedbackRatings()
     {

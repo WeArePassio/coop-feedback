@@ -14,7 +14,7 @@ const MyJourney = () => {
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
   const {questionThemes, fetchQuestions} = useQuestions();
-  const {responses, setResponse} = useSubmission();
+  const {ratings, setResponse, submitSubmission} = useSubmission();
 
   useEffect(() => {
     fetchQuestions();
@@ -27,11 +27,11 @@ const MyJourney = () => {
   const theme = questionThemes ? questionThemes[themeIndex] : undefined;
   const questions = theme ? theme.questions : [];
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (themeIndex < questionThemes.length - 1) {
       setThemeIndex(themeIndex + 1);
     } else {
-      console.log(responses);
+      await submitSubmission();
       history.push('/complete');
     }
   };
@@ -74,7 +74,7 @@ const MyJourney = () => {
                     key={id}
                     question={title}
                     question_id={`question-${id}`}
-                    value={responses?.[theme.id]?.[id]}
+                    value={ratings?.[theme.id]?.[id]}
                     setValue={(value) => {
                       setResponse(theme.id, id, value);
                     }}
@@ -100,7 +100,7 @@ const MyJourney = () => {
                     key={id}
                     question={title}
                     question_id={`question-${id}`}
-                    value={responses?.[theme.id]?.[id]}
+                    value={ratings?.[theme.id]?.[id]}
                     setValue={(value) => {
                       setResponse(theme.id, id, value);
                     }}
@@ -115,7 +115,7 @@ const MyJourney = () => {
             </p>
             <textarea
               placeholder='Type here...'
-              value={responses?.[theme.id]?.text ?? ''}
+              value={ratings?.[theme.id]?.text ?? ''}
               onChange={(event) => {
                 setResponse(theme.id, 'text', event.target.value);
               }}></textarea>

@@ -2,9 +2,11 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 import Progress from './Progress';
+import {useSubmission} from './SubmissionProvider';
 
 const AboutMe = () => {
   const history = useHistory();
+  const {name, setName, whoAmI, setWhoAmI, whyAmIHere, setWhyAmIHere} = useSubmission();
   return (
     <>
       <Progress stage={1} numStages={5} />
@@ -21,10 +23,22 @@ const AboutMe = () => {
       </div>
 
       <label htmlFor='name'>Name</label>
-      <input type='text' name='name' id='name' />
+      <input
+        type='text'
+        name='name'
+        id='name'
+        value={name ?? ''}
+        onChange={(event) => setName(event.target.value)}
+      />
 
       <label htmlFor='who-am-i'>Who am I? Where am I from? What is important to me?</label>
-      <textarea placeholder='Type here...' type='text' name='who-am-i' id='who-am-i'></textarea>
+      <textarea
+        placeholder='Type here...'
+        type='text'
+        name='who-am-i'
+        id='who-am-i'
+        value={whoAmI ?? ''}
+        onChange={(event) => setWhoAmI(event.target.value)}></textarea>
 
       <label htmlFor='why-am-i-here'>
         Why am I here and what would I like to get from the project?
@@ -33,7 +47,9 @@ const AboutMe = () => {
         placeholder='Type here...'
         type='text'
         name='why-am-i-here'
-        id='why-am-i-here'></textarea>
+        id='why-am-i-here'
+        value={whyAmIHere ?? ''}
+        onChange={(event) => setWhyAmIHere(event.target.value)}></textarea>
 
       <h3>About Me</h3>
       <p>

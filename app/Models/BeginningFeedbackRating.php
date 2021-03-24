@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class BeginningFeedbackRating extends Model
 {
     use HasFactory;
-    protected $fillable = ['question_id', 'rating'];
+    protected $fillable = ['beginning_feedback_submission_id', 'question_id', 'rating'];
 }
