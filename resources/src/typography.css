@@ -2,36 +2,36 @@ body,
 textarea::placeholder {
   font-family: 'Open Sans', sans-serif;
   color: var(--grey);
-  font-size: 12px;
+  font-size: 12pt;
 }
 
 h1 {
   font-weight: 600;
   line-height: 1.4;
-  font-size: 35px;
+  font-size: 35pt;
   color: var(--purple);
 }
 
 h2 {
   font-weight: 600;
   line-height: 1.4;
-  font-size: 20px;
+  font-size: 20pt;
 }
 
 h3 {
   font-weight: 600;
   line-height: 1.385;
-  font-size: 13px;
+  font-size: 13pt;
 }
 
 button {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 14pt;
   line-height: 1.429;
 }
 
 label {
   font-weight: 600;
-  font-size: 13px;
+  font-size: 13pt;
   line-height: 1.385;
 }
