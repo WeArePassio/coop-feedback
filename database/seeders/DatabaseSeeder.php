@@ -18,9 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        QuestionTheme::factory(3)
-            ->has(Question::factory(5))
-            ->create();
+        \Artisan::call('data:import');
         BeginningFeedbackSubmission::factory(10)
             ->has(BeginningFeedbackRating::factory(15))
             ->has(BeginningFeedbackComment::factory(3))
