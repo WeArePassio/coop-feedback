@@ -3,7 +3,8 @@ import axios from 'axios';
 
 export const SubmissionContext = createContext();
 const SubmissionProvider = ({children}) => {
-  const [ratings, setResponses] = useState({});
+  const [ratings, setRatings] = useState({});
+  const [comments, setComments] = useState({});
   const [name, setName] = useState();
   const [whoAmI, setWhoAmI] = useState();
   const [whyAmIHere, setWhyAmIHere] = useState();
@@ -14,7 +15,14 @@ const SubmissionProvider = ({children}) => {
       newResponses[themeId] = {};
     }
     newResponses[themeId][questionId] = value;
-    setResponses(newResponses);
+    setRatings(newResponses);
+  };
+
+  const setComment = (themeId, text) => {
+    setComments({
+      ...comments,
+      [themeId]: text,
+    });
   };
 
   const submitSubmission = async () => {
@@ -27,11 +35,16 @@ const SubmissionProvider = ({children}) => {
         []
       )
       .flat();
+    const themeComments = Object.entries(comments).map(([question_theme_id, text]) => ({
+      question_theme_id,
+      text,
+    }));
     const response = await axios.post('/api/submissions', {
       name,
       who_am_i: whoAmI,
       why_am_i_here: whyAmIHere,
       question_ratings: questionRatings,
+      theme_comments: themeComments,
     });
   };
 
@@ -46,6 +59,8 @@ const SubmissionProvider = ({children}) => {
         setWhyAmIHere,
         ratings,
         setResponse,
+        comments,
+        setComment,
         submitSubmission,
       }}>
       {children}

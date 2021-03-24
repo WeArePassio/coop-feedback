@@ -14,7 +14,7 @@ const MyJourney = () => {
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
   const {questionThemes, fetchQuestions} = useQuestions();
-  const {ratings, setResponse, submitSubmission} = useSubmission();
+  const {ratings, setResponse, comments, setComment, submitSubmission} = useSubmission();
 
   useEffect(() => {
     fetchQuestions();
@@ -115,9 +115,9 @@ const MyJourney = () => {
             </p>
             <textarea
               placeholder='Type here...'
-              value={ratings?.[theme.id]?.text ?? ''}
+              value={comments?.[theme.id] ?? ''}
               onChange={(event) => {
-                setResponse(theme.id, 'text', event.target.value);
+                setComment(theme.id, event.target.value);
               }}></textarea>
           </div>
         </>

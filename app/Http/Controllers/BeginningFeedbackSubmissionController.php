@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BeginningFeedbackSubmission;
 use App\Models\BeginningFeedbackRating;
+use App\Models\BeginningFeedbackComment;
 use Illuminate\Http\Request;
 
 class BeginningFeedbackSubmissionController extends Controller
@@ -17,6 +18,8 @@ class BeginningFeedbackSubmissionController extends Controller
             'question_ratings' => 'required|array',
             'question_ratings.*.question_id' => 'required',
             'question_ratings.*.rating' => 'required|integer',
+            'theme_comments.*.question_theme_id' => 'required',
+            'theme_comments.*.text' => 'required|string',
         ]);
         $submission = BeginningFeedbackSubmission::create([
             'name' => $validatedData['name'],
@@ -28,6 +31,13 @@ class BeginningFeedbackSubmissionController extends Controller
                 'beginning_feedback_submission_id' => $submission->id,
                 'question_id' => $question_rating['question_id'],
                 'rating' => $question_rating['rating'],
+            ]);
+        }
+        foreach ($validatedData['theme_comments'] as $theme_comment) {
+            $comment = BeginningFeedbackComment::create([
+                'beginning_feedback_submission_id' => $submission->id,
+                'question_theme_id' => $theme_comment['question_theme_id'],
+                'text' => $theme_comment['text'],
             ]);
         }
         return response()->json($submission->fresh());
