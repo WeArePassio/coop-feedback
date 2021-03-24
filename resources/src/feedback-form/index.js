@@ -7,10 +7,12 @@ import '../typography.css';
 import '../app.css';
 
 import App from './App';
+import ScrollToTop from './ScrollToTop';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <App />
     </BrowserRouter>
   </React.StrictMode>,
