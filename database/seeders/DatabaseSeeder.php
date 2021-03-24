@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionTheme;
+use App\Models\BeginningFeedbackResponse;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +19,6 @@ class DatabaseSeeder extends Seeder
         QuestionTheme::factory(3)
             ->has(Question::factory(5))
             ->create();
+        BeginningFeedbackResponse::factory(10)->create();
     }
 }
