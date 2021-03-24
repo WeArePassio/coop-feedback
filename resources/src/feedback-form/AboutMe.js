@@ -1,10 +1,13 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
+import Progress from './Progress';
+
 const AboutMe = () => {
   const history = useHistory();
   return (
     <>
+      <Progress stage={1} numStages={5} />
       <div className='panel'>
         <section>
           <h2>About Me</h2>

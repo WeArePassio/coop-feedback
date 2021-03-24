@@ -1,8 +1,11 @@
 import React from 'react';
 
+import Progress from './Progress';
+
 const Complete = () => {
   return (
     <>
+      <Progress stage={5} numStages={5} />
       <header>
         <h1>Thanks for your feedback!</h1>
         <div className='line'></div>

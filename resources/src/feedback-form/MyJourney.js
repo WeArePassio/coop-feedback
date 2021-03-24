@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import RatingRow from './RatingRow';
+import Progress from './Progress';
 import {useQuestions} from './QuestionsProvider';
 
 const MyJourney = () => {
@@ -26,6 +27,7 @@ const MyJourney = () => {
 
   return (
     <>
+      <Progress stage={2 + themeIndex} numStages={5} />
       <div className='panel'>
         <section>
           <h2>My Journey</h2>
