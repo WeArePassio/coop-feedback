@@ -7,6 +7,7 @@ const Progress = ({numStages, stage}) => {
   const progressPercent = stage === numStages ? 100 : (stage / (numStages - 1)) * 100;
   return (
     <div className='progress'>
+      <div className='progress-line-bg' />
       <div
         className='progress-line'
         style={{

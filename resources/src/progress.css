@@ -7,12 +7,20 @@
   margin-bottom: 50px;
 }
 
+.progress-line-bg {
+  position: absolute;
+  height: 2px;
+  background-color: var(--light-grey);
+  top: 18px;
+  width: 100%;
+}
 .progress-line {
   position: absolute;
   height: 2px;
   background-color: var(--blue);
   top: 18px;
   left: 0px;
+  z-index: 1;
 }
 
 .stage {
@@ -23,7 +31,7 @@
   align-items: center;
   justify-content: center;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
 }
 
 .completed {
