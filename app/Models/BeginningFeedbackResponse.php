@@ -9,4 +9,9 @@ class BeginningFeedbackResponse extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'who_am_i', 'why_am_i_here'];
+
+    public function beginningFeedbackRatings()
+    {
+        return $this->hasMany(BeginningFeedbackRating::class);
+    }
 }
