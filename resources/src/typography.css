@@ -1,4 +1,6 @@
 body,
+input,
+textarea,
 textarea::placeholder {
   font-family: 'Open Sans', sans-serif;
   color: var(--grey);

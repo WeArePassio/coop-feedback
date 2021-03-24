@@ -78,6 +78,7 @@ textarea {
 input[type='text'] {
   width: 274px;
   height: 33px;
+  padding: 2px 14px;
 }
 textarea {
   width: 100%;
