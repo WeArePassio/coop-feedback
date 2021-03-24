@@ -132,17 +132,18 @@ textarea::placeholder {
 }
 .rating-table th,
 .rating-table td {
-  padding: 6px;
+  padding: 5px;
 }
 .rating-table thead tr {
   height: 68px;
 }
 .rating-table td.rating-cell {
-  background-color: var(--light-grey);
   width: 50px;
 }
 .rating-table td.rating-cell label {
   margin-bottom: 0px;
+  padding: 5px;
+  background-color: var(--light-grey);
 }
 
 .rating-table thead tr th:first-child,
