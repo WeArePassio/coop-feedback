@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionTheme;
+use App\Models\BeginningFeedbackSubmission;
+use App\Models\BeginningFeedbackRating;
+use App\Models\BeginningFeedbackComment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +20,10 @@ class DatabaseSeeder extends Seeder
     {
         QuestionTheme::factory(3)
             ->has(Question::factory(5))
+            ->create();
+        BeginningFeedbackSubmission::factory(10)
+            ->has(BeginningFeedbackRating::factory(15))
+            ->has(BeginningFeedbackComment::factory(3))
             ->create();
     }
 }

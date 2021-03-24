@@ -5,6 +5,7 @@ import RatingRow from './RatingRow';
 import RatingRowMobile from './RatingRowMobile';
 import Progress from './Progress';
 import {useQuestions} from './QuestionsProvider';
+import {useSubmission} from './SubmissionProvider';
 
 import '../rating.css';
 
@@ -12,7 +13,8 @@ const MyJourney = () => {
   const topOfTableRef = useRef(null);
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
-  const {questionThemes, fetchQuestions, responses, setResponse} = useQuestions();
+  const {questionThemes, fetchQuestions} = useQuestions();
+  const {ratings, setResponse, comments, setComment, submitSubmission} = useSubmission();
 
   useEffect(() => {
     fetchQuestions();
@@ -25,10 +27,11 @@ const MyJourney = () => {
   const theme = questionThemes ? questionThemes[themeIndex] : undefined;
   const questions = theme ? theme.questions : [];
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (themeIndex < questionThemes.length - 1) {
       setThemeIndex(themeIndex + 1);
     } else {
+      await submitSubmission();
       history.push('/complete');
     }
   };
@@ -71,7 +74,7 @@ const MyJourney = () => {
                     key={id}
                     question={title}
                     question_id={`question-${id}`}
-                    value={responses?.[theme.id]?.[id]}
+                    value={ratings?.[theme.id]?.[id]}
                     setValue={(value) => {
                       setResponse(theme.id, id, value);
                     }}
@@ -97,7 +100,7 @@ const MyJourney = () => {
                     key={id}
                     question={title}
                     question_id={`question-${id}`}
-                    value={responses?.[theme.id]?.[id]}
+                    value={ratings?.[theme.id]?.[id]}
                     setValue={(value) => {
                       setResponse(theme.id, id, value);
                     }}
@@ -112,9 +115,9 @@ const MyJourney = () => {
             </p>
             <textarea
               placeholder='Type here...'
-              value={responses?.[theme.id]?.text ?? ''}
+              value={comments?.[theme.id] ?? ''}
               onChange={(event) => {
-                setResponse(theme.id, 'text', event.target.value);
+                setComment(theme.id, event.target.value);
               }}></textarea>
           </div>
         </>
