@@ -5,11 +5,6 @@
   --grey: #50535e;
   --blue: #8ca9d9;
 }
-body {
-  font-family: 'Open Sans', sans-serif;
-  color: var(--grey);
-  font-size: 12px;
-}
 
 header {
   padding: 20px 14px;
@@ -20,25 +15,6 @@ main {
   max-width: 600px;
   margin: 0 auto;
   margin-bottom: 50px;
-}
-
-h1 {
-  font-weight: 600;
-  line-height: 1.4;
-  font-size: 35px;
-  color: var(--purple);
-}
-
-h2 {
-  font-weight: 600;
-  line-height: 1.4;
-  font-size: 20px;
-}
-
-h3 {
-  font-weight: 600;
-  line-height: 1.385;
-  font-size: 13px;
 }
 
 img.flag {
@@ -81,9 +57,6 @@ img.flag {
 
 button {
   cursor: pointer;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.429;
   background-color: var(--purple);
   color: white;
   border-radius: 3px;
@@ -92,9 +65,6 @@ button {
 
 label {
   display: block;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 1.385;
   margin-bottom: 8px;
 }
 
@@ -113,7 +83,4 @@ textarea {
   width: 100%;
   padding: 10px 14px;
   resize: vertical;
-}
-textarea::placeholder {
-  font-family: 'Open Sans', sans-serif;
 }

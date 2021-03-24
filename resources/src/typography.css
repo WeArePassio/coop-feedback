@@ -1,0 +1,37 @@
+body,
+textarea::placeholder {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--grey);
+  font-size: 12px;
+}
+
+h1 {
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: 35px;
+  color: var(--purple);
+}
+
+h2 {
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: 20px;
+}
+
+h3 {
+  font-weight: 600;
+  line-height: 1.385;
+  font-size: 13px;
+}
+
+button {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.429;
+}
+
+label {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.385;
+}
