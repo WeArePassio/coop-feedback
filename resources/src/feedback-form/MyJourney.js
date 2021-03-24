@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import RatingRow from './RatingRow';
@@ -9,6 +9,7 @@ import {useQuestions} from './QuestionsProvider';
 import '../rating.css';
 
 const MyJourney = () => {
+  const topOfTableRef = useRef(null);
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
   const {questionThemes, fetchQuestions, responses, setResponse} = useQuestions();
@@ -16,6 +17,10 @@ const MyJourney = () => {
   useEffect(() => {
     fetchQuestions();
   }, []);
+
+  useEffect(() => {
+    topOfTableRef.current.scrollIntoView({behaviour: 'smooth'});
+  }, [themeIndex]);
 
   const theme = questionThemes ? questionThemes[themeIndex] : undefined;
   const questions = theme ? theme.questions : [];
@@ -41,6 +46,8 @@ const MyJourney = () => {
           </p>
         </section>
       </div>
+
+      <div ref={topOfTableRef} />
 
       {theme && (
         <>
