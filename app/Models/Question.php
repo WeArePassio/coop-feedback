@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
-    protected $fillable = ['title'];
+    protected $fillable = ['question_theme_id', 'title'];
 
     public function theme()
     {
