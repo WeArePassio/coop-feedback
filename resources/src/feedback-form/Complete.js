@@ -1,14 +1,23 @@
 import React from 'react';
 
+import Progress from './Progress';
+
 const Complete = () => {
   return (
     <>
+      <Progress stage={5} numStages={5} />
       <header>
         <h1>Thanks for your feedback!</h1>
         <div className='line'></div>
       </header>
       <div className='panel'>
-        <p>Thanks for taking the time to share what you're hoping to get out of the project!</p>
+        <section>
+          <p>
+            Thank you for taking the time to answer these questions. We will ask you to rate these
+            topics again at the end of your journey so you can see how the course has helped you to
+            improve. We hope you enjoy your time with the Co-operative College!
+          </p>
+        </section>
       </div>
     </>
   );

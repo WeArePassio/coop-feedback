@@ -2,6 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 import start from '../img/start.svg';
+import Progress from './Progress';
 
 const Intro = () => {
   const history = useHistory();
@@ -12,13 +13,14 @@ const Intro = () => {
         <div className='line'></div>
       </header>
       <img src={start} className='flag' alt='A flag with the word Start' />
+      <Progress stage={0} numStages={5} />
       <div className='panel'>
         <section>
           <h2>Introduction Session</h2>
           <p>
-            This is the start of your journey on the Ad(venture) course with the Co-operative
-            college! We’d like you to take a bit of time in this first session to think about what
-            is important to you and what you would like to get from the project.
+            This is the start of your journey on your course with the Co-operative college! We’d
+            like you to take a bit of time in this first session to think about what is important to
+            you and what you would like to get from the project.
           </p>
         </section>
       </div>

@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 
-import start from '../img/start.svg';
 import RatingRow from './RatingRow';
+import RatingRowMobile from './RatingRowMobile';
+import Progress from './Progress';
 import {useQuestions} from './QuestionsProvider';
+
+import '../rating.css';
 
 const MyJourney = () => {
   const history = useHistory();
@@ -27,7 +30,7 @@ const MyJourney = () => {
 
   return (
     <>
-      <img src={start} className='flag' alt='A flag with the word Start' />
+      <Progress stage={2 + themeIndex} numStages={5} />
       <div className='panel'>
         <section>
           <h2>My Journey</h2>
@@ -41,7 +44,35 @@ const MyJourney = () => {
 
       {theme && (
         <>
-          <table className='rating-table'>
+          <table className='rating-table rating-table-mobile'>
+            <thead>
+              <tr>
+                <th colSpan={5}>{`${themeIndex + 1}. ${theme.title}`}</th>
+              </tr>
+              <tr>
+                <th>Very Difficult</th>
+                <th>Difficult</th>
+                <th>Not Sure</th>
+                <th>Easy</th>
+                <th>Very Easy</th>
+              </tr>
+            </thead>
+            <tbody>
+              {questions &&
+                questions.map(({id, title}) => (
+                  <RatingRowMobile
+                    key={id}
+                    question={title}
+                    question_id={`question-${id}`}
+                    value={responses?.[theme.id]?.[id]}
+                    setValue={(value) => {
+                      setResponse(theme.id, id, value);
+                    }}
+                  />
+                ))}
+            </tbody>
+          </table>
+          <table className='rating-table rating-table-desktop'>
             <thead>
               <tr>
                 <th>{`${themeIndex + 1}. ${theme.title}`}</th>

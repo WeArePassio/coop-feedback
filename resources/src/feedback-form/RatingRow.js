@@ -1,5 +1,7 @@
 import React from 'react';
 
+import RatingRadio from './RatingRadio';
+
 import rating1 from '../img/rating-1.svg';
 import rating1Checked from '../img/rating-1-checked.svg';
 import rating2 from '../img/rating-2.svg';
@@ -10,22 +12,6 @@ import rating4 from '../img/rating-4.svg';
 import rating4Checked from '../img/rating-4-checked.svg';
 import rating5 from '../img/rating-5.svg';
 import rating5Checked from '../img/rating-5-checked.svg';
-
-const RatingRadio = ({question_id, radioValue, value, setValue, icon, iconChecked}) => {
-  return (
-    <td className='rating-cell'>
-      <label>
-        <input
-          type='radio'
-          name={question_id}
-          checked={value === radioValue}
-          onChange={() => setValue(radioValue)}
-        />
-        <img src={value === radioValue ? iconChecked : icon} />
-      </label>
-    </td>
-  );
-};
 
 const RatingRow = ({question, question_id, value, setValue}) => {
   return (
