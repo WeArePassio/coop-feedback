@@ -15,7 +15,7 @@ class CreateBeginningFeedbackRatingsTable extends Migration
     {
         Schema::create('beginning_feedback_ratings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('beginning_feedback_response_id')->constrained('beginning_feedback_responses')->index('response_id')->onDelete('cascade');
+            $table->foreignId('beginning_feedback_submission_id')->constrained('beginning_feedback_submissions')->index('response_id')->onDelete('cascade');
             $table->foreignId('question_id')->constrained('questions')->onDelete('cascade');
             $table->tinyInteger('rating');
             $table->timestamps();

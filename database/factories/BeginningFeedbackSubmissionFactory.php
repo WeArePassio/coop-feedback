@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\BeginningFeedbackResponse;
+use App\Models\BeginningFeedbackSubmission;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BeginningFeedbackResponseFactory extends Factory
+class BeginningFeedbackSubmissionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = BeginningFeedbackResponse::class;
+    protected $model = BeginningFeedbackSubmission::class;
 
     /**
      * Define the model's default state.
