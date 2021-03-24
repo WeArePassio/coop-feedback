@@ -5,6 +5,8 @@ import RatingRow from './RatingRow';
 import Progress from './Progress';
 import {useQuestions} from './QuestionsProvider';
 
+import '../rating.css';
+
 const MyJourney = () => {
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
