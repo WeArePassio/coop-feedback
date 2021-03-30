@@ -13,8 +13,10 @@ class BeginningFeedbackSubmissionController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'who_am_i' => 'required',
-            'why_am_i_here' => 'required',
+            'who_am_i' => 'string',
+            'why_am_i_here' => 'string',
+            'improve_project' => 'string',
+            'favourite_activities' => 'string',
             'question_ratings' => 'required|array',
             'question_ratings.*.question_id' => 'required',
             'question_ratings.*.rating' => 'required|integer',

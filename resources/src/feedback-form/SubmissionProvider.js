@@ -45,6 +45,8 @@ const SubmissionProvider = ({children}) => {
       name,
       who_am_i: whoAmI,
       why_am_i_here: whyAmIHere,
+      improve_project: improveProject,
+      favourite_activities: favouriteActivities,
       question_ratings: questionRatings,
       theme_comments: themeComments,
     });
