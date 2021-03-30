@@ -32,7 +32,7 @@ const MyJourney = () => {
       setThemeIndex(themeIndex + 1);
     } else {
       await submitSubmission();
-      history.push('/complete');
+      history.push('complete');
     }
   };
 
