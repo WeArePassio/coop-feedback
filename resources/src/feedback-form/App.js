@@ -12,14 +12,18 @@ const Home = () => {
   return (
     <>
       <h1>Home</h1>
+      <p>
+        (This screen will not exist when the tool is being used for real, it just makes testing
+        easier!)
+      </p>
       <div>
-        - <Link to='/beginning'>Beginning</Link>
+        - <Link to='/beginning'>Beginning of Project - Feedback</Link>
       </div>
       <div>
-        - <Link to='/end'>End</Link>
+        - <Link to='/end'>End of Project - Feedback</Link>
       </div>
       <div>
-        - <Link to='/submissions'>Submissions</Link>
+        - <Link to='/submissions'>View All Submissions</Link>
       </div>
     </>
   );
