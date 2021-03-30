@@ -1,8 +1,8 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import Progress from './Progress';
-import {useSubmission} from './SubmissionProvider';
+import Progress from '../Progress';
+import {useSubmission} from '../SubmissionProvider';
 
 const AboutMe = () => {
   const history = useHistory();

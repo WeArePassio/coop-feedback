@@ -8,6 +8,8 @@ const SubmissionProvider = ({children}) => {
   const [name, setName] = useState();
   const [whoAmI, setWhoAmI] = useState();
   const [whyAmIHere, setWhyAmIHere] = useState();
+  const [improveProject, setImproveProject] = useState();
+  const [favouriteActivities, setfavouriteActivities] = useState();
 
   const setResponse = (themeId, questionId, value) => {
     const newResponses = {...ratings};
@@ -57,6 +59,10 @@ const SubmissionProvider = ({children}) => {
         setWhoAmI,
         whyAmIHere,
         setWhyAmIHere,
+        improveProject,
+        setImproveProject,
+        favouriteActivities,
+        setfavouriteActivities,
         ratings,
         setResponse,
         comments,

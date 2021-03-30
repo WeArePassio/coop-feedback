@@ -1,8 +1,8 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import start from '../img/start.svg';
-import Progress from './Progress';
+import start from '../../img/start.svg';
+import Progress from '../Progress';
 
 const Intro = () => {
   const history = useHistory();

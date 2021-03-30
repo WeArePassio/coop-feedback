@@ -2,14 +2,12 @@ import React from 'react';
 import {Redirect, Route, Switch, Link} from 'react-router-dom';
 
 import coopLogo from '../img/coop-logo.svg';
-import Beginning from './Beginning';
+import Beginning from './Beginning/Beginning';
+import End from './End/End';
 import {QuestionsProvider} from './QuestionsProvider';
 import {SubmissionProvider} from './SubmissionProvider';
 import Submissions from './Submissions';
 
-const End = () => {
-  return <h1>End</h1>;
-};
 const Home = () => {
   return (
     <>
