@@ -58,7 +58,7 @@ const AboutMe = () => {
       </p>
 
       <div className='button-row'>
-        <button onClick={() => history.push('/my-journey')}>Next</button>
+        <button onClick={() => history.push('my-journey')}>Next</button>
       </div>
     </>
   );
