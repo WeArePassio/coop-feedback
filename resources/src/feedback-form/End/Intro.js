@@ -1,8 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import end from '../../img/start.svg';
-import Progress from '.././Progress';
+import finish from '../../img/finish.svg';
 
 const Intro = () => {
   const history = useHistory();
@@ -12,9 +11,8 @@ const Intro = () => {
         <h1>Welcome to your Co-operative College course!</h1>
         <div className='line'></div>
       </header>
-      <img src={end} className='flag' alt='A flag with the word End' />
-      <Progress stage={0} numStages={5} />
-      <h2>You did it - you completed the Ad(venture) course!</h2>
+      <img src={finish} className='flag' alt='A flag with the word End' />
+      <h2 className='purple'>You did it - you completed the Ad(venture) course!</h2>
       <div className='panel'>
         <section>
           <h2>Final Session</h2>

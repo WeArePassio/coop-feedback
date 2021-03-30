@@ -37,3 +37,7 @@ label {
   font-size: 13pt;
   line-height: 1.385;
 }
+
+.purple {
+  color: var(--purple);
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="448px" height="192px" viewBox="0 0 448 192" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>finish</title>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="End-Evalutation-intro" transform="translate(-287.000000, -306.000000)">
+            <g id="finish" transform="translate(287.000000, 306.000000)">
+                <rect id="Rectangle" fill="#50535E" x="0" y="9" width="8" height="183"></rect>
+                <rect id="Rectangle-Copy-7" fill="#50535E" x="440" y="8" width="8" height="183"></rect>
+                <path d="M0,0 C74.6666667,5.95076201 149.333333,8.92614301 224,8.92614301 C298.666667,8.92614301 373.333333,5.95076201 448,0 L448,77.627383 C373.842226,85.8757943 299.34926,90 224.521101,90 C149.692942,90 74.8525753,85.8757943 0,77.627383 L0,0 Z" id="Rectangle" fill="#7646BA"></path>
+                <text id="FINISH" font-family="OpenSans-SemiBold, Open Sans" font-size="48" font-weight="500" line-spacing="49" letter-spacing="13.7142857" fill="#FFFFFF">
+                    <tspan x="104" y="73">FINISH</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
