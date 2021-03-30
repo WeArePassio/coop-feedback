@@ -4,7 +4,7 @@ import '../progress.css';
 
 const Progress = ({numStages, stage}) => {
   const stages = Array(numStages).fill(0);
-  const progressPercent = stage === numStages ? 100 : (stage / (numStages - 1)) * 100;
+  const progressPercent = stage >= numStages ? 100 : (stage / (numStages - 1)) * 100;
   return (
     <div className='progress'>
       <div className='progress-line-bg' />
