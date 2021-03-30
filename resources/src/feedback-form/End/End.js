@@ -5,6 +5,7 @@ import Intro from './Intro';
 import FinalSession from './FinalSession';
 import MyJourney from '../MyJourney';
 import Complete from '../Complete';
+import finish from '../../img/finish.svg';
 
 function End() {
   let {path} = useRouteMatch();
@@ -20,7 +21,10 @@ function End() {
         <MyJourney />
       </Route>
       <Route path={`${path}/complete`}>
-        <Complete />
+        <Complete
+          flagImg={finish}
+          text='Thank you for taking the time to answer these questions. We hope that you learned a lot during your time on this Co-operative College course.'
+        />
       </Route>
       <Redirect to={`${path}/intro`} />
     </Switch>
