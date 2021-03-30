@@ -9,7 +9,7 @@ const AboutMe = () => {
   const {name, setName, whoAmI, setWhoAmI, whyAmIHere, setWhyAmIHere} = useSubmission();
   return (
     <>
-      <Progress stage={1} numStages={5} />
+      <Progress stage={0} />
       <div className='panel'>
         <section>
           <h2>About Me</h2>

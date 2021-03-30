@@ -38,7 +38,7 @@ const MyJourney = () => {
 
   return (
     <>
-      <Progress stage={2 + themeIndex} numStages={5} />
+      <Progress stage={1 + themeIndex} />
       <div className='panel'>
         <section>
           <h2>My Journey</h2>

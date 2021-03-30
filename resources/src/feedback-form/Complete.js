@@ -6,7 +6,7 @@ const Complete = ({flagImg, text}) => {
   return (
     <>
       <img src={flagImg} className='flag' alt='A flag with the word End' />
-      <Progress stage={5} numStages={5} />
+      <Progress />
       <header>
         <h1>Thank You!</h1>
         <div className='line'></div>
