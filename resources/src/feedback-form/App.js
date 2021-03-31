@@ -4,6 +4,7 @@ import {Redirect, Route, Switch, Link} from 'react-router-dom';
 import coopLogo from '../img/coop-logo.svg';
 import Beginning from './Beginning/Beginning';
 import End from './End/End';
+import Session from './Session/Session';
 import {QuestionsProvider} from './QuestionsProvider';
 import {SubmissionProvider} from './SubmissionProvider';
 import Submissions from './Submissions';
@@ -17,13 +18,22 @@ const Home = () => {
         easier!)
       </p>
       <div>
-        - <Link to='/beginning'>Beginning of Project - Feedback</Link>
+        <h2>Project</h2>
+        <div>
+          - <Link to='/project/beginning'>Beginning of Project - Feedback</Link>
+        </div>
+        <div>
+          - <Link to='/project/end'>End of Project - Feedback</Link>
+        </div>
+        <div>
+          - <Link to='/project/submissions'>View All Submissions</Link>
+        </div>
       </div>
       <div>
-        - <Link to='/end'>End of Project - Feedback</Link>
-      </div>
-      <div>
-        - <Link to='/submissions'>View All Submissions</Link>
+        <h2>Session</h2>
+        <div>
+          - <Link to='/session'>Session - Feedback</Link>
+        </div>
       </div>
     </>
   );
@@ -44,16 +54,19 @@ function App() {
               <Route exact path='/'>
                 <Home />
               </Route>
-              <Route path='/beginning'>
+              <Route path='/project/beginning'>
                 <Beginning />
               </Route>
-              <Route path='/end'>
+              <Route path='/project/end'>
                 <End />
               </Route>
-              <Route path='/submissions'>
+              <Route path='/project/submissions'>
                 <SubmissionProvider>
                   <Submissions />
                 </SubmissionProvider>
+              </Route>
+              <Route path='/session'>
+                <Session />
               </Route>
               <Redirect to='/' />
             </Switch>
