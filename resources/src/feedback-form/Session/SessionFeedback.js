@@ -14,10 +14,23 @@ import rating4Checked from '../../img/rating-4-checked.svg';
 import rating5 from '../../img/rating-5.svg';
 import rating5Checked from '../../img/rating-5-checked.svg';
 
+const COOP_VALUES = [
+  'Democracy',
+  'Self-help',
+  'Self-responsibility',
+  'Equality',
+  'Equality',
+  'Solidarity',
+  'Openness',
+  'Honesty',
+  'Social responsibility',
+];
+
 const SessionFeedback = () => {
   const history = useHistory();
   const [enjoyRating, setEnjoyRating] = useState();
   const [enjoyedMost, setEnjoyedMost] = useState();
+  const [values, setValues] = useState([]);
   return (
     <>
       <header>
@@ -94,7 +107,13 @@ const SessionFeedback = () => {
           onChange={(event) => setEnjoyedMost(event.target.value)}></textarea>
       </div>
       <div className='panel'>
-        <label htmlFor='enjoyed-most'>What did you enjoy most about today’s session?</label>
+        <label htmlFor='values'>What co-operative values did you learn from todays session?</label>
+        {COOP_VALUES.map((coopValue, index) => (
+          <div key={`value-${index}`}>
+            {coopValue}
+            <input type='checkbox' />
+          </div>
+        ))}
       </div>
       <div className='button-row'>
         <button onClick={() => history.push('complete')}>Finish</button>
