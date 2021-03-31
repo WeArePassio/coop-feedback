@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+
+import RatingRadio from '../RatingRadio';
+
+import rating1 from '../../img/rating-1.svg';
+import rating1Checked from '../../img/rating-1-checked.svg';
+import rating2 from '../../img/rating-2.svg';
+import rating2Checked from '../../img/rating-2-checked.svg';
+import rating3 from '../../img/rating-3.svg';
+import rating3Checked from '../../img/rating-3-checked.svg';
+import rating4 from '../../img/rating-4.svg';
+import rating4Checked from '../../img/rating-4-checked.svg';
+import rating5 from '../../img/rating-5.svg';
+import rating5Checked from '../../img/rating-5-checked.svg';
 
 const SessionFeedback = () => {
   const history = useHistory();
+  const [enjoyRating, setEnjoyRating] = useState();
+  const [enjoyedMost, setEnjoyedMost] = useState();
   return (
     <>
       <header>
         <h1>Your Session is Finished!</h1>
         <div className='line'></div>
       </header>
-      {/* <img src={tick} className='flag' alt='' /> */}
       <div className='panel'>
         <section>
           <p>
@@ -21,6 +35,58 @@ const SessionFeedback = () => {
             We welcome constructive criticism to imrpove the course.
           </p>
         </section>
+      </div>
+      <div className='panel'>
+        <label htmlFor='enjoy-rating'>How much did you enjoy today’s session?</label>
+        <table>
+          <tbody>
+            <tr>
+              <RatingRadio
+                radioValue={1}
+                icon={rating1}
+                iconChecked={rating1Checked}
+                value={enjoyRating}
+                setValue={setEnjoyRating}
+              />
+              <RatingRadio
+                radioValue={2}
+                icon={rating2}
+                iconChecked={rating2Checked}
+                value={enjoyRating}
+                setValue={setEnjoyRating}
+              />
+              <RatingRadio
+                radioValue={3}
+                icon={rating3}
+                iconChecked={rating3Checked}
+                value={enjoyRating}
+                setValue={setEnjoyRating}
+              />
+              <RatingRadio
+                radioValue={4}
+                icon={rating4}
+                iconChecked={rating4Checked}
+                value={enjoyRating}
+                setValue={setEnjoyRating}
+              />
+              <RatingRadio
+                radioValue={5}
+                icon={rating5}
+                iconChecked={rating5Checked}
+                value={enjoyRating}
+                setValue={setEnjoyRating}
+              />
+            </tr>
+          </tbody>
+        </table>
+        <label htmlFor='enjoyed-most'>What did you enjoy most about today’s session?</label>
+        <textarea
+          placeholder='Type here...'
+          type='text'
+          name='enjoyed-most'
+          id='enjoyed-most'
+          value={enjoyedMost ?? ''}
+          onChange={(event) => setEnjoyedMost(event.target.value)}></textarea>
       </div>
       <div className='button-row'>
         <button onClick={() => history.push('complete')}>Finish</button>
