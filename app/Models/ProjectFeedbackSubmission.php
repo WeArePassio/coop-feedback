@@ -9,7 +9,7 @@ class ProjectFeedbackSubmission extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
-    protected $with = ['projectFeedbackRatings', 'projectFeedbackComments'];
+    protected $with = ['submission', 'projectFeedbackRatings', 'projectFeedbackComments'];
 
     public function projectFeedbackRatings()
     {
