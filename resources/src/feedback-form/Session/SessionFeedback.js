@@ -42,6 +42,7 @@ const SessionFeedback = () => {
           <tbody>
             <tr>
               <RatingRadio
+                question_id='enjoy-rating'
                 radioValue={1}
                 icon={rating1}
                 iconChecked={rating1Checked}
@@ -49,6 +50,7 @@ const SessionFeedback = () => {
                 setValue={setEnjoyRating}
               />
               <RatingRadio
+                question_id='enjoy-rating'
                 radioValue={2}
                 icon={rating2}
                 iconChecked={rating2Checked}
@@ -56,6 +58,7 @@ const SessionFeedback = () => {
                 setValue={setEnjoyRating}
               />
               <RatingRadio
+                question_id='enjoy-rating'
                 radioValue={3}
                 icon={rating3}
                 iconChecked={rating3Checked}
@@ -63,6 +66,7 @@ const SessionFeedback = () => {
                 setValue={setEnjoyRating}
               />
               <RatingRadio
+                question_id='enjoy-rating'
                 radioValue={4}
                 icon={rating4}
                 iconChecked={rating4Checked}
@@ -70,6 +74,7 @@ const SessionFeedback = () => {
                 setValue={setEnjoyRating}
               />
               <RatingRadio
+                question_id='enjoy-rating'
                 radioValue={5}
                 icon={rating5}
                 iconChecked={rating5Checked}
@@ -87,6 +92,9 @@ const SessionFeedback = () => {
           id='enjoyed-most'
           value={enjoyedMost ?? ''}
           onChange={(event) => setEnjoyedMost(event.target.value)}></textarea>
+      </div>
+      <div className='panel'>
+        <label htmlFor='enjoyed-most'>What did you enjoy most about today’s session?</label>
       </div>
       <div className='button-row'>
         <button onClick={() => history.push('complete')}>Finish</button>
