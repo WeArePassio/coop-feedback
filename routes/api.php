@@ -28,4 +28,4 @@ Route::get('/questions', function() {
 Route::get('/submissions', function() {
     return ProjectFeedbackSubmission::all();
 });
-Route::post('/submissions', [ProjectFeedbackSubmissionController::class, 'submit']);
+Route::post('/submissions/{type}', [ProjectFeedbackSubmissionController::class, 'submit']);

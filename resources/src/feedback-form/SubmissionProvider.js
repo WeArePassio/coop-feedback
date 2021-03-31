@@ -27,7 +27,7 @@ const SubmissionProvider = ({children}) => {
     });
   };
 
-  const submitSubmission = async () => {
+  const submitSubmission = async (type) => {
     const questionRatings = Object.values(ratings)
       .reduce(
         (accumulator, themeRatings) => [
@@ -41,7 +41,7 @@ const SubmissionProvider = ({children}) => {
       question_theme_id,
       text,
     }));
-    const response = await axios.post('/api/submissions', {
+    const response = await axios.post(`/api/submissions/${type}`, {
       name,
       who_am_i: whoAmI,
       why_am_i_here: whyAmIHere,
