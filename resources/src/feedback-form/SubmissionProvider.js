@@ -8,6 +8,8 @@ const SubmissionProvider = ({children}) => {
   const [name, setName] = useState();
   const [whoAmI, setWhoAmI] = useState();
   const [whyAmIHere, setWhyAmIHere] = useState();
+  const [improveProject, setImproveProject] = useState();
+  const [favouriteActivities, setfavouriteActivities] = useState();
 
   const setResponse = (themeId, questionId, value) => {
     const newResponses = {...ratings};
@@ -25,7 +27,7 @@ const SubmissionProvider = ({children}) => {
     });
   };
 
-  const submitSubmission = async () => {
+  const submitSubmission = async (type) => {
     const questionRatings = Object.values(ratings)
       .reduce(
         (accumulator, themeRatings) => [
@@ -39,10 +41,12 @@ const SubmissionProvider = ({children}) => {
       question_theme_id,
       text,
     }));
-    const response = await axios.post('/api/submissions', {
+    const response = await axios.post(`/api/submissions/${type}`, {
       name,
       who_am_i: whoAmI,
       why_am_i_here: whyAmIHere,
+      improve_project: improveProject,
+      favourite_activities: favouriteActivities,
       question_ratings: questionRatings,
       theme_comments: themeComments,
     });
@@ -57,6 +61,10 @@ const SubmissionProvider = ({children}) => {
         setWhoAmI,
         whyAmIHere,
         setWhyAmIHere,
+        improveProject,
+        setImproveProject,
+        favouriteActivities,
+        setfavouriteActivities,
         ratings,
         setResponse,
         comments,

@@ -1,46 +1,66 @@
 import React from 'react';
 import {Redirect, Route, Switch, Link} from 'react-router-dom';
 
+import coopLogo from '../img/coop-logo.svg';
+import Beginning from './Beginning/Beginning';
+import End from './End/End';
 import {QuestionsProvider} from './QuestionsProvider';
 import {SubmissionProvider} from './SubmissionProvider';
-import coopLogo from '../img/coop-logo.svg';
-import Intro from './Intro';
-import MyJourney from './MyJourney';
-import AboutMe from './AboutMe';
-import Complete from './Complete';
 import Submissions from './Submissions';
+
+const Home = () => {
+  return (
+    <>
+      <h1>Home</h1>
+      <p>
+        (This screen will not exist when the tool is being used for real, it just makes testing
+        easier!)
+      </p>
+      <div>
+        - <Link to='/beginning'>Beginning of Project - Feedback</Link>
+      </div>
+      <div>
+        - <Link to='/end'>End of Project - Feedback</Link>
+      </div>
+      <div>
+        - <Link to='/submissions'>View All Submissions</Link>
+      </div>
+    </>
+  );
+};
 
 function App() {
   return (
-    <QuestionsProvider>
-      <SubmissionProvider>
-        <header>
-          <Link to='/' className='authenticated-banner'>
-            <img src={coopLogo} alt='' />
-          </Link>
-        </header>
-        <main>
-          <Switch>
-            <Route path='/intro'>
-              <Intro />
-            </Route>
-            <Route path='/about-me'>
-              <AboutMe />
-            </Route>
-            <Route path='/my-journey'>
-              <MyJourney />
-            </Route>
-            <Route path='/complete'>
-              <Complete />
-            </Route>
-            <Route path='/submissions'>
-              <Submissions />
-            </Route>
-            <Redirect to='/intro' />
-          </Switch>
-        </main>
-      </SubmissionProvider>
-    </QuestionsProvider>
+    <>
+      <header>
+        <Link to='/' className='authenticated-banner'>
+          <img src={coopLogo} alt='' />
+        </Link>
+      </header>
+      <main>
+        <QuestionsProvider>
+          <SubmissionProvider>
+            <Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+              <Route path='/beginning'>
+                <Beginning />
+              </Route>
+              <Route path='/end'>
+                <End />
+              </Route>
+              <Route path='/submissions'>
+                <SubmissionProvider>
+                  <Submissions />
+                </SubmissionProvider>
+              </Route>
+              <Redirect to='/' />
+            </Switch>
+          </SubmissionProvider>
+        </QuestionsProvider>
+      </main>
+    </>
   );
 }
 

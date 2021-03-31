@@ -23,10 +23,10 @@ const Submissions = () => {
           {
             created_at,
             name,
-            who_am_i,
-            why_am_i_here,
-            beginning_feedback_ratings,
-            beginning_feedback_comments,
+            submission_type,
+            submission,
+            project_feedback_ratings,
+            project_feedback_comments,
           },
           index
         ) => (
@@ -34,10 +34,21 @@ const Submissions = () => {
             <h2>
               {name} ({new Date(created_at).toDateString()})
             </h2>
-            <label>Who am I?</label>
-            <p>{who_am_i}</p>
-            <label>Why am I Here?</label>
-            <p>{why_am_i_here}</p>
+            {submission_type === `App\\Models\\BeginningFeedbackSubmission` ? (
+              <>
+                <label>Who am I?</label>
+                <p>{submission.who_am_i}</p>
+                <label>Why am I Here?</label>
+                <p>{submission.why_am_i_here}</p>
+              </>
+            ) : (
+              <>
+                <label>How to Improve Project?</label>
+                <p>{submission.improve_project}</p>
+                <label>Favourite Activities</label>
+                <p>{submission.favourite_activities}</p>
+              </>
+            )}
             {questionThemes.map((theme, themeIndex) => (
               <div key={`theme-${themeIndex}`}>
                 <h3>{theme.title}</h3>
@@ -47,7 +58,7 @@ const Submissions = () => {
                       <tr key={`question-${questionIndex}`}>
                         <td>{question.title}</td>
                         <td>
-                          {beginning_feedback_ratings.find(
+                          {project_feedback_ratings.find(
                             (rating) => rating.question_id === question.id
                           )?.rating ?? ''}
                           /5
@@ -57,7 +68,7 @@ const Submissions = () => {
                     <tr>
                       <td colSpan={2}>
                         <span style={{fontWeight: 'bold'}}>Comments: </span>
-                        {beginning_feedback_comments.find(
+                        {project_feedback_comments.find(
                           (comment) => comment.question_theme_id === theme.id
                         )?.text ?? ''}
                       </td>

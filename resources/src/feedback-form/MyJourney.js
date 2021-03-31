@@ -9,16 +9,12 @@ import {useSubmission} from './SubmissionProvider';
 
 import '../rating.css';
 
-const MyJourney = () => {
+const MyJourney = ({type}) => {
   const topOfTableRef = useRef(null);
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
-  const {questionThemes, fetchQuestions} = useQuestions();
+  const {questionThemes} = useQuestions();
   const {ratings, setResponse, comments, setComment, submitSubmission} = useSubmission();
-
-  useEffect(() => {
-    fetchQuestions();
-  }, []);
 
   useEffect(() => {
     topOfTableRef.current.scrollIntoView({behaviour: 'smooth'});
@@ -31,14 +27,14 @@ const MyJourney = () => {
     if (themeIndex < questionThemes.length - 1) {
       setThemeIndex(themeIndex + 1);
     } else {
-      await submitSubmission();
-      history.push('/complete');
+      await submitSubmission(type);
+      history.push('complete');
     }
   };
 
   return (
     <>
-      <Progress stage={2 + themeIndex} numStages={5} />
+      <Progress stage={1 + themeIndex} />
       <div className='panel'>
         <section>
           <h2>My Journey</h2>

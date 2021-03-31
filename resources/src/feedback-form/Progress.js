@@ -1,10 +1,15 @@
 import React from 'react';
 
+import {useQuestions} from './QuestionsProvider';
 import '../progress.css';
 
-const Progress = ({numStages, stage}) => {
+const Progress = ({stage}) => {
+  const {questionThemes} = useQuestions();
+  const numStages = (questionThemes ?? []).length + 2;
   const stages = Array(numStages).fill(0);
-  const progressPercent = stage === numStages ? 100 : (stage / (numStages - 1)) * 100;
+  // If stage isn't propped in, assume we're on the final stage
+  const currentStage = stage ?? numStages;
+  const progressPercent = currentStage >= numStages ? 100 : (currentStage / (numStages - 1)) * 100;
   return (
     <div className='progress'>
       <div className='progress-line-bg' />
@@ -14,23 +19,18 @@ const Progress = ({numStages, stage}) => {
           right: `${100 - progressPercent}%`,
         }}
       />
-      {stages.map((_, index) => {
-        const isComplete = index < stage;
-        const isCurrent = index === stage;
-        const isEmpty = index > stage;
-        return (
-          <div
-            key={`stage-${index}`}
-            className={`
+      {stages.map((_, index) => (
+        <div
+          key={`stage-${index}`}
+          className={`
         stage
-        ${isComplete ? 'completed' : ''}
-        ${isCurrent ? 'current' : ''}
-        ${isEmpty ? 'empty' : ''}
+        ${index < currentStage ? 'completed' : ''}
+        ${index === currentStage ? 'current' : ''}
+        ${index > currentStage ? 'empty' : ''}
         `}>
-            {isComplete && <span>✔</span>}
-          </div>
-        );
-      })}
+          {index < currentStage && <span>✔</span>}
+        </div>
+      ))}
     </div>
   );
 };

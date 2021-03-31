@@ -1,15 +1,15 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import Progress from './Progress';
-import {useSubmission} from './SubmissionProvider';
+import Progress from '../Progress';
+import {useSubmission} from '../SubmissionProvider';
 
 const AboutMe = () => {
   const history = useHistory();
   const {name, setName, whoAmI, setWhoAmI, whyAmIHere, setWhyAmIHere} = useSubmission();
   return (
     <>
-      <Progress stage={1} numStages={5} />
+      <Progress stage={0} />
       <div className='panel'>
         <section>
           <h2>About Me</h2>
@@ -58,7 +58,7 @@ const AboutMe = () => {
       </p>
 
       <div className='button-row'>
-        <button onClick={() => history.push('/my-journey')}>Next</button>
+        <button onClick={() => history.push('my-journey')}>Next</button>
       </div>
     </>
   );

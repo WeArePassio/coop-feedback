@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBeginningFeedbackCommentsTable extends Migration
+class CreateProjectFeedbackCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateBeginningFeedbackCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('beginning_feedback_comments', function (Blueprint $table) {
+        Schema::create('project_feedback_comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('beginning_feedback_submission_id')->constrained('beginning_feedback_submissions')->index('comment_response_id')->onDelete('cascade');
+            $table->foreignId('project_feedback_submission_id')->constrained('project_feedback_submissions')->index('comment_response_id')->onDelete('cascade');
             $table->foreignId('question_theme_id')->constrained('question_themes')->onDelete('cascade');
             $table->string('text');
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateBeginningFeedbackCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beginning_feedback_comments');
+        Schema::dropIfExists('project_feedback_comments');
     }
 }
