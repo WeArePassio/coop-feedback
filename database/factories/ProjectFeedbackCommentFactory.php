@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\BeginningFeedbackRating;
-use App\Models\Question;
+use App\Models\ProjectFeedbackComment;
+use App\Models\QuestionTheme;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BeginningFeedbackRatingFactory extends Factory
+class ProjectFeedbackCommentFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = BeginningFeedbackRating::class;
+    protected $model = ProjectFeedbackComment::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +23,8 @@ class BeginningFeedbackRatingFactory extends Factory
     public function definition()
     {
         return [
-            "rating" => rand(1,5),
-            "question_id" => Question::all()->random()->id,
+            "question_theme_id" => QuestionTheme::all()->random()->id,
+            "text" => $this->faker->sentence,
         ];
     }
 }

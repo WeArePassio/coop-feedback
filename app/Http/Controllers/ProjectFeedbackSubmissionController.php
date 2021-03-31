@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BeginningFeedbackSubmission;
-use App\Models\BeginningFeedbackRating;
-use App\Models\BeginningFeedbackComment;
+use App\Models\ProjectFeedbackSubmission;
+use App\Models\ProjectFeedbackRating;
+use App\Models\ProjectFeedbackComment;
 use Illuminate\Http\Request;
 
-class BeginningFeedbackSubmissionController extends Controller
+class ProjectFeedbackSubmissionController extends Controller
 {
     public function submit(Request $request)
     {
@@ -23,21 +23,22 @@ class BeginningFeedbackSubmissionController extends Controller
             'theme_comments.*.question_theme_id' => 'required',
             'theme_comments.*.text' => 'required|string',
         ]);
-        $submission = BeginningFeedbackSubmission::create([
+        // TODO - polymorphism
+        $submission = ProjectFeedbackSubmission::create([
             'name' => $validatedData['name'],
             'who_am_i' => $validatedData['who_am_i'],
             'why_am_i_here' => $validatedData['why_am_i_here'],
         ]);
         foreach ($validatedData['question_ratings'] as $question_rating) {
-            $rating = BeginningFeedbackRating::create([
-                'beginning_feedback_submission_id' => $submission->id,
+            $rating = ProjectFeedbackRating::create([
+                'project_feedback_submission_id' => $submission->id,
                 'question_id' => $question_rating['question_id'],
                 'rating' => $question_rating['rating'],
             ]);
         }
         foreach ($validatedData['theme_comments'] as $theme_comment) {
-            $comment = BeginningFeedbackComment::create([
-                'beginning_feedback_submission_id' => $submission->id,
+            $comment = ProjectFeedbackComment::create([
+                'project_feedback_submission_id' => $submission->id,
                 'question_theme_id' => $theme_comment['question_theme_id'],
                 'text' => $theme_comment['text'],
             ]);

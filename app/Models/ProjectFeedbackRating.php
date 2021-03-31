@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BeginningFeedbackRating extends Model
+class ProjectFeedbackRating extends Model
 {
     use HasFactory;
-    protected $fillable = ['beginning_feedback_submission_id', 'question_id', 'rating'];
+    protected $fillable = ['project_feedback_submission_id', 'question_id', 'rating'];
 }

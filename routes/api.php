@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\QuestionTheme;
-use App\Http\Controllers\BeginningFeedbackSubmissionController;
-use App\Models\BeginningFeedbackSubmission;
+use App\Http\Controllers\ProjectFeedbackSubmissionController;
+use App\Models\ProjectFeedbackSubmission;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +26,6 @@ Route::get('/questions', function() {
 });
 
 Route::get('/submissions', function() {
-    return BeginningFeedbackSubmission::all();
+    return ProjectFeedbackSubmission::all();
 });
-Route::post('/submissions', [BeginningFeedbackSubmissionController::class, 'submit']);
+Route::post('/submissions', [ProjectFeedbackSubmissionController::class, 'submit']);

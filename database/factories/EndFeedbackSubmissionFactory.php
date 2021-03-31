@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\BeginningFeedbackComment;
-use App\Models\QuestionTheme;
+use App\Models\EndFeedbackSubmission;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BeginningFeedbackCommentFactory extends Factory
+class EndFeedbackSubmissionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = BeginningFeedbackComment::class;
+    protected $model = EndFeedbackSubmission::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +22,8 @@ class BeginningFeedbackCommentFactory extends Factory
     public function definition()
     {
         return [
-            "question_theme_id" => QuestionTheme::all()->random()->id,
-            "text" => $this->faker->sentence,
+            'improve_project' => $this->faker->sentence,
+            'favourite_activities' => $this->faker->sentence,
         ];
     }
 }
