@@ -13,12 +13,8 @@ const MyJourney = () => {
   const topOfTableRef = useRef(null);
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
-  const {questionThemes, fetchQuestions} = useQuestions();
+  const {questionThemes} = useQuestions();
   const {ratings, setResponse, comments, setComment, submitSubmission} = useSubmission();
-
-  useEffect(() => {
-    fetchQuestions();
-  }, []);
 
   useEffect(() => {
     topOfTableRef.current.scrollIntoView({behaviour: 'smooth'});

@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useState, useEffect} from 'react';
 import axios from 'axios';
 
 export const QuestionsContext = createContext();
@@ -9,6 +9,10 @@ const QuestionsProvider = ({children}) => {
     const response = await axios.get('/api/questions');
     setQuestionThemes(response.data);
   };
+
+  useEffect(() => {
+    fetchQuestions();
+  }, []);
 
   return (
     <QuestionsContext.Provider value={{questionThemes, fetchQuestions}}>
