@@ -5,7 +5,7 @@ import Progress from './Progress';
 const Complete = ({flagImg, text}) => {
   return (
     <>
-      <img src={flagImg} className='flag' alt='A flag with the word End' />
+      {flagImg && <img src={flagImg} className='flag' alt='A flag with the word End' />}
       <Progress />
       <header>
         <h1>Thank You!</h1>
