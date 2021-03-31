@@ -18,7 +18,7 @@ function Beginning() {
         <AboutMe />
       </Route>
       <Route path={`${path}/my-journey`}>
-        <MyJourney />
+        <MyJourney type='beginning' />
       </Route>
       <Route path={`${path}/complete`}>
         <Complete

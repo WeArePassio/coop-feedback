@@ -18,7 +18,7 @@ function End() {
         <FinalSession />
       </Route>
       <Route path={`${path}/my-journey`}>
-        <MyJourney />
+        <MyJourney type='end' />
       </Route>
       <Route path={`${path}/complete`}>
         <Complete

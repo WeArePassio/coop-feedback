@@ -9,7 +9,7 @@ import {useSubmission} from './SubmissionProvider';
 
 import '../rating.css';
 
-const MyJourney = () => {
+const MyJourney = ({type}) => {
   const topOfTableRef = useRef(null);
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
@@ -27,7 +27,7 @@ const MyJourney = () => {
     if (themeIndex < questionThemes.length - 1) {
       setThemeIndex(themeIndex + 1);
     } else {
-      await submitSubmission();
+      await submitSubmission(type);
       history.push('complete');
     }
   };
