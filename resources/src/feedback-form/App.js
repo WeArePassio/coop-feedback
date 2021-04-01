@@ -61,9 +61,7 @@ function App() {
                 <End />
               </Route>
               <Route path='/project/submissions'>
-                <SubmissionProvider>
-                  <Submissions />
-                </SubmissionProvider>
+                <Submissions />
               </Route>
               <Route path='/session'>
                 <Session />
