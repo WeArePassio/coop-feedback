@@ -8,6 +8,7 @@ use App\Models\QuestionTheme;
 use App\Models\ProjectFeedbackSubmission;
 use App\Models\ProjectFeedbackRating;
 use App\Models\ProjectFeedbackComment;
+use App\Models\SessionFeedbackSubmission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,5 +28,6 @@ class DatabaseSeeder extends Seeder
             ->has(ProjectFeedbackRating::factory(15))
             ->has(ProjectFeedbackComment::factory(3))
             ->create();
+        SessionFeedbackSubmission::factory(10)->create();
     }
 }
