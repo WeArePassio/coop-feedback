@@ -6,6 +6,8 @@ import SessionFeedback from './SessionFeedback';
 import Submissions from './Submissions';
 import Complete from '../Complete';
 
+import '../../session.css';
+
 const Session = () => {
   let {path} = useRouteMatch();
   return (

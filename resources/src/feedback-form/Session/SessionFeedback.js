@@ -109,10 +109,11 @@ const SessionFeedback = () => {
       <div className='panel'>
         <label htmlFor='values'>What co-operative values did you learn from todays session?</label>
         {Object.entries(coopValues).map(([key, {name, value}]) => (
-          <div key={`value-${key}`}>
-            {name}
+          <div key={`value-${key}`} className='checkbox-container'>
             <input
               type='checkbox'
+              id={key}
+              name={key}
               checked={value ?? false}
               onChange={(event) => {
                 setCoopValues({
@@ -121,6 +122,8 @@ const SessionFeedback = () => {
                 });
               }}
             />
+
+            <label htmlFor={key}>{name}</label>
           </div>
         ))}
       </div>
