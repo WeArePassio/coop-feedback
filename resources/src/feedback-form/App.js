@@ -30,6 +30,9 @@ const Home = () => {
         <div>
           - <Link to='/session'>Session - Feedback</Link>
         </div>
+        <div>
+          - <Link to='/session/submissions'>View All Submissions</Link>
+        </div>
       </div>
     </>
   );

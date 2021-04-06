@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\QuestionTheme;
 use App\Http\Controllers\ProjectFeedbackSubmissionController;
 use App\Models\ProjectFeedbackSubmission;
+use App\Models\SessionFeedbackSubmission;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,8 @@ Route::prefix('project')->group(function () {
 });
 
 Route::prefix('session')->group(function () {
+    Route::post('/submissions/', [SessionFeedbackSubmissionController::class, 'submit']);
+    Route::get('/submissions', function() {
+        return SessionFeedbackSubmission::all();
+    });
 });

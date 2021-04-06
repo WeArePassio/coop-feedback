@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useState, useEffect} from 'react';
 import axios from 'axios';
 
-export const SubmissionContext = createContext();
+export const ProjectContext = createContext();
 const ProjectProvider = ({children}) => {
   const [questionThemes, setQuestionThemes] = useState();
   const [ratings, setRatings] = useState({});
@@ -63,7 +63,7 @@ const ProjectProvider = ({children}) => {
   };
 
   return (
-    <SubmissionContext.Provider
+    <ProjectContext.Provider
       value={{
         name,
         setName,
@@ -84,10 +84,10 @@ const ProjectProvider = ({children}) => {
         submitSubmission,
       }}>
       {children}
-    </SubmissionContext.Provider>
+    </ProjectContext.Provider>
   );
 };
 
-const useProject = () => useContext(SubmissionContext);
+const useProject = () => useContext(ProjectContext);
 
 export {ProjectProvider, useProject};
