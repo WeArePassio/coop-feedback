@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
-import RatingRadio from '../RatingRadio';
+import RatingRadio from '../Project/RatingRadio';
 
 import rating1 from '../../img/rating-1.svg';
 import rating1Checked from '../../img/rating-1-checked.svg';
@@ -14,23 +14,27 @@ import rating4Checked from '../../img/rating-4-checked.svg';
 import rating5 from '../../img/rating-5.svg';
 import rating5Checked from '../../img/rating-5-checked.svg';
 
-const COOP_VALUES = [
-  'Democracy',
-  'Self-help',
-  'Self-responsibility',
-  'Equality',
-  'Equality',
-  'Solidarity',
-  'Openness',
-  'Honesty',
-  'Social responsibility',
-];
+const COOP_VALUES = {
+  democracy: 'Democracy',
+  self_help: 'Self-help',
+  self_responsibility: 'Self-responsibility',
+  equality: 'Equality',
+  equity: 'Equity',
+  solidarity: 'Solidarity',
+  openness: 'Openness',
+  honesty: 'Honesty',
+  social_responsibility: 'Social responsibility',
+};
 
 const SessionFeedback = () => {
   const history = useHistory();
   const [enjoyRating, setEnjoyRating] = useState();
   const [enjoyedMost, setEnjoyedMost] = useState();
-  const [values, setValues] = useState([]);
+  const [coopValues, setCoopValues] = useState(
+    Object.fromEntries(
+      Object.entries(COOP_VALUES).map(([key, value]) => [key, {name: value, value: false}])
+    )
+  );
   return (
     <>
       <header>
@@ -108,10 +112,19 @@ const SessionFeedback = () => {
       </div>
       <div className='panel'>
         <label htmlFor='values'>What co-operative values did you learn from todays session?</label>
-        {COOP_VALUES.map((coopValue, index) => (
-          <div key={`value-${index}`}>
-            {coopValue}
-            <input type='checkbox' />
+        {Object.entries(coopValues).map(([key, {name, value}]) => (
+          <div key={`value-${key}`}>
+            {name}
+            <input
+              type='checkbox'
+              checked={value ?? false}
+              onChange={(event) => {
+                setCoopValues({
+                  ...coopValues,
+                  [key]: {...coopValues[key], value: event.target.checked},
+                });
+              }}
+            />
           </div>
         ))}
       </div>

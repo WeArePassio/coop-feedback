@@ -2,14 +2,22 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 import Progress from '../Progress';
-import {useSubmission} from '../SubmissionProvider';
+import {useProject} from '../ProjectProvider';
 
 const AboutMe = () => {
   const history = useHistory();
-  const {name, setName, whoAmI, setWhoAmI, whyAmIHere, setWhyAmIHere} = useSubmission();
+  const {
+    name,
+    setName,
+    whoAmI,
+    setWhoAmI,
+    whyAmIHere,
+    setWhyAmIHere,
+    questionThemes,
+  } = useProject();
   return (
     <>
-      <Progress stage={0} />
+      <Progress stage={0} numStages={(questionThemes?.length ?? 0) + 2} />
       <div className='panel'>
         <section>
           <h2>About Me</h2>

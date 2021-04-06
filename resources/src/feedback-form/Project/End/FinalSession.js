@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 import Progress from '../Progress';
-import {useSubmission} from '../SubmissionProvider';
+import {useProject} from '../ProjectProvider';
 
 const FinalSession = () => {
   const history = useHistory();
@@ -13,10 +13,11 @@ const FinalSession = () => {
     setImproveProject,
     favouriteActivities,
     setfavouriteActivities,
-  } = useSubmission();
+    questionThemes,
+  } = useProject();
   return (
     <>
-      <Progress stage={0} />
+      <Progress stage={0} numStages={(questionThemes?.length ?? 0) + 2} />
       <div className='panel'>
         <section>
           <h2>Final Session</h2>

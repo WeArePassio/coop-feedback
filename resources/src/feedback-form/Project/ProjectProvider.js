@@ -1,8 +1,9 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useState, useEffect} from 'react';
 import axios from 'axios';
 
 export const SubmissionContext = createContext();
-const SubmissionProvider = ({children}) => {
+const ProjectProvider = ({children}) => {
+  const [questionThemes, setQuestionThemes] = useState();
   const [ratings, setRatings] = useState({});
   const [comments, setComments] = useState({});
   const [name, setName] = useState();
@@ -10,6 +11,15 @@ const SubmissionProvider = ({children}) => {
   const [whyAmIHere, setWhyAmIHere] = useState();
   const [improveProject, setImproveProject] = useState();
   const [favouriteActivities, setfavouriteActivities] = useState();
+
+  const fetchQuestions = async () => {
+    const response = await axios.get('/api/questions');
+    setQuestionThemes(response.data);
+  };
+
+  useEffect(() => {
+    fetchQuestions();
+  }, []);
 
   const setResponse = (themeId, questionId, value) => {
     const newResponses = {...ratings};
@@ -65,6 +75,8 @@ const SubmissionProvider = ({children}) => {
         setImproveProject,
         favouriteActivities,
         setfavouriteActivities,
+        questionThemes,
+        fetchQuestions,
         ratings,
         setResponse,
         comments,
@@ -76,6 +88,6 @@ const SubmissionProvider = ({children}) => {
   );
 };
 
-const useSubmission = () => useContext(SubmissionContext);
+const useProject = () => useContext(SubmissionContext);
 
-export {SubmissionProvider, useSubmission};
+export {ProjectProvider, useProject};

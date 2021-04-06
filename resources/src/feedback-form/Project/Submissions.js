@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-import {useQuestions} from './QuestionsProvider';
+import {useProject} from './ProjectProvider';
 
 const Submissions = () => {
-  const {questionThemes, fetchQuestions} = useQuestions();
+  const {questionThemes, fetchQuestions} = useProject();
   const [submissions, setSubmissions] = useState([]);
   useEffect(() => {
     const init = async () => {

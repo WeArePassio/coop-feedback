@@ -2,12 +2,8 @@ import React from 'react';
 import {Redirect, Route, Switch, Link} from 'react-router-dom';
 
 import coopLogo from '../img/coop-logo.svg';
-import Beginning from './Beginning/Beginning';
-import End from './End/End';
 import Session from './Session/Session';
-import {QuestionsProvider} from './QuestionsProvider';
-import {SubmissionProvider} from './SubmissionProvider';
-import Submissions from './Submissions';
+import Project from './Project/Project';
 
 const Home = () => {
   return (
@@ -48,28 +44,18 @@ function App() {
         </Link>
       </header>
       <main>
-        <QuestionsProvider>
-          <SubmissionProvider>
-            <Switch>
-              <Route exact path='/'>
-                <Home />
-              </Route>
-              <Route path='/project/beginning'>
-                <Beginning />
-              </Route>
-              <Route path='/project/end'>
-                <End />
-              </Route>
-              <Route path='/project/submissions'>
-                <Submissions />
-              </Route>
-              <Route path='/session'>
-                <Session />
-              </Route>
-              <Redirect to='/' />
-            </Switch>
-          </SubmissionProvider>
-        </QuestionsProvider>
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/project'>
+            <Project />
+          </Route>
+          <Route path='/session'>
+            <Session />
+          </Route>
+          <Redirect to='/' />
+        </Switch>
       </main>
     </>
   );

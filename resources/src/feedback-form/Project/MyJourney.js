@@ -4,17 +4,22 @@ import {useHistory} from 'react-router-dom';
 import RatingRow from './RatingRow';
 import RatingRowMobile from './RatingRowMobile';
 import Progress from './Progress';
-import {useQuestions} from './QuestionsProvider';
-import {useSubmission} from './SubmissionProvider';
+import {useProject} from './ProjectProvider';
 
-import '../rating.css';
+import '../../rating.css';
 
 const MyJourney = ({type}) => {
   const topOfTableRef = useRef(null);
   const history = useHistory();
   const [themeIndex, setThemeIndex] = useState(0);
-  const {questionThemes} = useQuestions();
-  const {ratings, setResponse, comments, setComment, submitSubmission} = useSubmission();
+  const {
+    ratings,
+    setResponse,
+    comments,
+    setComment,
+    submitSubmission,
+    questionThemes,
+  } = useProject();
 
   useEffect(() => {
     topOfTableRef.current.scrollIntoView({behaviour: 'smooth'});
@@ -34,7 +39,7 @@ const MyJourney = ({type}) => {
 
   return (
     <>
-      <Progress stage={1 + themeIndex} />
+      <Progress stage={1 + themeIndex} numStages={questionThemes.length + 2} />
       <div className='panel'>
         <section>
           <h2>My Journey</h2>
