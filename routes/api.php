@@ -21,11 +21,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/questions', function() {
-    return QuestionTheme::all();
+Route::prefix('project')->group(function () {
+    Route::get('/questions', function() {
+        return QuestionTheme::all();
+    });
+    Route::post('/submissions/{type}', [ProjectFeedbackSubmissionController::class, 'submit']);
+    Route::get('/submissions', function() {
+        return ProjectFeedbackSubmission::all();
+    });
 });
 
-Route::get('/submissions', function() {
-    return ProjectFeedbackSubmission::all();
+Route::prefix('session')->group(function () {
 });
-Route::post('/submissions/{type}', [ProjectFeedbackSubmissionController::class, 'submit']);

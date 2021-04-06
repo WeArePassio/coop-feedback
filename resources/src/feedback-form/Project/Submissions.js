@@ -9,7 +9,7 @@ const Submissions = () => {
   useEffect(() => {
     const init = async () => {
       await fetchQuestions();
-      const response = await axios.get('/api/submissions');
+      const response = await axios.get('/api/project/submissions');
       setSubmissions(response.data);
     };
     init();

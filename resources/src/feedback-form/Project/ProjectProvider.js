@@ -13,7 +13,7 @@ const ProjectProvider = ({children}) => {
   const [favouriteActivities, setfavouriteActivities] = useState();
 
   const fetchQuestions = async () => {
-    const response = await axios.get('/api/questions');
+    const response = await axios.get('/api/project/questions');
     setQuestionThemes(response.data);
   };
 
@@ -51,7 +51,7 @@ const ProjectProvider = ({children}) => {
       question_theme_id,
       text,
     }));
-    const response = await axios.post(`/api/submissions/${type}`, {
+    const response = await axios.post(`/api/project/submissions/${type}`, {
       name,
       who_am_i: whoAmI,
       why_am_i_here: whyAmIHere,
