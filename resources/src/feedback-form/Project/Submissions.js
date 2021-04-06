@@ -1,16 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import React, {useEffect} from 'react';
 
 import {useProject} from './ProjectProvider';
 
 const Submissions = () => {
-  const {questionThemes, fetchQuestions} = useProject();
-  const [submissions, setSubmissions] = useState([]);
+  const {submissions, questionThemes, fetchQuestions, fetchSubmissions} = useProject();
+
   useEffect(() => {
     const init = async () => {
       await fetchQuestions();
-      const response = await axios.get('/api/project/submissions');
-      setSubmissions(response.data);
+      await fetchSubmissions();
     };
     init();
   }, []);

@@ -23,6 +23,7 @@ const SessionProvider = ({children}) => {
       Object.entries(COOP_VALUES).map(([key, value]) => [key, {name: value, value: false}])
     )
   );
+  const [submissions, setSubmissions] = useState([]);
 
   const submitSubmission = async () => {
     const response = await axios.post('/api/session/submissions/', {
@@ -39,6 +40,12 @@ const SessionProvider = ({children}) => {
       social_responsibility: coopValues.social_responsibility.value,
     });
   };
+
+  const fetchSubmissions = async () => {
+    const response = await axios.get('/api/session/submissions');
+    setSubmissions(response.data);
+  };
+
   return (
     <SessionContext.Provider
       value={{
@@ -49,6 +56,8 @@ const SessionProvider = ({children}) => {
         coopValues,
         setCoopValues,
         submitSubmission,
+        fetchSubmissions,
+        submissions,
       }}>
       {children}
     </SessionContext.Provider>

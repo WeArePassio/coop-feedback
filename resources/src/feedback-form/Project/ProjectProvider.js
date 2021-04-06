@@ -12,6 +12,8 @@ const ProjectProvider = ({children}) => {
   const [improveProject, setImproveProject] = useState();
   const [favouriteActivities, setfavouriteActivities] = useState();
 
+  const [submissions, setSubmissions] = useState([]);
+
   const fetchQuestions = async () => {
     const response = await axios.get('/api/project/questions');
     setQuestionThemes(response.data);
@@ -62,6 +64,11 @@ const ProjectProvider = ({children}) => {
     });
   };
 
+  const fetchSubmissions = async () => {
+    const response = await axios.get('/api/project/submissions');
+    setSubmissions(response.data);
+  };
+
   return (
     <ProjectContext.Provider
       value={{
@@ -82,6 +89,8 @@ const ProjectProvider = ({children}) => {
         comments,
         setComment,
         submitSubmission,
+        fetchSubmissions,
+        submissions,
       }}>
       {children}
     </ProjectContext.Provider>

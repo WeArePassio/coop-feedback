@@ -1,15 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import React, {useEffect} from 'react';
 
 import {useSession} from './SessionProvider';
 
 const Submissions = () => {
-  // const {submissions} = useSession();
-  const [submissions, setSubmissions] = useState([]);
+  const {fetchSubmissions, submissions} = useSession();
+
   useEffect(() => {
     const init = async () => {
-      const response = await axios.get('/api/session/submissions');
-      setSubmissions(response.data);
+      await fetchSubmissions();
     };
     init();
   }, []);
