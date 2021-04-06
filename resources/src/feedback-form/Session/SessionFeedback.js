@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useHistory} from 'react-router-dom';
 
+import {useSession} from './SessionProvider';
 import RatingRadio from '../Project/RatingRadio';
-
 import rating1 from '../../img/rating-1.svg';
 import rating1Checked from '../../img/rating-1-checked.svg';
 import rating2 from '../../img/rating-2.svg';
@@ -14,27 +14,23 @@ import rating4Checked from '../../img/rating-4-checked.svg';
 import rating5 from '../../img/rating-5.svg';
 import rating5Checked from '../../img/rating-5-checked.svg';
 
-const COOP_VALUES = {
-  democracy: 'Democracy',
-  self_help: 'Self-help',
-  self_responsibility: 'Self-responsibility',
-  equality: 'Equality',
-  equity: 'Equity',
-  solidarity: 'Solidarity',
-  openness: 'Openness',
-  honesty: 'Honesty',
-  social_responsibility: 'Social responsibility',
-};
-
 const SessionFeedback = () => {
   const history = useHistory();
-  const [enjoyRating, setEnjoyRating] = useState();
-  const [enjoyedMost, setEnjoyedMost] = useState();
-  const [coopValues, setCoopValues] = useState(
-    Object.fromEntries(
-      Object.entries(COOP_VALUES).map(([key, value]) => [key, {name: value, value: false}])
-    )
-  );
+  const {
+    enjoyRating,
+    setEnjoyRating,
+    enjoyedMost,
+    setEnjoyedMost,
+    coopValues,
+    setCoopValues,
+    submitSubmission,
+  } = useSession();
+
+  const handleNext = async () => {
+    await submitSubmission();
+    history.push('complete');
+  };
+
   return (
     <>
       <header>
@@ -129,7 +125,7 @@ const SessionFeedback = () => {
         ))}
       </div>
       <div className='button-row'>
-        <button onClick={() => history.push('complete')}>Finish</button>
+        <button onClick={handleNext}>Finish</button>
       </div>
     </>
   );

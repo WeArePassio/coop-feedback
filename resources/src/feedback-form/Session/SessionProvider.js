@@ -1,12 +1,54 @@
-
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 import axios from 'axios';
 
+const COOP_VALUES = {
+  democracy: 'Democracy',
+  self_help: 'Self-help',
+  self_responsibility: 'Self-responsibility',
+  equality: 'Equality',
+  equity: 'Equity',
+  solidarity: 'Solidarity',
+  openness: 'Openness',
+  honesty: 'Honesty',
+  social_responsibility: 'Social responsibility',
+};
+
 export const SessionContext = createContext();
+
 const SessionProvider = ({children}) => {
+  const [enjoyRating, setEnjoyRating] = useState();
+  const [enjoyedMost, setEnjoyedMost] = useState();
+  const [coopValues, setCoopValues] = useState(
+    Object.fromEntries(
+      Object.entries(COOP_VALUES).map(([key, value]) => [key, {name: value, value: false}])
+    )
+  );
+
+  const submitSubmission = async () => {
+    const response = await axios.post('/api/session/submissions/', {
+      enjoyment_rating: enjoyRating,
+      enjoyed_most: enjoyedMost,
+      democracy: coopValues.democracy.value,
+      self_help: coopValues.self_help.value,
+      self_responsibility: coopValues.self_responsibility.value,
+      equality: coopValues.equality.value,
+      equity: coopValues.equity.value,
+      solidarity: coopValues.solidarity.value,
+      openness: coopValues.openness.value,
+      honesty: coopValues.honesty.value,
+      social_responsibility: coopValues.social_responsibility.value,
+    });
+  };
   return (
     <SessionContext.Provider
       value={{
+        enjoyRating,
+        setEnjoyRating,
+        enjoyedMost,
+        setEnjoyedMost,
+        coopValues,
+        setCoopValues,
+        submitSubmission,
       }}>
       {children}
     </SessionContext.Provider>
