@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import Progress from '../Progress';
 import {useProject} from '../ProjectProvider';
+import {useDropzone} from 'react-dropzone';
+import addPicture from '../../../img/add-picture.svg';
 
 const AboutMe = () => {
   const history = useHistory();
@@ -15,6 +17,22 @@ const AboutMe = () => {
     setWhyAmIHere,
     questionThemes,
   } = useProject();
+
+  const onDrop = (acceptedFiles) => {
+    setFile(acceptedFiles[0]);
+    const reader = new FileReader();
+    reader.onabort = () => console.error('file reading was aborted');
+    reader.onerror = () => console.error('file reading has failed');
+    reader.onload = ({target}) => {
+      let {result} = target;
+      setCurrentImage(result);
+    };
+    reader.readAsDataURL(acceptedFiles[0]);
+  };
+  const [file, setFile] = useState();
+  const [currentImage, setCurrentImage] = useState(null);
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
+
   return (
     <>
       <Progress stage={0} numStages={(questionThemes?.length ?? 0) + 2} />
@@ -64,6 +82,42 @@ const AboutMe = () => {
         Use this section to upload a photo of a drawing or doodle or any pictures that represent you
         and who you are.
       </p>
+      <div
+        {...getRootProps({
+          style: {
+            border: '2px solid gray',
+            borderRadius: 3,
+            width: '232px',
+            height: '136px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: isDragActive ? 'lightgray' : 'white',
+            cursor: 'pointer',
+          },
+        })}>
+        <input {...getInputProps()} />
+        {currentImage ? (
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              background: `url(${currentImage})`,
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              textAlign: 'center',
+            }}>
+            <img src={addPicture} alt='' />
+            <div>Add a Picture</div>
+          </div>
+        )}
+      </div>
 
       <div className='button-row'>
         <button onClick={() => history.push('my-journey')}>Next</button>
