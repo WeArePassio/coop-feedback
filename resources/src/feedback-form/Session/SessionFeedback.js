@@ -23,6 +23,10 @@ const SessionFeedback = () => {
     setEnjoyedMost,
     coopValues,
     setCoopValues,
+    changes,
+    setChanges,
+    otherTopics,
+    setOtherTopics,
     submitSubmission,
   } = useSession();
 
@@ -105,6 +109,14 @@ const SessionFeedback = () => {
           id='enjoyed-most'
           value={enjoyedMost ?? ''}
           onChange={(event) => setEnjoyedMost(event.target.value)}></textarea>
+        <label htmlFor='changes'>What changes would you make to today’s session?</label>
+        <textarea
+          placeholder='Type here...'
+          type='text'
+          name='changes'
+          id='changes'
+          value={changes ?? ''}
+          onChange={(event) => setChanges(event.target.value)}></textarea>
       </div>
       <div className='panel'>
         <label htmlFor='values'>What co-operative values did you learn from todays session?</label>
@@ -126,6 +138,16 @@ const SessionFeedback = () => {
             <label htmlFor={key}>{name}</label>
           </div>
         ))}
+        <label htmlFor='other-topics'>
+          What other topics would you like to discuss in future sessions?
+        </label>
+        <textarea
+          placeholder='Type here...'
+          type='text'
+          name='other-topics'
+          id='other-topics'
+          value={otherTopics ?? ''}
+          onChange={(event) => setOtherTopics(event.target.value)}></textarea>
       </div>
       <div className='button-row'>
         <button onClick={handleNext}>Finish</button>

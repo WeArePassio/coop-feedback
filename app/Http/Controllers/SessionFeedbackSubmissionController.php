@@ -12,6 +12,8 @@ class SessionFeedbackSubmissionController extends Controller
         $validatedData = $request->validate([
             'enjoyment_rating' => 'required|integer',
             'enjoyed_most' => 'string',
+            'changes' => 'string',
+            'other_topics' => 'string',
             'democracy' => 'boolean',
             'self_help' => 'boolean',
             'self_responsibility' => 'boolean',

@@ -24,6 +24,8 @@ class SessionFeedbackSubmissionFactory extends Factory
         return [
             'enjoyment_rating' => $this->faker->numberBetween(1,5),
             'enjoyed_most' => $this->faker->sentence(),
+            'changes' => $this->faker->sentence(),
+            'other_topics' => $this->faker->sentence(),
             'democracy' => $this->faker->boolean(),
             'self_help' => $this->faker->boolean(),
             'self_responsibility' => $this->faker->boolean(),

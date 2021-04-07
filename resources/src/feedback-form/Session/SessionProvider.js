@@ -23,12 +23,16 @@ const SessionProvider = ({children}) => {
       Object.entries(COOP_VALUES).map(([key, value]) => [key, {name: value, value: false}])
     )
   );
+  const [changes, setChanges] = useState();
+  const [otherTopics, setOtherTopics] = useState();
   const [submissions, setSubmissions] = useState([]);
 
   const submitSubmission = async () => {
     const response = await axios.post('/api/session/submissions/', {
       enjoyment_rating: enjoyRating,
       enjoyed_most: enjoyedMost,
+      changes: changes,
+      other_topics: otherTopics,
       democracy: coopValues.democracy.value,
       self_help: coopValues.self_help.value,
       self_responsibility: coopValues.self_responsibility.value,
@@ -55,6 +59,10 @@ const SessionProvider = ({children}) => {
         setEnjoyedMost,
         coopValues,
         setCoopValues,
+        changes,
+        setChanges,
+        otherTopics,
+        setOtherTopics,
         submitSubmission,
         fetchSubmissions,
         submissions,

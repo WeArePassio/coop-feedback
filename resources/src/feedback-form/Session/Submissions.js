@@ -24,6 +24,8 @@ const Submissions = () => {
               created_at,
               enjoyment_rating,
               enjoyed_most,
+              changes,
+              other_topics,
               democracy,
               self_help,
               self_responsibility,
@@ -40,6 +42,8 @@ const Submissions = () => {
               <div>Created at: {created_at}</div>
               <div>Enjoyment Rating: {enjoyment_rating}</div>
               <div>Enjoyed Most: {enjoyed_most}</div>
+              <div>Changes: {changes}</div>
+              <div>Other Topics: {other_topics}</div>
               <div>
                 Values:
                 <div>democracy: {democracy}</div>

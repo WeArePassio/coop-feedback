@@ -17,6 +17,8 @@ class CreateSessionFeedbackSubmissionsTable extends Migration
             $table->id();
             $table->tinyInteger('enjoyment_rating');
             $table->string('enjoyed_most');
+            $table->string('changes');
+            $table->string('other_topics');
             $table->boolean('democracy');
             $table->boolean('self_help');
             $table->boolean('self_responsibility');
