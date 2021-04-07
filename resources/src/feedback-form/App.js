@@ -2,11 +2,8 @@ import React from 'react';
 import {Redirect, Route, Switch, Link} from 'react-router-dom';
 
 import coopLogo from '../img/coop-logo.svg';
-import Beginning from './Beginning/Beginning';
-import End from './End/End';
-import {QuestionsProvider} from './QuestionsProvider';
-import {SubmissionProvider} from './SubmissionProvider';
-import Submissions from './Submissions';
+import Session from './Session/Session';
+import Project from './Project/Project';
 
 const Home = () => {
   return (
@@ -17,13 +14,25 @@ const Home = () => {
         easier!)
       </p>
       <div>
-        - <Link to='/beginning'>Beginning of Project - Feedback</Link>
+        <h2>Project</h2>
+        <div>
+          - <Link to='/project/beginning'>Beginning of Project - Feedback</Link>
+        </div>
+        <div>
+          - <Link to='/project/end'>End of Project - Feedback</Link>
+        </div>
+        <div>
+          - <Link to='/project/submissions'>View All Submissions</Link>
+        </div>
       </div>
       <div>
-        - <Link to='/end'>End of Project - Feedback</Link>
-      </div>
-      <div>
-        - <Link to='/submissions'>View All Submissions</Link>
+        <h2>Session</h2>
+        <div>
+          - <Link to='/session'>Session - Feedback</Link>
+        </div>
+        <div>
+          - <Link to='/session/submissions'>View All Submissions</Link>
+        </div>
       </div>
     </>
   );
@@ -38,27 +47,18 @@ function App() {
         </Link>
       </header>
       <main>
-        <QuestionsProvider>
-          <SubmissionProvider>
-            <Switch>
-              <Route exact path='/'>
-                <Home />
-              </Route>
-              <Route path='/beginning'>
-                <Beginning />
-              </Route>
-              <Route path='/end'>
-                <End />
-              </Route>
-              <Route path='/submissions'>
-                <SubmissionProvider>
-                  <Submissions />
-                </SubmissionProvider>
-              </Route>
-              <Redirect to='/' />
-            </Switch>
-          </SubmissionProvider>
-        </QuestionsProvider>
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/project'>
+            <Project />
+          </Route>
+          <Route path='/session'>
+            <Session />
+          </Route>
+          <Redirect to='/' />
+        </Switch>
       </main>
     </>
   );

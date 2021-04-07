@@ -4,8 +4,8 @@ import {Redirect, Route, Switch, useRouteMatch} from 'react-router-dom';
 import Intro from './Intro';
 import FinalSession from './FinalSession';
 import MyJourney from '../MyJourney';
-import Complete from '../Complete';
-import finish from '../../img/finish.svg';
+import Complete from '../../Complete';
+import finish from '../../../img/finish.svg';
 
 function End() {
   let {path} = useRouteMatch();

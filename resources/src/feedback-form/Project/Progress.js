@@ -1,10 +1,11 @@
 import React from 'react';
 
-import {useQuestions} from './QuestionsProvider';
-import '../progress.css';
+import '../../progress.css';
+
+import {useProject} from './ProjectProvider';
 
 const Progress = ({stage}) => {
-  const {questionThemes} = useQuestions();
+  const {questionThemes} = useProject();
   const numStages = (questionThemes ?? []).length + 2;
   const stages = Array(numStages).fill(0);
   // If stage isn't propped in, assume we're on the final stage

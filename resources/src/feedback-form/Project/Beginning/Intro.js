@@ -1,7 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import start from '../../img/start.svg';
+import start from '../../../img/start.svg';
 
 const Intro = () => {
   const history = useHistory();

@@ -4,8 +4,8 @@ import {Redirect, Route, Switch, useRouteMatch} from 'react-router-dom';
 import Intro from './Intro';
 import MyJourney from '../MyJourney';
 import AboutMe from './AboutMe';
-import Complete from '../Complete';
-import start from '../../img/start.svg';
+import Complete from '../../Complete';
+import start from '../../../img/start.svg';
 
 function Beginning() {
   let {path} = useRouteMatch();

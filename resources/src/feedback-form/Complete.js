@@ -1,12 +1,9 @@
 import React from 'react';
 
-import Progress from './Progress';
-
 const Complete = ({flagImg, text}) => {
   return (
     <>
-      <img src={flagImg} className='flag' alt='A flag with the word End' />
-      <Progress />
+      {flagImg && <img src={flagImg} className='flag' alt='A flag with the word End' />}
       <header>
         <h1>Thank You!</h1>
         <div className='line'></div>
