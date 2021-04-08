@@ -11,6 +11,8 @@ const ProjectProvider = ({children}) => {
   const [whyAmIHere, setWhyAmIHere] = useState();
   const [improveProject, setImproveProject] = useState();
   const [favouriteActivities, setfavouriteActivities] = useState();
+  const [image, setImage] = useState(null);
+  const [file, setFile] = useState();
 
   const [submissions, setSubmissions] = useState([]);
 
@@ -53,14 +55,20 @@ const ProjectProvider = ({children}) => {
       question_theme_id,
       text,
     }));
-    const response = await axios.post(`/api/project/submissions/${type}`, {
-      name,
-      who_am_i: whoAmI,
-      why_am_i_here: whyAmIHere,
-      improve_project: improveProject,
-      favourite_activities: favouriteActivities,
-      question_ratings: questionRatings,
-      theme_comments: themeComments,
+    // The "beginning" submission includes an image, so we use multipart/form-data for this request
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('name', name);
+    formData.append('who_am_i', whoAmI);
+    formData.append('why_am_i_here', whyAmIHere);
+    formData.append('improve_project', improveProject);
+    formData.append('favourite_activities', favouriteActivities);
+    formData.append('question_ratings', JSON.stringify(questionRatings));
+    formData.append('theme_comments', JSON.stringify(themeComments));
+    const response = await axios.post(`/api/project/submissions/${type}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
     });
   };
 
@@ -88,6 +96,10 @@ const ProjectProvider = ({children}) => {
         setResponse,
         comments,
         setComment,
+        image,
+        setImage,
+        file,
+        setFile,
         submitSubmission,
         fetchSubmissions,
         submissions,

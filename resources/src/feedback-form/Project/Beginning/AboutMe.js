@@ -16,6 +16,9 @@ const AboutMe = () => {
     whyAmIHere,
     setWhyAmIHere,
     questionThemes,
+    image,
+    setImage,
+    setFile,
   } = useProject();
 
   const onDrop = (acceptedFiles) => {
@@ -25,12 +28,10 @@ const AboutMe = () => {
     reader.onerror = () => console.error('file reading has failed');
     reader.onload = ({target}) => {
       let {result} = target;
-      setCurrentImage(result);
+      setImage(result);
     };
     reader.readAsDataURL(acceptedFiles[0]);
   };
-  const [file, setFile] = useState();
-  const [currentImage, setCurrentImage] = useState(null);
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
 
   return (
@@ -97,12 +98,12 @@ const AboutMe = () => {
           },
         })}>
         <input {...getInputProps()} />
-        {currentImage ? (
+        {image ? (
           <div
             style={{
               width: '100%',
               height: '100%',
-              background: `url(${currentImage})`,
+              background: `url(${image})`,
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
