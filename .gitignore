@@ -5,6 +5,7 @@
 /public/**/*.js
 /public/**/*.svg
 /public/feedback-form.html
+/public/user_images
 /storage/*.key
 /vendor
 .env

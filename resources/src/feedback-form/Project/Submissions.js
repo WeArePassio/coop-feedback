@@ -41,6 +41,15 @@ const Submissions = () => {
                   <p>{submission.who_am_i}</p>
                   <label>Why am I Here?</label>
                   <p>{submission.why_am_i_here}</p>
+                  {submission.image && (
+                    <a href={submission.image} target='_blank' rel='noreferrer'>
+                      <img
+                        src={`${submission.image}`}
+                        alt=''
+                        style={{width: 500, maxWidth: '100%'}}
+                      />
+                    </a>
+                  )}
                 </>
               ) : (
                 <>
