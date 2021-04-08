@@ -17,7 +17,7 @@ class ProjectFeedbackSubmissionController extends Controller
             'name' => 'required',
             'who_am_i' => 'string',
             'why_am_i_here' => 'string',
-            'image' => 'image',
+            'image' => 'nullable|image',
             'improve_project' => 'string',
             'favourite_activities' => 'string',
             'question_ratings' => 'required|json',
@@ -30,9 +30,11 @@ class ProjectFeedbackSubmissionController extends Controller
                 'why_am_i_here' => $validatedData['why_am_i_here'],
             ]);
 
-            $path = $validatedData['image']->storePublicly('user_images');
-            $submission->image = $path;
-            $submission->save();
+            if (isset($validatedData['image'])) {
+                $path = $validatedData['image']->storePublicly('user_images');
+                $submission->image = $path;
+                $submission->save();
+            }
         } else {
             $submission = EndFeedbackSubmission::create([
                 'improve_project' => $validatedData['improve_project'],

@@ -57,7 +57,9 @@ const ProjectProvider = ({children}) => {
     }));
     // The "beginning" submission includes an image, so we use multipart/form-data for this request
     const formData = new FormData();
-    formData.append('image', file);
+    if (image) {
+      formData.append('image', file);
+    }
     formData.append('name', name);
     formData.append('who_am_i', whoAmI);
     formData.append('why_am_i_here', whyAmIHere);
