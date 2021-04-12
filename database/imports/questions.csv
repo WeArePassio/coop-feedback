@@ -2,28 +2,21 @@ Category,Question,Metric
 Being youself and expressing your opinions,How confident are you speaking out in a group to express your opinion?,Confident -> nervous
 Being youself and expressing your opinions,How confident are you trying new things?,Confident -> nervous
 Being youself and expressing your opinions,How confident are you doing things on your own?,Confident -> nervous
-Being youself and expressing your opinions,How much do you enjoy speaking out in a group?,Alot -> not A lot
-Being youself and expressing your opinions,How much do you enjoy trying new things?,Alot -> not A lot
-Being youself and expressing your opinions,How much do you enjoy doing things on your own?,Alot -> not A lot
-Being youself and expressing your opinions,How easy do you find self-reflection (understanding your character and actions)?,
-Being youself and expressing your opinions,How easy do you find it to have an idea?,
-Being youself and expressing your opinions,How easy do you find it to be sensitive are you to other people's feelings?,
-Being youself and expressing your opinions,How easy to find it to be honest about what you think and how you feel?,
-Social life and support,How confident are you meeting new people?,Confident -> nervous
+Being youself and expressing your opinions,How confident are you at being honest about what you think and how you feel?,Confident -> nervous
+Being youself and expressing your opinions,How confident are you sharing your ideas in a group?,Confident -> nervous
 Social life and support,How much do you enjoy meeting new people?,Alot -> not A lot
+Social life and support,How much do you enjoy helping in you community?,Alot -> not A lot
 Social life and support,How supported do you feel by your friends?,Alot -> not A lot
 Social life and support,How much do you feel you support your friends?,Alot -> not A lot
-Social life and support,How much do you enjoy helping in you community?,Alot -> not A lot
-Social life and support,How confident do you feel encouraging others to do better through your actions?,
-Social life and support,How confident do you feel representing others (speaking about someone else’s personal opinions or actions)?,
-Social life and support,How easy do you find listening to others?,
-Practical Skills,How easy do you find it to manage your own time?,Ease
-Practical Skills,How easy do you find it to solve problems?,Ease
-Practical Skills,How easy do you find it to be organised?,Ease
-Practical Skills, How easy do you find it to make decisions?,Ease
-Dealing with Difficult Situations,How confident are you at dealing with conflict?,
-Dealing with Difficult Situations,How confident are you at negociating (your ability to reach an agreement or compromise by discussion)?,
-Dealing with Difficult Situations,How easy do you find it to be patient?,
-Co-op Knowledge,How much do you know about enterprises?,Alot -> not A lot
-Co-op Knowledge,How much do you know about co-operatives?,Alot -> not A lot
-Co-op Knowledge,How much do you enjoy attending the project?,Alot -> not A lot
+Leadership,How confident do you feel inspiring others?,Confident -> nervous
+Leadership,How confident are you being a role model for others? ,Confident -> nervous
+Leadership,How confident are you at dealing with conflict?,Confident -> nervous
+Leadership,How confident are you at negotiating (your ability to reach an agreement or compromise by discussion)?,Confident -> nervous
+Leadership,How confident are you making decisions?,Confident -> nervous
+Personal Skills,How easy do you find it to manage your own time?,Ease
+Personal Skills,How easy do you find it to solve problems?,Ease
+Personal Skills,How easy do you find it to be organised?,Ease
+Personal Skills,How easy do you find self-reflection (understanding your character and actions)?,Ease
+Personal Skills,How easy do you find listening to others?,Ease
+Personal Skills,How easy do you find it to be sensitive to other people's feelings?,Ease
+Personal Skills,How easy do you find it to be patient?,Ease
