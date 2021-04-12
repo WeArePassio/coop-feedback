@@ -42,11 +42,10 @@ const MyJourney = ({type}) => {
       <Progress stage={1 + themeIndex} numStages={questionThemes.length + 2} />
       <div className='panel'>
         <section>
-          <h2>My Journey</h2>
+          <h2>Your skills and knowledge</h2>
           <p>
-            In this section we have a list of things we would like you to rate the questions under
-            the different headings. Be as honest as you can as we will ask these questions at the
-            end of the project so the college and you can see where you have improved.
+            Please rate the following questions. Be as honest as you can so we can see if the
+            project helps improve skills that are important to you.
           </p>
         </section>
       </div>

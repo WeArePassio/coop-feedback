@@ -39,8 +39,7 @@ const AboutMe = () => {
       <Progress stage={0} numStages={(questionThemes?.length ?? 0) + 2} />
       <div className='panel'>
         <section>
-          <h2>About Me</h2>
-          <h3>Who am I? Why am I here?</h3>
+          <h2>Tell us about yourself</h2>
           <p>
             In this section space has been provided for you to write, draw or stick in things that
             explain who you are and what you hope to get from the project. This helps us make sure
@@ -79,10 +78,7 @@ const AboutMe = () => {
         onChange={(event) => setWhyAmIHere(event.target.value)}></textarea>
 
       <h3>About Me</h3>
-      <p>
-        Use this section to upload a photo of a drawing or doodle or any pictures that represent you
-        and who you are.
-      </p>
+      <p>Please upload a photo, doodle or picture that represents who you are.</p>
       <div
         {...getRootProps({
           style: {

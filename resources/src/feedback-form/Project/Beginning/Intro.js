@@ -16,18 +16,17 @@ const Intro = () => {
         <section>
           <h2>Introduction Session</h2>
           <p>
-            This is the start of your journey on your course with the Co-operative college! We’d
-            like you to take a bit of time in this first session to think about what is important to
-            you and what you would like to get from the project.
+            We would like to ask some questions to learn more more about you and what you would like
+            to gain from the course.
           </p>
         </section>
       </div>
       <div className='panel'>
         <section>
+          <p>Please be as honest as possible.</p>
           <p>
-            We would also like you to think about some different skills that you may have or would
-            like to improve on. In the question about skills, please be as honest as you can and do
-            not worry about selecting that you’d like to imrpove - that is what the course is for.
+            Your answers will help us tailor the course to your interests and understand what is
+            important to you.
           </p>
         </section>
       </div>

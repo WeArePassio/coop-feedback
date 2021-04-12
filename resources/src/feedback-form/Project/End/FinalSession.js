@@ -22,8 +22,12 @@ const FinalSession = () => {
         <section>
           <h2>Final Session</h2>
           <p>
-            So that we can imrpove sessions for future groups, we would really like to hear about
-            your experiences on the project.
+            It would be really useful to hear about your experiences such as what you liked and
+            disliked about the course. This will help us improve the course for future groups.
+          </p>
+          <p>
+            Please be as open and honest as possible. It is OK to criticise parts of the course that
+            you disliked!
           </p>
         </section>
       </div>
@@ -39,7 +43,7 @@ const FinalSession = () => {
 
       <label htmlFor='improve-project'>
         We want to make sure we are running projects which you enjoy and learn from, please write
-        down any comments on how we can improve this project;
+        down any comments on how we can improve this project
       </label>
       <textarea
         placeholder='Type here...'

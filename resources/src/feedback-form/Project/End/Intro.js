@@ -17,24 +17,16 @@ const Intro = () => {
         <section>
           <h2>Final Session</h2>
           <p>
-            So that we can improve sessions for future groups, we would really like to hear about
-            your experiences on the project.
+            It would be really useful to hear about your experiences such as what you liked and
+            disliked about the course. This will help us improve the course for future groups.
           </p>
         </section>
       </div>
       <div className='panel'>
         <section>
           <p>
-            We want you to be as open and honest as you can so. We want to remind you that it is
-            okay to criticise parts of the course you didn’t like so we can learn what parts of the
-            course we can improve.
-          </p>
-        </section>
-      </div>
-      <div className='panel'>
-        <section>
-          <p>
-            Please also tell us what you enjoyed - it is great to hear your positive experiences!
+            Please be as open and honest as possible. It is OK to criticise parts of the course that
+            you disliked!
           </p>
         </section>
       </div>
