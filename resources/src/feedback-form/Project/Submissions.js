@@ -8,6 +8,7 @@ import expandDark from '../../img/expand-dark.svg';
 import collapseDark from '../../img/collapse-dark.svg';
 import expandPurple from '../../img/expand-purple.svg';
 import collapsePurple from '../../img/collapse-purple.svg';
+import download from '../../img/download.svg';
 
 import rating1 from '../../img/rating-1.svg';
 import rating2 from '../../img/rating-2.svg';
@@ -166,17 +167,19 @@ const Submissions = () => {
                 <ResponsesAccordion
                   headerText='About Me'
                   bodyContent={
-                    <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                    <div className='images-container'>
                       {aboutMeImages.map((image, index) => (
-                        <div style={{width: 150}} key={index}>
-                          <img
-                            src={image}
-                            style={{width: 120, height: 120, backgroundColor: 'white'}}
-                            alt=''
-                          />
+                        <div className='image-container' key={index}>
+                          <img src={image} className='about-me-image' alt='' />
                           <div style={{display: 'flex', justifyContent: 'space-between'}}>
                             <div>Image {index + 1}</div>
-                            <div>Download</div>
+                            <button
+                              className='download-button'
+                              onClick={() => {
+                                window.open(image);
+                              }}>
+                              <img src={download} alt='download' />
+                            </button>
                           </div>
                         </div>
                       ))}

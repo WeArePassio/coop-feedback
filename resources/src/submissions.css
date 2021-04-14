@@ -164,3 +164,31 @@
   margin-top: 4px;
   margin-bottom: 10px;
 }
+
+.images-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  margin-right: 14px;
+}
+.about-me-image {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+.download-button,
+.download-button img {
+  margin: 0px;
+  padding: 0px;
+  height: 24px;
+  width: 24px;
+}
