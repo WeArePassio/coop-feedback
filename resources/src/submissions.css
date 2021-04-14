@@ -1,0 +1,16 @@
+.submission-session {
+  background-color: var(--light-grey);
+  padding: 20px;
+}
+
+.submission-session-header {
+  background-color: var(--purple);
+  color: white;
+  padding: 11px 40px;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: var(--grey);
+}

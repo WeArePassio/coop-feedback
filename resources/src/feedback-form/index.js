@@ -5,6 +5,7 @@ import {BrowserRouter} from 'react-router-dom';
 import '../normalize.css';
 import '../typography.css';
 import '../app.css';
+import '../submissions.css';
 
 import App from './App';
 import ScrollToTop from './ScrollToTop';
