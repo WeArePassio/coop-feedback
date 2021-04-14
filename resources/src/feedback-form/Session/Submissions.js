@@ -41,14 +41,21 @@ const SessionHeader = ({session}) => {
   );
 };
 
-const RatingRow = ({index, count}) => {
+const RatingRow = ({index, count, maxCount}) => {
   return (
     <div style={{display: 'flex', alignItems: 'center', marginBottom: 20}}>
       <div style={{textAlign: 'center', width: 105}}>
         <img src={RATING_ICONS[index]} alt='' style={{width: 40, height: 40}} />
         <div style={{fontSize: '10pt'}}>{RATING_LABELS[index]}</div>
       </div>
-      <div>({count})</div>
+      <div className='graph-row'>
+        {maxCount && (
+          <div className='graph'>
+            <div className='graph-bar' style={{width: `${(count / maxCount) * 100}%`}} />
+          </div>
+        )}
+        <div>({count})</div>
+      </div>
     </div>
   );
 };
@@ -82,13 +89,14 @@ const SessionDetails = ({session}) => {
       valuesCounts[key] += submission[key];
     });
   });
+  const maxRatingValue = Math.max(...ratingCounts);
   return (
     <>
       <SessionHeader session={session} />
       <div className='submission-session'>
         <p>How much did you enjoy today’s session?</p>
         {ratingCounts.map((count, index) => (
-          <RatingRow key={index} index={index} count={count} />
+          <RatingRow key={index} index={index} count={count} maxCount={maxRatingValue} />
         ))}
         <div className='divider' />
         <p>What did you enjoy most about today's session?</p>
