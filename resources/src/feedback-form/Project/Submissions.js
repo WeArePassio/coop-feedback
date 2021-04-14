@@ -240,8 +240,8 @@ const Submissions = () => {
                       <thead>
                         <tr>
                           <th></th>
-                          {RATING_ICONS.map((icon) => (
-                            <th>
+                          {RATING_ICONS.map((icon, iconIndex) => (
+                            <th key={iconIndex}>
                               <img src={icon} alt='' style={{width: 24, height: 24}} />
                             </th>
                           ))}
@@ -249,11 +249,15 @@ const Submissions = () => {
                       </thead>
                       <tbody>
                         {theme.questions.map((question, questionIndex) => (
-                          <>
-                            <tr key={`question-${questionIndex}-before`}>
-                              <td>{question.title} (before) </td>
-                              {questionThemeRatingCounts[theme.id][question.id].before.map(
-                                (count, countIndex) => (
+                          <tr key={`question-${questionIndex}`}>
+                            <td>{question.title}</td>
+                            {questionThemeRatingCounts[theme.id][question.id].before.map(
+                              (beforeCount, countIndex) => {
+                                const afterCount =
+                                  questionThemeRatingCounts[theme.id][question.id].after[
+                                    countIndex
+                                  ];
+                                return (
                                   <td key={countIndex}>
                                     <div
                                       className={`submission-rating-cell before ${
@@ -263,19 +267,8 @@ const Submissions = () => {
                                           ? 'is-average'
                                           : ''
                                       }`}>
-                                      {count}
+                                      {beforeCount}
                                     </div>
-                                  </td>
-                                )
-                              )}
-                            </tr>
-                            <tr
-                              key={`question-${questionIndex}-after`}
-                              style={{borderBottom: '1px solid #a7aab4'}}>
-                              <td>(after)</td>
-                              {questionThemeRatingCounts[theme.id][question.id].after.map(
-                                (count, countIndex) => (
-                                  <td key={countIndex}>
                                     <div
                                       className={`submission-rating-cell after ${
                                         questionThemeRatingCounts[theme.id][question.id]
@@ -284,13 +277,35 @@ const Submissions = () => {
                                           ? 'is-average'
                                           : ''
                                       }`}>
-                                      {count}
+                                      {afterCount}
                                     </div>
                                   </td>
-                                )
-                              )}
-                            </tr>
-                          </>
+                                );
+                              }
+                            )}
+                          </tr>
+                          //   <tr
+                          //     key={`question-${questionIndex}-after`}
+                          //     style={{borderBottom: '1px solid #a7aab4'}}>
+                          //     <td></td>
+                          //     {questionThemeRatingCounts[theme.id][question.id].after.map(
+                          //       (count, countIndex) => (
+                          //         <td key={countIndex}>
+                          //           <div
+                          //             className={`submission-rating-cell after ${
+                          //               questionThemeRatingCounts[theme.id][question.id]
+                          //                 .afterAverage ===
+                          //               countIndex + 1
+                          //                 ? 'is-average'
+                          //                 : ''
+                          //             }`}>
+                          //             {count}
+                          //           </div>
+                          //         </td>
+                          //       )
+                          //     )}
+                          //   </tr>
+                          // </>
                         ))}
                       </tbody>
                     </table>

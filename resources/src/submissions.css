@@ -145,11 +145,21 @@
   padding: 0px;
 }
 
+.rating-table.submission-table {
+  font-size: 12pt;
+}
 .rating-table.submission-table thead {
   color: initial;
   background-color: transparent;
-  border-bottom: 1px solid var(--mid-grey);
 }
 .rating-table.submission-table thead tr {
   height: initial;
+}
+.rating-table.submission-table tr {
+  border-bottom: 1px solid var(--mid-grey);
+}
+
+.rating-table.submission-table .submission-rating-cell {
+  margin-top: 4px;
+  margin-bottom: 10px;
 }
