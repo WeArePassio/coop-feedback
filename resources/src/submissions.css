@@ -36,11 +36,6 @@
   font-size: 10pt;
 }
 
-.buttons-row {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .graph-row {
   display: flex;
   align-items: center;
@@ -53,4 +48,17 @@
 .graph-bar {
   height: 100%;
   background-color: var(--purple);
+}
+
+.enjoyed-most-row {
+  background-color: white;
+  padding: 12px;
+  border: 1px solid var(--mid-grey);
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: flex-end;
 }

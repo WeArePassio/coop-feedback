@@ -101,10 +101,11 @@ const SessionDetails = ({session}) => {
         <div className='divider' />
         <p>What did you enjoy most about today's session?</p>
         {submissions.map(({enjoyed_most}, index) => (
-          <p key={index}>{enjoyed_most}</p>
+          <div key={index} className='enjoyed-most-row'>
+            {enjoyed_most}
+          </div>
         ))}
-      </div>
-      <div className='submission-session'>
+        <div className='divider' />
         <p>What co-operative values did you learn from todays session?</p>
         {Object.entries(valuesCounts).map(([valueName, valueCount], valueIndex) => (
           <ValueRow key={`value-${valueIndex}`} name={COOP_VALUES[valueName]} count={valueCount} />
