@@ -101,15 +101,17 @@ const Submissions = () => {
             }
           }
         });
-        // TODO  - work out average rating for each question, to closest integer
+        // Work out average rating for each question, to closest integer
         questionThemeRatingCounts[theme.id][question.id] = {
           before,
           beforeAverage: Math.round(
-            (1 * before[0] + 2 * before[1] + 3 * before[2] + 4 * before[3] + 5 * before[4]) / 5
+            (1 * before[0] + 2 * before[1] + 3 * before[2] + 4 * before[3] + 5 * before[4]) /
+              before.reduce((accumulator, currentValue) => accumulator + currentValue)
           ),
           after,
           afterAverage: Math.round(
-            (1 * after[0] + 2 * after[1] + 3 * after[2] + 4 * after[3] + 5 * after[4]) / 5
+            (1 * after[0] + 2 * after[1] + 3 * after[2] + 4 * after[3] + 5 * after[4]) /
+              after.reduce((accumulator, currentValue) => accumulator + currentValue)
           ),
         };
       });
