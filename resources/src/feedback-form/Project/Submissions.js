@@ -43,10 +43,15 @@ const Submissions = () => {
 
   // For each theme question, we need the counts for each rating
   const questionThemeRatingCounts = {};
+  const themeTextResponses = {};
 
   if (questionThemes && submissions.length > 0) {
     questionThemes.forEach((theme) => {
       questionThemeRatingCounts[theme.id] = {};
+      themeTextResponses[theme.id] = {
+        before: [],
+        after: [],
+      };
       theme.questions.forEach((question) => {
         const before = [0, 0, 0, 0, 0];
         const after = [0, 0, 0, 0, 0];
@@ -74,7 +79,15 @@ const Submissions = () => {
           ),
         };
       });
-      // TODO  - text responses for each theme
+    });
+    submissions.forEach((submission) => {
+      submission.project_feedback_comments.forEach((comment) => {
+        if (submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`) {
+          themeTextResponses[comment.question_theme_id].before.push(comment.text);
+        } else {
+          themeTextResponses[comment.question_theme_id].after.push(comment.text);
+        }
+      });
     });
   }
 
@@ -185,6 +198,22 @@ const Submissions = () => {
                       ))}
                     </tbody>
                   </table>
+                  <h3>
+                    {`Do you have any extra comments or pictures you would like to share on the topic of
+              ${theme.title}?`}
+                  </h3>
+                  <h4>Before</h4>
+                  {themeTextResponses[theme.id].before.map((text, textIndex) => (
+                    <div key={textIndex} className='submission-text-response'>
+                      {text}
+                    </div>
+                  ))}
+                  <h4>After</h4>
+                  {themeTextResponses[theme.id].after.map((text, textIndex) => (
+                    <div key={textIndex} className='submission-text-response'>
+                      {text}
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
@@ -195,12 +224,3 @@ const Submissions = () => {
 };
 
 export default Submissions;
-
-//   {/* <tr>
-//   <td colSpan={2}>
-//     <span style={{fontWeight: 'bold'}}>Comments: </span>
-//     {project_feedback_comments.find(
-//       (comment) => comment.question_theme_id === theme.id
-//     )?.text ?? ''}
-//   </td>
-// </tr> */}
