@@ -43,14 +43,21 @@ const SessionHeader = ({session}) => {
 
 const RatingRow = ({index, count}) => {
   return (
-    <div style={{display: 'flex', alignItems: 'center', marginBottom: 20}} key={index}>
+    <div style={{display: 'flex', alignItems: 'center', marginBottom: 20}}>
       <div style={{textAlign: 'center', width: 105}}>
         <img src={RATING_ICONS[index]} alt='' style={{width: 40, height: 40}} />
         <div style={{fontSize: '10pt'}}>{RATING_LABELS[index]}</div>
       </div>
-      <div>
-        {/* TODO - graph */}({count})
-      </div>
+      <div>({count})</div>
+    </div>
+  );
+};
+
+const ValueRow = ({name, count}) => {
+  return (
+    <div className='value-count-row'>
+      <div>{name}</div>
+      <div className='count-circle'>{count}</div>
     </div>
   );
 };
@@ -92,9 +99,7 @@ const SessionDetails = ({session}) => {
       <div className='submission-session'>
         <p>What co-operative values did you learn from todays session?</p>
         {Object.entries(valuesCounts).map(([valueName, valueCount], valueIndex) => (
-          <div key={`value-${valueIndex}`}>
-            {COOP_VALUES[valueName]} - {valueCount}
-          </div>
+          <ValueRow key={`value-${valueIndex}`} name={COOP_VALUES[valueName]} count={valueCount} />
         ))}
       </div>
     </>
@@ -144,18 +149,22 @@ const Session = ({session, setSelectedSession}) => {
           <p>What co-operative values did you learn from todays session?</p>
           <p>Top 3 selected values</p>
           {valuesCountsSorted.slice(0, 3).map(([valueName, valueCount], valueIndex) => (
-            <div key={`value-${valueIndex}`}>
-              {COOP_VALUES[valueName]} - {valueCount}
-            </div>
+            <ValueRow
+              key={`value-${valueIndex}`}
+              name={COOP_VALUES[valueName]}
+              count={valueCount}
+            />
           ))}
         </div>
-        <button
-          className='secondary'
-          onClick={() => {
-            setSelectedSession(session);
-          }}>
-          See full results
-        </button>
+        <div class='buttons-row'>
+          <button
+            className='secondary'
+            onClick={() => {
+              setSelectedSession(session);
+            }}>
+            See full results
+          </button>
+        </div>
       </div>
     </>
   );
