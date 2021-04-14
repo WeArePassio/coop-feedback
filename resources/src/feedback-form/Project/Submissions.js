@@ -33,6 +33,32 @@ const Submissions = () => {
     }
   });
 
+  // For each theme question, we need the counts for each rating
+  const questionThemeRatingCounts = {};
+  if (questionThemes && submissions.length > 0) {
+    questionThemes.forEach((theme) => {
+      questionThemeRatingCounts[theme.id] = {};
+      theme.questions.forEach((question) => {
+        questionThemeRatingCounts[theme.id][question.id] = {
+          before: [0, 0, 0, 0, 0],
+          after: [0, 0, 0, 0, 0],
+        };
+        submissions.forEach((submission) => {
+          const rating = submission.project_feedback_ratings.find(
+            (rating) => rating.question_id === question.id
+          );
+          if (rating) {
+            if (submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`) {
+              questionThemeRatingCounts[theme.id][question.id]['before'][rating.rating - 1] += 1;
+            } else {
+              questionThemeRatingCounts[theme.id][question.id]['after'][rating.rating - 1] += 1;
+            }
+          }
+        });
+      });
+    });
+  }
+
   return (
     <>
       <h1>Submissions</h1>
@@ -86,6 +112,46 @@ const Submissions = () => {
               </div>
             ))}
             <div className='divider' />
+          </div>
+          <div>
+            {Object.keys(questionThemeRatingCounts).length > 0 &&
+              questionThemes.map((theme, themeIndex) => (
+                <div key={`theme-${themeIndex}`}>
+                  <h3>{theme.title}</h3>
+                  <table className='rating-table submission-table'>
+                    <tbody>
+                      {theme.questions.map((question, questionIndex) => (
+                        <>
+                          <tr key={`question-${questionIndex}-before`}>
+                            <td>{question.title}(before) </td>
+                            {questionThemeRatingCounts[theme.id][question.id]['before'].map(
+                              (count, countIndex) => (
+                                <td key={countIndex}>{count}</td>
+                              )
+                            )}
+                          </tr>
+                          <tr key={`question-${questionIndex}-after`}>
+                            <td>(after)</td>
+                            {questionThemeRatingCounts[theme.id][question.id]['after'].map(
+                              (count, countIndex) => (
+                                <td key={countIndex}>{count}</td>
+                              )
+                            )}
+                          </tr>
+                        </>
+                      ))}
+                      {/* <tr>
+                      <td colSpan={2}>
+                        <span style={{fontWeight: 'bold'}}>Comments: </span>
+                        {project_feedback_comments.find(
+                          (comment) => comment.question_theme_id === theme.id
+                        )?.text ?? ''}
+                      </td>
+                    </tr> */}
+                    </tbody>
+                  </table>
+                </div>
+              ))}
           </div>
         </>
       )}
