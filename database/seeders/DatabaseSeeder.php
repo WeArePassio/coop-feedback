@@ -28,6 +28,6 @@ class DatabaseSeeder extends Seeder
             ->has(ProjectFeedbackRating::factory(15))
             ->has(ProjectFeedbackComment::factory(3))
             ->create();
-        SessionFeedbackSubmission::factory(10)->create();
+        SessionFeedbackSubmission::factory(100)->create();
     }
 }
