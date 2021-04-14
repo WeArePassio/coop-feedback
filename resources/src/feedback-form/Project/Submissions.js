@@ -201,6 +201,26 @@ const Submissions = () => {
               </div>
             }
           />
+          <div className='ratings-key'>
+            <h3 className='ratings-key-heading'>Key</h3>
+            <div className='ratings-key-item'>
+              <div className='submission-rating-cell before'>0</div>
+              <div>Before Project</div>
+            </div>
+            <div className='ratings-key-item'>
+              <div className='submission-rating-cell after'>0</div>
+              <div>After Project</div>
+            </div>
+            <div className='ratings-key-item'>
+              <div className='submission-rating-cell before is-average'>0</div>
+              <div>Average before</div>
+            </div>
+            <div className='ratings-key-item'>
+              <div className='submission-rating-cell after is-average'>0</div>
+              <div>Average after</div>
+            </div>
+          </div>
+
           {Object.keys(questionThemeRatingCounts).length > 0 &&
             questionThemes.map((theme, themeIndex) => (
               <SectionAccordion

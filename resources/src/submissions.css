@@ -86,6 +86,26 @@
   justify-content: flex-end;
 }
 
+.ratings-key {
+  border: 1px solid var(--grey);
+  margin-bottom: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.ratings-key-heading {
+  flex: 1;
+}
+.ratings-key-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 8px;
+  font-size: 10pt;
+}
+
 .submission-rating-cell {
   width: 24px;
   height: 24px;
