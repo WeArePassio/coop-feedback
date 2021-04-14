@@ -5,6 +5,8 @@
   --mid-grey: #a7aab4;
   --grey: #50535e;
   --blue: #8ca9d9;
+  --green: #95c11f;
+  --blue: #8ca9d9;
 }
 
 header {
@@ -58,6 +60,8 @@ img.flag {
 
 button {
   cursor: pointer;
+}
+.button {
   background-color: var(--purple);
   color: white;
   border-radius: 3px;

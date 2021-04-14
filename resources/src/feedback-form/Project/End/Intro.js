@@ -31,7 +31,9 @@ const Intro = () => {
         </section>
       </div>
       <div className='button-row'>
-        <button onClick={() => history.push('final-session')}>Next</button>
+        <button className='button' onClick={() => history.push('final-session')}>
+          Next
+        </button>
       </div>
     </>
   );

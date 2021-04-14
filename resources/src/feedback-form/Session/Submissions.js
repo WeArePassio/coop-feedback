@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import {useSession, COOP_VALUES} from './SessionProvider';
+import SubmissionHeader from '../SubmissionHeader';
 
 import rating1 from '../../img/rating-1.svg';
 import rating2 from '../../img/rating-2.svg';
@@ -31,15 +32,6 @@ function getWeekNumber(d) {
   // Return array of year and week number
   return [d.getUTCFullYear(), weekNo, weekStart];
 }
-
-const SessionHeader = ({session}) => {
-  const {monday} = session;
-  return (
-    <div className='submission-session-header'>
-      <h3>Session for Week {formatter.format(monday)}</h3>
-    </div>
-  );
-};
 
 const RatingRow = ({index, count, maxCount}) => {
   return (
@@ -74,7 +66,7 @@ const ValueRow = ({name, count}) => {
 };
 
 const SessionDetails = ({session}) => {
-  const {submissions} = session;
+  const {submissions, monday} = session;
   let ratingCounts = [0, 0, 0, 0, 0];
   const valuesCounts = {
     democracy: 0,
@@ -96,7 +88,7 @@ const SessionDetails = ({session}) => {
   const maxRatingValue = Math.max(...ratingCounts);
   return (
     <>
-      <SessionHeader session={session} />
+      <SubmissionHeader text={`Session for Week ${formatter.format(monday)}`} />
       <div className='submission-session'>
         <h3>How much did you enjoy today’s session?</h3>
         {ratingCounts.map((count, index) => (
@@ -105,7 +97,7 @@ const SessionDetails = ({session}) => {
         <div className='divider' />
         <h3>What did you enjoy most about today's session?</h3>
         {submissions.map(({enjoyed_most}, index) => (
-          <div key={index} className='enjoyed-most-row'>
+          <div key={index} className='submission-text-response'>
             {enjoyed_most}
           </div>
         ))}
@@ -120,7 +112,7 @@ const SessionDetails = ({session}) => {
 };
 
 const Session = ({session, setSelectedSession}) => {
-  const {submissions} = session;
+  const {submissions, monday} = session;
   // Count the ratings, find the most popular one
   let ratingCounts = [0, 0, 0, 0, 0];
   const valuesCounts = {
@@ -152,7 +144,7 @@ const Session = ({session, setSelectedSession}) => {
 
   return (
     <>
-      <SessionHeader session={session} />
+      <SubmissionHeader text={`Session for Week ${formatter.format(monday)}`} />
       <div className='submission-session'>
         <h3>What co-operative values did you learn from todays session?</h3>
         <p>Top rated result</p>
@@ -169,9 +161,9 @@ const Session = ({session, setSelectedSession}) => {
             />
           ))}
         </div>
-        <div class='buttons-row'>
+        <div className='buttons-row'>
           <button
-            className='secondary'
+            className='button secondary'
             onClick={() => {
               setSelectedSession(session);
             }}>
@@ -222,7 +214,11 @@ const Submissions = () => {
 
   return (
     <>
-      {selectedSession && <button onClick={() => setSelectedSession(undefined)}>Back</button>}
+      {selectedSession && (
+        <button className='button' onClick={() => setSelectedSession(undefined)}>
+          Back
+        </button>
+      )}
       <h1>Submissions</h1>
       {submissions.length === 0 ? (
         <h2>No Submissions</h2>

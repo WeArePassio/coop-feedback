@@ -1,7 +1,12 @@
-.submission-session-header {
+.submission-header {
   background-color: var(--purple);
   color: white;
   padding: 1px 40px;
+}
+.submission-section-header {
+  background-color: var(--mid-grey);
+  padding: 11px 20px;
+  color: var(--grey);
 }
 
 .submission-session {
@@ -15,6 +20,9 @@
   height: 1px;
   background-color: var(--mid-grey);
   margin: 20px 0px;
+}
+.divider.purple {
+  background-color: var(--purple);
 }
 
 .value-count-row {
@@ -58,7 +66,7 @@
   background-color: var(--light-purple);
 }
 
-.enjoyed-most-row {
+.submission-text-response {
   background-color: white;
   padding: 12px;
   border: 1px solid var(--mid-grey);
@@ -66,7 +74,121 @@
   margin-bottom: 8px;
 }
 
+.submission-text-response.before {
+  border-color: var(--green);
+}
+.submission-text-response.after {
+  border-color: var(--blue);
+}
+
 .buttons-row {
   display: flex;
   justify-content: flex-end;
+}
+
+.ratings-key {
+  border: 1px solid var(--grey);
+  margin-bottom: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.ratings-key-heading {
+  flex: 1;
+}
+.ratings-key-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 8px;
+  font-size: 10pt;
+}
+
+.submission-rating-cell {
+  width: 24px;
+  height: 24px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10pt;
+  color: var(--grey);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.submission-rating-cell.before {
+  border-color: var(--green);
+}
+.submission-rating-cell.before.is-average {
+  background-color: var(--green);
+}
+.submission-rating-cell.after {
+  border-color: var(--blue);
+}
+.submission-rating-cell.after.is-average {
+  background-color: var(--blue);
+}
+
+.section-accordion-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordion-button {
+  width: 24px;
+  height: 24px;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 30px;
+}
+
+.rating-table.submission-table {
+  font-size: 12pt;
+}
+.rating-table.submission-table thead {
+  color: initial;
+  background-color: transparent;
+}
+.rating-table.submission-table thead tr {
+  height: initial;
+}
+.rating-table.submission-table tr {
+  border-bottom: 1px solid var(--mid-grey);
+}
+
+.rating-table.submission-table .submission-rating-cell {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.images-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  margin-right: 14px;
+}
+.about-me-image {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+.download-button,
+.download-button img {
+  margin: 0px;
+  padding: 0px;
+  height: 24px;
+  width: 24px;
 }
