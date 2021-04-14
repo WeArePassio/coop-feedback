@@ -1,5 +1,6 @@
 :root {
   --purple: #59358c;
+  --light-purple: #7646ba;
   --light-grey: #f4f4f6;
   --mid-grey: #a7aab4;
   --grey: #50535e;
@@ -61,6 +62,11 @@ button {
   color: white;
   border-radius: 3px;
   padding: 10px 20px;
+}
+button.secondary {
+  background-color: white;
+  border: 1px solid var(--purple);
+  color: var(--purple);
 }
 
 label {

@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useState} from 'react';
 import axios from 'axios';
 
-const COOP_VALUES = {
+export const COOP_VALUES = {
   democracy: 'Democracy',
   self_help: 'Self-help',
   self_responsibility: 'Self-responsibility',
