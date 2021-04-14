@@ -4,6 +4,14 @@ import {useProject} from './ProjectProvider';
 
 import SubmissionHeader from '../SubmissionHeader';
 
+const SectionHeader = ({text}) => {
+  return (
+    <div className='submission-section-header'>
+      <h3>{text}</h3>
+    </div>
+  );
+};
+
 const Submissions = () => {
   const {submissions, questionThemes, fetchQuestions, fetchSubmissions} = useProject();
 
@@ -78,6 +86,7 @@ const Submissions = () => {
       ) : (
         <>
           <SubmissionHeader text='[TODO: Project Name]' />
+          <SectionHeader text='Start of Project' />
           <div className='submission-session'>
             <h3>Who am I? Where am I from? What is important to me?</h3>
             {whoAmIResponses.map((text, index) => (
@@ -105,6 +114,9 @@ const Submissions = () => {
                 </div>
               ))}
             </div>
+          </div>
+          <SectionHeader text='End of Project' />
+          <div className='submission-session'>
             <div className='divider' />
             <h3>
               We want to make sure we are running projects which you enjoy and learn from, please
@@ -124,52 +136,58 @@ const Submissions = () => {
             ))}
             <div className='divider' />
           </div>
-          <div>
-            {Object.keys(questionThemeRatingCounts).length > 0 &&
-              questionThemes.map((theme, themeIndex) => (
-                <div key={`theme-${themeIndex}`}>
-                  <h3>{theme.title}</h3>
+          {Object.keys(questionThemeRatingCounts).length > 0 &&
+            questionThemes.map((theme, themeIndex) => (
+              <div key={`theme-${themeIndex}`}>
+                <SectionHeader text={`${themeIndex + 1}. ${theme.title}`} />
+                <div className='submission-session'>
                   <table className='rating-table submission-table'>
                     <tbody>
                       {theme.questions.map((question, questionIndex) => (
                         <>
                           <tr key={`question-${questionIndex}-before`}>
-                            <td>
-                              {question.title} (before average=
-                              {questionThemeRatingCounts[theme.id][question.id].beforeAverage}){' '}
-                            </td>
+                            <td>{question.title} (before) </td>
                             {questionThemeRatingCounts[theme.id][question.id].before.map(
                               (count, countIndex) => (
-                                <td key={countIndex}>{count}</td>
+                                <td
+                                  key={countIndex}
+                                  className={`submission-rating-cell ${
+                                    questionThemeRatingCounts[theme.id][question.id]
+                                      .beforeAverage ===
+                                    countIndex + 1
+                                      ? 'is-average'
+                                      : ''
+                                  }`}>
+                                  {count}
+                                </td>
                               )
                             )}
                           </tr>
                           <tr key={`question-${questionIndex}-after`}>
-                            <td>
-                              (after average=
-                              {questionThemeRatingCounts[theme.id][question.id].afterAverage})
-                            </td>
+                            <td>(after)</td>
                             {questionThemeRatingCounts[theme.id][question.id].after.map(
                               (count, countIndex) => (
-                                <td key={countIndex}>{count}</td>
+                                <td
+                                  key={countIndex}
+                                  className={`submission-rating-cell ${
+                                    questionThemeRatingCounts[theme.id][question.id]
+                                      .afterAverage ===
+                                    countIndex + 1
+                                      ? 'is-average'
+                                      : ''
+                                  }`}>
+                                  {count}
+                                </td>
                               )
                             )}
                           </tr>
                         </>
                       ))}
-                      {/* <tr>
-                      <td colSpan={2}>
-                        <span style={{fontWeight: 'bold'}}>Comments: </span>
-                        {project_feedback_comments.find(
-                          (comment) => comment.question_theme_id === theme.id
-                        )?.text ?? ''}
-                      </td>
-                    </tr> */}
                     </tbody>
                   </table>
                 </div>
-              ))}
-          </div>
+              </div>
+            ))}
         </>
       )}
     </>
@@ -177,3 +195,12 @@ const Submissions = () => {
 };
 
 export default Submissions;
+
+//   {/* <tr>
+//   <td colSpan={2}>
+//     <span style={{fontWeight: 'bold'}}>Comments: </span>
+//     {project_feedback_comments.find(
+//       (comment) => comment.question_theme_id === theme.id
+//     )?.text ?? ''}
+//   </td>
+// </tr> */}

@@ -3,6 +3,11 @@
   color: white;
   padding: 1px 40px;
 }
+.submission-section-header {
+  background-color: var(--mid-grey);
+  padding: 11px 40px;
+  color: var(--grey);
+}
 
 .submission-session {
   background-color: var(--light-grey);
@@ -69,4 +74,8 @@
 .buttons-row {
   display: flex;
   justify-content: flex-end;
+}
+
+.submission-rating-cell.is-average {
+  font-weight: bold;
 }
