@@ -35,27 +35,38 @@ const Submissions = () => {
 
   // For each theme question, we need the counts for each rating
   const questionThemeRatingCounts = {};
+
   if (questionThemes && submissions.length > 0) {
     questionThemes.forEach((theme) => {
       questionThemeRatingCounts[theme.id] = {};
       theme.questions.forEach((question) => {
-        questionThemeRatingCounts[theme.id][question.id] = {
-          before: [0, 0, 0, 0, 0],
-          after: [0, 0, 0, 0, 0],
-        };
+        const before = [0, 0, 0, 0, 0];
+        const after = [0, 0, 0, 0, 0];
         submissions.forEach((submission) => {
           const rating = submission.project_feedback_ratings.find(
             (rating) => rating.question_id === question.id
           );
           if (rating) {
             if (submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`) {
-              questionThemeRatingCounts[theme.id][question.id]['before'][rating.rating - 1] += 1;
+              before[rating.rating - 1] += 1;
             } else {
-              questionThemeRatingCounts[theme.id][question.id]['after'][rating.rating - 1] += 1;
+              after[rating.rating - 1] += 1;
             }
           }
         });
+        // TODO  - work out average rating for each question, to closest integer
+        questionThemeRatingCounts[theme.id][question.id] = {
+          before,
+          beforeAverage: Math.round(
+            (1 * before[0] + 2 * before[1] + 3 * before[2] + 4 * before[3] + 5 * before[4]) / 5
+          ),
+          after,
+          afterAverage: Math.round(
+            (1 * after[0] + 2 * after[1] + 3 * after[2] + 4 * after[3] + 5 * after[4]) / 5
+          ),
+        };
       });
+      // TODO  - text responses for each theme
     });
   }
 
@@ -123,16 +134,22 @@ const Submissions = () => {
                       {theme.questions.map((question, questionIndex) => (
                         <>
                           <tr key={`question-${questionIndex}-before`}>
-                            <td>{question.title}(before) </td>
-                            {questionThemeRatingCounts[theme.id][question.id]['before'].map(
+                            <td>
+                              {question.title} (before average=
+                              {questionThemeRatingCounts[theme.id][question.id].beforeAverage}){' '}
+                            </td>
+                            {questionThemeRatingCounts[theme.id][question.id].before.map(
                               (count, countIndex) => (
                                 <td key={countIndex}>{count}</td>
                               )
                             )}
                           </tr>
                           <tr key={`question-${questionIndex}-after`}>
-                            <td>(after)</td>
-                            {questionThemeRatingCounts[theme.id][question.id]['after'].map(
+                            <td>
+                              (after average=
+                              {questionThemeRatingCounts[theme.id][question.id].afterAverage})
+                            </td>
+                            {questionThemeRatingCounts[theme.id][question.id].after.map(
                               (count, countIndex) => (
                                 <td key={countIndex}>{count}</td>
                               )
