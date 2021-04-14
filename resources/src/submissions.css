@@ -1,12 +1,13 @@
-.submission-session {
-  background-color: var(--light-grey);
-  padding: 20px;
-}
-
 .submission-session-header {
   background-color: var(--purple);
   color: white;
-  padding: 11px 40px;
+  padding: 1px 40px;
+}
+
+.submission-session {
+  background-color: var(--light-grey);
+  padding: 20px;
+  margin-bottom: 28px;
 }
 
 .divider {
@@ -23,11 +24,17 @@
   margin-bottom: 20px;
   width: 200px;
 }
+.value-count-line {
+  background-color: var(--mid-grey);
+  height: 1px;
+  flex: 1;
+  margin: 0px 12px;
+}
 .count-circle {
   background-color: var(--purple);
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;

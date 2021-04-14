@@ -33,10 +33,10 @@ function getWeekNumber(d) {
 }
 
 const SessionHeader = ({session}) => {
-  const {monday, submissions} = session;
+  const {monday} = session;
   return (
     <div className='submission-session-header'>
-      Week {formatter.format(monday)} ({submissions.length} submissions)
+      <h3>Session for Week {formatter.format(monday)}</h3>
     </div>
   );
 };
@@ -64,6 +64,7 @@ const ValueRow = ({name, count}) => {
   return (
     <div className='value-count-row'>
       <div>{name}</div>
+      <div className='value-count-line' />
       <div className='count-circle'>{count}</div>
     </div>
   );
@@ -94,19 +95,19 @@ const SessionDetails = ({session}) => {
     <>
       <SessionHeader session={session} />
       <div className='submission-session'>
-        <p>How much did you enjoy today’s session?</p>
+        <h3>How much did you enjoy today’s session?</h3>
         {ratingCounts.map((count, index) => (
           <RatingRow key={index} index={index} count={count} maxCount={maxRatingValue} />
         ))}
         <div className='divider' />
-        <p>What did you enjoy most about today's session?</p>
+        <h3>What did you enjoy most about today's session?</h3>
         {submissions.map(({enjoyed_most}, index) => (
           <div key={index} className='enjoyed-most-row'>
             {enjoyed_most}
           </div>
         ))}
         <div className='divider' />
-        <p>What co-operative values did you learn from todays session?</p>
+        <h3>What co-operative values did you learn from todays session?</h3>
         {Object.entries(valuesCounts).map(([valueName, valueCount], valueIndex) => (
           <ValueRow key={`value-${valueIndex}`} name={COOP_VALUES[valueName]} count={valueCount} />
         ))}
@@ -150,12 +151,12 @@ const Session = ({session, setSelectedSession}) => {
     <>
       <SessionHeader session={session} />
       <div className='submission-session'>
-        <p>How much did you enjoy today’s session?</p>
-        <p>Top rated result:</p>
+        <h3>What co-operative values did you learn from todays session?</h3>
+        <p>Top rated result</p>
         <RatingRow index={maxRatingIndex} count={maxRatingCount} />
         <div className='divider' />
         <div>
-          <p>What co-operative values did you learn from todays session?</p>
+          <h3>What co-operative values did you learn from todays session?</h3>
           <p>Top 3 selected values</p>
           {valuesCountsSorted.slice(0, 3).map(([valueName, valueCount], valueIndex) => (
             <ValueRow
