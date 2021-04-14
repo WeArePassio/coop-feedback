@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {useSession, COOP_VALUES} from './SessionProvider';
 
@@ -63,8 +63,67 @@ function getWeekNumber(d) {
 //   );
 // };
 
-const Session = ({session}) => {
-  const {submissions, monday} = session;
+const SessionHeader = ({session}) => {
+  const {monday, submissions} = session;
+  return (
+    <div className='submission-session-header'>
+      <h4>
+        Week {formatter.format(monday)} ({submissions.length} submissions)
+      </h4>
+    </div>
+  );
+};
+
+const SessionDetails = ({session}) => {
+  const {submissions} = session;
+  let ratingCounts = [0, 0, 0, 0, 0];
+  const valuesCounts = {
+    democracy: 0,
+    self_help: 0,
+    self_responsibility: 0,
+    equality: 0,
+    equity: 0,
+    solidarity: 0,
+    openness: 0,
+    honesty: 0,
+    social_responsibility: 0,
+  };
+  submissions.forEach((submission) => {
+    ratingCounts[submission.enjoyment_rating - 1] += 1;
+    Object.keys(valuesCounts).forEach((key) => {
+      valuesCounts[key] += submission[key];
+    });
+  });
+  return (
+    <>
+      <SessionHeader session={session} />
+      <div className='submission-session'>
+        <p>How much did you enjoy today’s session?</p>
+        {ratingCounts.map((count, index) => (
+          <div key={index}>
+            {index} - {count}
+          </div>
+        ))}
+        <div className='divider' />
+        <p>What did you enjoy most about today's session?</p>
+        {submissions.map(({enjoyed_most}, index) => (
+          <p key={index}>{enjoyed_most}</p>
+        ))}
+      </div>
+      <div className='submission-session'>
+        <p>What co-operative values did you learn from todays session?</p>
+        {Object.entries(valuesCounts).map(([valueName, valueCount], valueIndex) => (
+          <div key={`value-${valueIndex}`}>
+            {COOP_VALUES[valueName]} - {valueCount}
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+const Session = ({session, setSelectedSession}) => {
+  const {submissions} = session;
   // Count the ratings, find the most popular one
   let ratingCounts = [0, 0, 0, 0, 0];
   const valuesCounts = {
@@ -96,13 +155,9 @@ const Session = ({session}) => {
 
   return (
     <>
-      <div className='submission-session-header'>
-        <h4>
-          Week {formatter.format(monday)} ({submissions.length} submissions)
-        </h4>
-      </div>
+      <SessionHeader session={session} />
       <div className='submission-session'>
-        <p>How much did you enjoy today’s session? </p>
+        <p>How much did you enjoy today’s session?</p>
         <p>Top rated result:</p>
         <p>
           {maxRating} ({maxRatingCount})
@@ -121,7 +176,7 @@ const Session = ({session}) => {
         <button
           className='secondary'
           onClick={() => {
-            console.log(session);
+            setSelectedSession(session);
           }}>
           See full results
         </button>
@@ -132,6 +187,7 @@ const Session = ({session}) => {
 
 const Submissions = () => {
   const {fetchSubmissions, submissions} = useSession();
+  const [selectedSession, setSelectedSession] = useState();
 
   useEffect(() => {
     const init = async () => {
@@ -173,9 +229,20 @@ const Submissions = () => {
         <h2>No Submissions</h2>
       ) : (
         <>
-          {sessions.map((session, sessionIndex) => (
-            <Session session={session} key={`session-${sessionIndex}`} />
-          ))}
+          {selectedSession ? (
+            <>
+              <button onClick={() => setSelectedSession(undefined)}>Back</button>
+              <SessionDetails session={selectedSession} />
+            </>
+          ) : (
+            sessions.map((session, sessionIndex) => (
+              <Session
+                session={session}
+                key={`session-${sessionIndex}`}
+                setSelectedSession={setSelectedSession}
+              />
+            ))
+          )}
         </>
       )}
     </>
