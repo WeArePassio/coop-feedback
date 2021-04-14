@@ -2,12 +2,20 @@ import React, {useEffect, useState} from 'react';
 
 import {useProject} from './ProjectProvider';
 
+import SubmissionHeader from '../SubmissionHeader';
+
 import expandDark from '../../img/expand-dark.svg';
 import collapseDark from '../../img/collapse-dark.svg';
 import expandPurple from '../../img/expand-purple.svg';
 import collapsePurple from '../../img/collapse-purple.svg';
 
-import SubmissionHeader from '../SubmissionHeader';
+import rating1 from '../../img/rating-1.svg';
+import rating2 from '../../img/rating-2.svg';
+import rating3 from '../../img/rating-3.svg';
+import rating4 from '../../img/rating-4.svg';
+import rating5 from '../../img/rating-5.svg';
+
+const RATING_ICONS = [rating1, rating2, rating3, rating4, rating5];
 
 const ResponsesAccordion = ({headerText, bodyContent}) => {
   const [isExpanded, setIsExpanded] = useState(true);
@@ -229,6 +237,16 @@ const Submissions = () => {
                 bodyContent={
                   <div className='submission-session'>
                     <table className='rating-table submission-table'>
+                      <thead>
+                        <tr>
+                          <th></th>
+                          {RATING_ICONS.map((icon) => (
+                            <th>
+                              <img src={icon} alt='' style={{width: 24, height: 24}} />
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
                       <tbody>
                         {theme.questions.map((question, questionIndex) => (
                           <>
@@ -251,7 +269,9 @@ const Submissions = () => {
                                 )
                               )}
                             </tr>
-                            <tr key={`question-${questionIndex}-after`}>
+                            <tr
+                              key={`question-${questionIndex}-after`}
+                              style={{borderBottom: '1px solid #a7aab4'}}>
                               <td>(after)</td>
                               {questionThemeRatingCounts[theme.id][question.id].after.map(
                                 (count, countIndex) => (

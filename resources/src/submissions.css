@@ -144,3 +144,12 @@
   margin: 0px;
   padding: 0px;
 }
+
+.rating-table.submission-table thead {
+  color: initial;
+  background-color: transparent;
+  border-bottom: 1px solid var(--mid-grey);
+}
+.rating-table.submission-table thead tr {
+  height: initial;
+}
