@@ -65,7 +65,9 @@ const FinalSession = () => {
         onChange={(event) => setfavouriteActivities(event.target.value)}></textarea>
 
       <div className='button-row'>
-        <button onClick={() => history.push('my-journey')}>Next</button>
+        <button className='button' onClick={() => history.push('my-journey')}>
+          Next
+        </button>
       </div>
     </>
   );

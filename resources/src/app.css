@@ -60,6 +60,8 @@ img.flag {
 
 button {
   cursor: pointer;
+}
+.button {
   background-color: var(--purple);
   color: white;
   border-radius: 3px;

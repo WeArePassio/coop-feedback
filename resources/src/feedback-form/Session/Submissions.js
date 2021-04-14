@@ -163,7 +163,7 @@ const Session = ({session, setSelectedSession}) => {
         </div>
         <div className='buttons-row'>
           <button
-            className='secondary'
+            className='button secondary'
             onClick={() => {
               setSelectedSession(session);
             }}>
@@ -214,7 +214,11 @@ const Submissions = () => {
 
   return (
     <>
-      {selectedSession && <button onClick={() => setSelectedSession(undefined)}>Back</button>}
+      {selectedSession && (
+        <button className='button' onClick={() => setSelectedSession(undefined)}>
+          Back
+        </button>
+      )}
       <h1>Submissions</h1>
       {submissions.length === 0 ? (
         <h2>No Submissions</h2>

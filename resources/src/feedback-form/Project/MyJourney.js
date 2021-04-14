@@ -126,6 +126,7 @@ const MyJourney = ({type}) => {
       <div className='button-row'>
         {themeIndex > 0 && (
           <button
+            className='button'
             style={{marginRight: 'auto'}}
             onClick={() => {
               setThemeIndex(themeIndex - 1);
@@ -133,7 +134,9 @@ const MyJourney = ({type}) => {
             Previous
           </button>
         )}
-        <button onClick={handleNext}>Next</button>
+        <button className='button' onClick={handleNext}>
+          Next
+        </button>
       </div>
     </>
   );

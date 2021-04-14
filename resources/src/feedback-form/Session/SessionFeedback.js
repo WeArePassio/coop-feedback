@@ -150,7 +150,9 @@ const SessionFeedback = () => {
           onChange={(event) => setOtherTopics(event.target.value)}></textarea>
       </div>
       <div className='button-row'>
-        <button onClick={handleNext}>Finish</button>
+        <button className='button' onClick={handleNext}>
+          Finish
+        </button>
       </div>
     </>
   );
