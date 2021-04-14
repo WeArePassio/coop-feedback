@@ -49,12 +49,15 @@ const RatingRow = ({index, count, maxCount}) => {
         <div style={{fontSize: '10pt'}}>{RATING_LABELS[index]}</div>
       </div>
       <div className='graph-row'>
+        <div className='count-circle'>{count}</div>
         {maxCount && (
           <div className='graph'>
-            <div className='graph-bar' style={{width: `${(count / maxCount) * 100}%`}} />
+            <div
+              className='graph-bar'
+              style={{width: count === 0 ? '2px' : `${(count / maxCount) * 100}%`}}
+            />
           </div>
         )}
-        <div>({count})</div>
       </div>
     </div>
   );
@@ -161,7 +164,7 @@ const Session = ({session, setSelectedSession}) => {
           {valuesCountsSorted.slice(0, 3).map(([valueName, valueCount], valueIndex) => (
             <ValueRow
               key={`value-${valueIndex}`}
-              name={COOP_VALUES[valueName]}
+              name={`${valueIndex + 1}. ${COOP_VALUES[valueName]}`}
               count={valueCount}
             />
           ))}
