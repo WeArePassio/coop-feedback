@@ -21,6 +21,9 @@
   background-color: var(--mid-grey);
   margin: 20px 0px;
 }
+.divider.purple {
+  background-color: var(--purple);
+}
 
 .value-count-row {
   display: flex;

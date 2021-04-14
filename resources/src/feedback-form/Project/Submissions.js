@@ -22,7 +22,7 @@ const ResponsesAccordion = ({headerText, bodyContent}) => {
           />
         </button>
       </div>
-      <div className='divider' />
+      <div className='divider purple' />
       {isExpanded && <div className='section-accordion-body'>{bodyContent}</div>}
     </>
   );
