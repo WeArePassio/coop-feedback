@@ -5,7 +5,7 @@
 }
 .submission-section-header {
   background-color: var(--mid-grey);
-  padding: 11px 40px;
+  padding: 11px 20px;
   color: var(--grey);
 }
 
@@ -85,4 +85,19 @@
 
 .submission-rating-cell.is-average {
   font-weight: bold;
+}
+
+.section-accordion-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordion-button {
+  width: 24px;
+  height: 24px;
+  margin: 0px;
+  padding: 0px;
+}
+.section-accordion-body {
 }

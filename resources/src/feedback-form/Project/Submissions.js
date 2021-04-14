@@ -1,14 +1,48 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {useProject} from './ProjectProvider';
 
+import expandDark from '../../img/expand-dark.svg';
+import collapseDark from '../../img/collapse-dark.svg';
+import expandPurple from '../../img/expand-purple.svg';
+import collapsePurple from '../../img/collapse-purple.svg';
+
 import SubmissionHeader from '../SubmissionHeader';
 
-const SectionHeader = ({text}) => {
+const ResponsesAccordion = ({headerText, bodyContent}) => {
+  const [isExpanded, setIsExpanded] = useState(true);
   return (
-    <div className='submission-section-header'>
-      <h3>{text}</h3>
-    </div>
+    <>
+      <div className='section-accordion-header'>
+        <h3>{headerText}</h3>
+        <button className='accordion-button' onClick={() => setIsExpanded(!isExpanded)}>
+          <img
+            src={isExpanded ? collapsePurple : expandPurple}
+            alt={isExpanded ? 'collapse' : 'expand'}
+          />
+        </button>
+      </div>
+      <div className='divider' />
+      {isExpanded && <div className='section-accordion-body'>{bodyContent}</div>}
+    </>
+  );
+};
+
+const SectionAccordion = ({headerContent, bodyContent}) => {
+  const [isExpanded, setIsExpanded] = useState(true);
+  return (
+    <>
+      <div className='submission-section-header section-accordion-header'>
+        {headerContent}
+        <button className='accordion-button' onClick={() => setIsExpanded(!isExpanded)}>
+          <img
+            src={isExpanded ? collapseDark : expandDark}
+            alt={isExpanded ? 'collapse' : 'expand'}
+          />
+        </button>
+      </div>
+      {isExpanded && <div className='section-accordion-body'>{bodyContent}</div>}
+    </>
   );
 };
 
@@ -99,123 +133,145 @@ const Submissions = () => {
       ) : (
         <>
           <SubmissionHeader text='[TODO: Project Name]' />
-          <SectionHeader text='Start of Project' />
-          <div className='submission-session'>
-            <h3>Who am I? Where am I from? What is important to me?</h3>
-            {whoAmIResponses.map((text, index) => (
-              <div key={index} className='submission-text-response before'>
-                {text}
+          <SectionAccordion
+            headerContent={<h3>Start of Project</h3>}
+            bodyContent={
+              <div className='submission-session'>
+                <ResponsesAccordion
+                  headerText='Who am I? Where am I from? What is important to me?'
+                  bodyContent={whoAmIResponses.map((text, index) => (
+                    <div key={index} className='submission-text-response before'>
+                      {text}
+                    </div>
+                  ))}
+                />
+                <ResponsesAccordion
+                  headerText='Why am I here and what would I like to get from the project?'
+                  bodyContent={whyAmIHereResponses.map((text, index) => (
+                    <div key={index} className='submission-text-response before'>
+                      {text}
+                    </div>
+                  ))}
+                />
+                <ResponsesAccordion
+                  headerText='About Me'
+                  bodyContent={
+                    <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                      {aboutMeImages.map((image, index) => (
+                        <div style={{width: 150}} key={index}>
+                          <img
+                            src={image}
+                            style={{width: 120, height: 120, backgroundColor: 'white'}}
+                            alt=''
+                          />
+                          <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                            <div>Image {index + 1}</div>
+                            <div>Download</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  }
+                />
               </div>
-            ))}
-            <div className='divider' />
-            <h3>Why am I here and what would I like to get from the project?</h3>
-            {whyAmIHereResponses.map((text, index) => (
-              <div key={index} className='submission-text-response before'>
-                {text}
+            }
+          />
+          <SectionAccordion
+            headerContent={<h3>End of Project</h3>}
+            bodyContent={
+              <div className='submission-session'>
+                <ResponsesAccordion
+                  headerText='We want to make sure we are running projects which you enjoy and learn from, please write down any comments on how we can improve this project. '
+                  bodyContent={improveProjectResponses.map((text, index) => (
+                    <div key={index} className='submission-text-response after'>
+                      {text}
+                    </div>
+                  ))}
+                />
+                <ResponsesAccordion
+                  headerText='What were your favourite activities on the project?'
+                  bodyContent={favouriteActivitiesResponses.map((text, index) => (
+                    <div key={index} className='submission-text-response after'>
+                      {text}
+                    </div>
+                  ))}
+                />
               </div>
-            ))}
-            <div className='divider' />
-            <h3>About Me</h3>
-            <div style={{display: 'flex', flexWrap: 'wrap'}}>
-              {aboutMeImages.map((image, index) => (
-                <div style={{width: 150}} key={index}>
-                  <img src={image} style={{width: 120, height: 120, backgroundColor: 'white'}} />
-                  <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                    <div>Image {index + 1}</div>
-                    <div>Download</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <SectionHeader text='End of Project' />
-          <div className='submission-session'>
-            <div className='divider' />
-            <h3>
-              We want to make sure we are running projects which you enjoy and learn from, please
-              write down any comments on how we can improve this project.
-            </h3>
-            {improveProjectResponses.map((text, index) => (
-              <div key={index} className='submission-text-response after'>
-                {text}
-              </div>
-            ))}
-            <div className='divider' />
-            <h3>What were your favourite activities on the project?</h3>
-            {favouriteActivitiesResponses.map((text, index) => (
-              <div key={index} className='submission-text-response after'>
-                {text}
-              </div>
-            ))}
-            <div className='divider' />
-          </div>
+            }
+          />
           {Object.keys(questionThemeRatingCounts).length > 0 &&
             questionThemes.map((theme, themeIndex) => (
-              <div key={`theme-${themeIndex}`}>
-                <SectionHeader text={`${themeIndex + 1}. ${theme.title}`} />
-                <div className='submission-session'>
-                  <table className='rating-table submission-table'>
-                    <tbody>
-                      {theme.questions.map((question, questionIndex) => (
+              <SectionAccordion
+                key={`theme-${themeIndex}`}
+                headerContent={<h3>{`${themeIndex + 1}. ${theme.title}`}</h3>}
+                bodyContent={
+                  <div className='submission-session'>
+                    <table className='rating-table submission-table'>
+                      <tbody>
+                        {theme.questions.map((question, questionIndex) => (
+                          <>
+                            <tr key={`question-${questionIndex}-before`}>
+                              <td>{question.title} (before) </td>
+                              {questionThemeRatingCounts[theme.id][question.id].before.map(
+                                (count, countIndex) => (
+                                  <td
+                                    key={countIndex}
+                                    className={`submission-rating-cell ${
+                                      questionThemeRatingCounts[theme.id][question.id]
+                                        .beforeAverage ===
+                                      countIndex + 1
+                                        ? 'is-average'
+                                        : ''
+                                    }`}>
+                                    {count}
+                                  </td>
+                                )
+                              )}
+                            </tr>
+                            <tr key={`question-${questionIndex}-after`}>
+                              <td>(after)</td>
+                              {questionThemeRatingCounts[theme.id][question.id].after.map(
+                                (count, countIndex) => (
+                                  <td
+                                    key={countIndex}
+                                    className={`submission-rating-cell ${
+                                      questionThemeRatingCounts[theme.id][question.id]
+                                        .afterAverage ===
+                                      countIndex + 1
+                                        ? 'is-average'
+                                        : ''
+                                    }`}>
+                                    {count}
+                                  </td>
+                                )
+                              )}
+                            </tr>
+                          </>
+                        ))}
+                      </tbody>
+                    </table>
+                    <ResponsesAccordion
+                      headerText={`Do you have any extra comments or pictures you would like to share on the topic of ${theme.title}?`}
+                      bodyContent={
                         <>
-                          <tr key={`question-${questionIndex}-before`}>
-                            <td>{question.title} (before) </td>
-                            {questionThemeRatingCounts[theme.id][question.id].before.map(
-                              (count, countIndex) => (
-                                <td
-                                  key={countIndex}
-                                  className={`submission-rating-cell ${
-                                    questionThemeRatingCounts[theme.id][question.id]
-                                      .beforeAverage ===
-                                    countIndex + 1
-                                      ? 'is-average'
-                                      : ''
-                                  }`}>
-                                  {count}
-                                </td>
-                              )
-                            )}
-                          </tr>
-                          <tr key={`question-${questionIndex}-after`}>
-                            <td>(after)</td>
-                            {questionThemeRatingCounts[theme.id][question.id].after.map(
-                              (count, countIndex) => (
-                                <td
-                                  key={countIndex}
-                                  className={`submission-rating-cell ${
-                                    questionThemeRatingCounts[theme.id][question.id]
-                                      .afterAverage ===
-                                    countIndex + 1
-                                      ? 'is-average'
-                                      : ''
-                                  }`}>
-                                  {count}
-                                </td>
-                              )
-                            )}
-                          </tr>
+                          <h4>BEFORE</h4>
+                          {themeTextResponses[theme.id].before.map((text, textIndex) => (
+                            <div key={textIndex} className='submission-text-response before'>
+                              {text}
+                            </div>
+                          ))}
+                          <h4>AFTER</h4>
+                          {themeTextResponses[theme.id].after.map((text, textIndex) => (
+                            <div key={textIndex} className='submission-text-response after'>
+                              {text}
+                            </div>
+                          ))}
                         </>
-                      ))}
-                    </tbody>
-                  </table>
-                  <h3>
-                    {`Do you have any extra comments or pictures you would like to share on the topic of
-              ${theme.title}?`}
-                  </h3>
-                  <h4>BEFORE</h4>
-                  {themeTextResponses[theme.id].before.map((text, textIndex) => (
-                    <div key={textIndex} className='submission-text-response before'>
-                      {text}
-                    </div>
-                  ))}
-                  <h4>AFTER</h4>
-                  {themeTextResponses[theme.id].after.map((text, textIndex) => (
-                    <div key={textIndex} className='submission-text-response after'>
-                      {text}
-                    </div>
-                  ))}
-                </div>
-              </div>
+                      }
+                    />
+                  </div>
+                }
+              />
             ))}
         </>
       )}
