@@ -97,7 +97,7 @@ const SessionDetails = ({session}) => {
         <div className='divider' />
         <h3>What did you enjoy most about today's session?</h3>
         {submissions.map(({enjoyed_most}, index) => (
-          <div key={index} className='enjoyed-most-row'>
+          <div key={index} className='submission-text-response'>
             {enjoyed_most}
           </div>
         ))}
