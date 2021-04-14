@@ -83,8 +83,30 @@
   justify-content: flex-end;
 }
 
-.submission-rating-cell.is-average {
-  font-weight: bold;
+.submission-rating-cell {
+  width: 24px;
+  height: 24px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10pt;
+  color: var(--grey);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.submission-rating-cell.before {
+  border-color: var(--green);
+}
+.submission-rating-cell.before.is-average {
+  background-color: var(--green);
+}
+.submission-rating-cell.after {
+  border-color: var(--blue);
+}
+.submission-rating-cell.after.is-average {
+  background-color: var(--blue);
 }
 
 .section-accordion-header {
@@ -98,6 +120,4 @@
   height: 24px;
   margin: 0px;
   padding: 0px;
-}
-.section-accordion-body {
 }

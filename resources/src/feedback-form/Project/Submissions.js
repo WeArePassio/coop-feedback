@@ -214,16 +214,17 @@ const Submissions = () => {
                               <td>{question.title} (before) </td>
                               {questionThemeRatingCounts[theme.id][question.id].before.map(
                                 (count, countIndex) => (
-                                  <td
-                                    key={countIndex}
-                                    className={`submission-rating-cell ${
-                                      questionThemeRatingCounts[theme.id][question.id]
-                                        .beforeAverage ===
-                                      countIndex + 1
-                                        ? 'is-average'
-                                        : ''
-                                    }`}>
-                                    {count}
+                                  <td key={countIndex}>
+                                    <div
+                                      className={`submission-rating-cell before ${
+                                        questionThemeRatingCounts[theme.id][question.id]
+                                          .beforeAverage ===
+                                        countIndex + 1
+                                          ? 'is-average'
+                                          : ''
+                                      }`}>
+                                      {count}
+                                    </div>
                                   </td>
                                 )
                               )}
@@ -232,16 +233,17 @@ const Submissions = () => {
                               <td>(after)</td>
                               {questionThemeRatingCounts[theme.id][question.id].after.map(
                                 (count, countIndex) => (
-                                  <td
-                                    key={countIndex}
-                                    className={`submission-rating-cell ${
-                                      questionThemeRatingCounts[theme.id][question.id]
-                                        .afterAverage ===
-                                      countIndex + 1
-                                        ? 'is-average'
-                                        : ''
-                                    }`}>
-                                    {count}
+                                  <td key={countIndex}>
+                                    <div
+                                      className={`submission-rating-cell after ${
+                                        questionThemeRatingCounts[theme.id][question.id]
+                                          .afterAverage ===
+                                        countIndex + 1
+                                          ? 'is-average'
+                                          : ''
+                                      }`}>
+                                      {count}
+                                    </div>
                                   </td>
                                 )
                               )}
