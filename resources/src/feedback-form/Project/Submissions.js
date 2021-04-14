@@ -103,14 +103,14 @@ const Submissions = () => {
           <div className='submission-session'>
             <h3>Who am I? Where am I from? What is important to me?</h3>
             {whoAmIResponses.map((text, index) => (
-              <div key={index} className='submission-text-response'>
+              <div key={index} className='submission-text-response before'>
                 {text}
               </div>
             ))}
             <div className='divider' />
             <h3>Why am I here and what would I like to get from the project?</h3>
             {whyAmIHereResponses.map((text, index) => (
-              <div key={index} className='submission-text-response'>
+              <div key={index} className='submission-text-response before'>
                 {text}
               </div>
             ))}
@@ -136,14 +136,14 @@ const Submissions = () => {
               write down any comments on how we can improve this project.
             </h3>
             {improveProjectResponses.map((text, index) => (
-              <div key={index} className='submission-text-response'>
+              <div key={index} className='submission-text-response after'>
                 {text}
               </div>
             ))}
             <div className='divider' />
             <h3>What were your favourite activities on the project?</h3>
             {favouriteActivitiesResponses.map((text, index) => (
-              <div key={index} className='submission-text-response'>
+              <div key={index} className='submission-text-response after'>
                 {text}
               </div>
             ))}
@@ -202,15 +202,15 @@ const Submissions = () => {
                     {`Do you have any extra comments or pictures you would like to share on the topic of
               ${theme.title}?`}
                   </h3>
-                  <h4>Before</h4>
+                  <h4>BEFORE</h4>
                   {themeTextResponses[theme.id].before.map((text, textIndex) => (
-                    <div key={textIndex} className='submission-text-response'>
+                    <div key={textIndex} className='submission-text-response before'>
                       {text}
                     </div>
                   ))}
-                  <h4>After</h4>
+                  <h4>AFTER</h4>
                   {themeTextResponses[theme.id].after.map((text, textIndex) => (
-                    <div key={textIndex} className='submission-text-response'>
+                    <div key={textIndex} className='submission-text-response after'>
                       {text}
                     </div>
                   ))}
