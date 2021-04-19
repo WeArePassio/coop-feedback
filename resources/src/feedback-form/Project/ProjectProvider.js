@@ -60,11 +60,21 @@ const ProjectProvider = ({children}) => {
     if (image) {
       formData.append('image', file);
     }
-    formData.append('name', name);
-    formData.append('who_am_i', whoAmI);
-    formData.append('why_am_i_here', whyAmIHere);
-    formData.append('improve_project', improveProject);
-    formData.append('favourite_activities', favouriteActivities);
+    if (name) {
+      formData.append('name', name);
+    }
+    if (whoAmI) {
+      formData.append('who_am_i', whoAmI);
+    }
+    if (whyAmIHere) {
+      formData.append('why_am_i_here', whyAmIHere);
+    }
+    if (improveProject) {
+      formData.append('improve_project', improveProject);
+    }
+    if (favouriteActivities) {
+      formData.append('favourite_activities', favouriteActivities);
+    }
     formData.append('question_ratings', JSON.stringify(questionRatings));
     formData.append('theme_comments', JSON.stringify(themeComments));
     const response = await axios.post(`/api/project/submissions/${type}`, formData, {
