@@ -32,7 +32,11 @@ const ResponsesAccordion = ({headerText, bodyContent}) => {
         </button>
       </div>
       <div className='divider purple' />
-      {isExpanded && <div className='section-accordion-body'>{bodyContent}</div>}
+      {isExpanded && (
+        <div className='section-accordion-body'>
+          {bodyContent ? bodyContent : <h5>No respones</h5>}
+        </div>
+      )}
     </>
   );
 };
@@ -73,14 +77,22 @@ const Submissions = () => {
   const favouriteActivitiesResponses = [];
   submissions.forEach((submission) => {
     if (submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`) {
-      whoAmIResponses.push(submission.submission.who_am_i);
-      whyAmIHereResponses.push(submission.submission.why_am_i_here);
+      if (submission.submission.who_am_i) {
+        whoAmIResponses.push(submission.submission.who_am_i);
+      }
+      if (submission.submission.why_am_i_here) {
+        whyAmIHereResponses.push(submission.submission.why_am_i_here);
+      }
       if (submission.submission.image) {
         aboutMeImages.push(submission.submission.image);
       }
     } else {
-      improveProjectResponses.push(submission.submission.improve_project);
-      favouriteActivitiesResponses.push(submission.submission.favourite_activities);
+      if (submission.submission.improve_project) {
+        improveProjectResponses.push(submission.submission.improve_project);
+      }
+      if (submission.submission.favourite_activities) {
+        favouriteActivitiesResponses.push(submission.submission.favourite_activities);
+      }
     }
   });
 
@@ -150,40 +162,50 @@ const Submissions = () => {
               <div className='submission-session'>
                 <ResponsesAccordion
                   headerText='Who am I? Where am I from? What is important to me?'
-                  bodyContent={whoAmIResponses.map((text, index) => (
-                    <div key={index} className='submission-text-response before'>
-                      {text}
-                    </div>
-                  ))}
+                  bodyContent={
+                    whoAmIResponses.length > 0
+                      ? whoAmIResponses.map((text, index) => (
+                          <div key={index} className='submission-text-response before'>
+                            {text}
+                          </div>
+                        ))
+                      : null
+                  }
                 />
                 <ResponsesAccordion
                   headerText='Why am I here and what would I like to get from the project?'
-                  bodyContent={whyAmIHereResponses.map((text, index) => (
-                    <div key={index} className='submission-text-response before'>
-                      {text}
-                    </div>
-                  ))}
+                  bodyContent={
+                    whyAmIHereResponses.length > 0
+                      ? whyAmIHereResponses.map((text, index) => (
+                          <div key={index} className='submission-text-response before'>
+                            {text}
+                          </div>
+                        ))
+                      : null
+                  }
                 />
                 <ResponsesAccordion
                   headerText='About Me'
                   bodyContent={
-                    <div className='images-container'>
-                      {aboutMeImages.map((image, index) => (
-                        <div className='image-container' key={index}>
-                          <img src={image} className='about-me-image' alt='' />
-                          <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                            <div>Image {index + 1}</div>
-                            <button
-                              className='download-button'
-                              onClick={() => {
-                                window.open(image);
-                              }}>
-                              <img src={download} alt='download' />
-                            </button>
+                    aboutMeImages.length > 0 ? (
+                      <div className='images-container'>
+                        {aboutMeImages.map((image, index) => (
+                          <div className='image-container' key={index}>
+                            <img src={image} className='about-me-image' alt='' />
+                            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                              <div>Image {index + 1}</div>
+                              <button
+                                className='download-button'
+                                onClick={() => {
+                                  window.open(image);
+                                }}>
+                                <img src={download} alt='download' />
+                              </button>
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </div>
+                        ))}
+                      </div>
+                    ) : null
                   }
                 />
               </div>
@@ -195,19 +217,27 @@ const Submissions = () => {
               <div className='submission-session'>
                 <ResponsesAccordion
                   headerText='We want to make sure we are running projects which you enjoy and learn from, please write down any comments on how we can improve this project. '
-                  bodyContent={improveProjectResponses.map((text, index) => (
-                    <div key={index} className='submission-text-response after'>
-                      {text}
-                    </div>
-                  ))}
+                  bodyContent={
+                    improveProjectResponses.length > 0
+                      ? improveProjectResponses.map((text, index) => (
+                          <div key={index} className='submission-text-response after'>
+                            {text}
+                          </div>
+                        ))
+                      : null
+                  }
                 />
                 <ResponsesAccordion
                   headerText='What were your favourite activities on the project?'
-                  bodyContent={favouriteActivitiesResponses.map((text, index) => (
-                    <div key={index} className='submission-text-response after'>
-                      {text}
-                    </div>
-                  ))}
+                  bodyContent={
+                    favouriteActivitiesResponses.length > 0
+                      ? favouriteActivitiesResponses.map((text, index) => (
+                          <div key={index} className='submission-text-response after'>
+                            {text}
+                          </div>
+                        ))
+                      : null
+                  }
                 />
               </div>
             }
@@ -287,28 +317,6 @@ const Submissions = () => {
                               }
                             )}
                           </tr>
-                          //   <tr
-                          //     key={`question-${questionIndex}-after`}
-                          //     style={{borderBottom: '1px solid #a7aab4'}}>
-                          //     <td></td>
-                          //     {questionThemeRatingCounts[theme.id][question.id].after.map(
-                          //       (count, countIndex) => (
-                          //         <td key={countIndex}>
-                          //           <div
-                          //             className={`submission-rating-cell after ${
-                          //               questionThemeRatingCounts[theme.id][question.id]
-                          //                 .afterAverage ===
-                          //               countIndex + 1
-                          //                 ? 'is-average'
-                          //                 : ''
-                          //             }`}>
-                          //             {count}
-                          //           </div>
-                          //         </td>
-                          //       )
-                          //     )}
-                          //   </tr>
-                          // </>
                         ))}
                       </tbody>
                     </table>
