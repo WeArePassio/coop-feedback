@@ -34,6 +34,14 @@ const AboutMe = () => {
   };
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
 
+  const handleNext = () => {
+    if (!name) {
+      alert('Please enter a Name');
+      return;
+    }
+    history.push('my-journey');
+  };
+
   return (
     <>
       <Progress stage={0} numStages={(questionThemes?.length ?? 0) + 2} />
@@ -48,7 +56,7 @@ const AboutMe = () => {
         </section>
       </div>
 
-      <label htmlFor='name'>Name</label>
+      <label htmlFor='name'>Name *</label>
       <input
         type='text'
         name='name'
@@ -117,7 +125,7 @@ const AboutMe = () => {
       </div>
 
       <div className='button-row'>
-        <button className='button' onClick={() => history.push('my-journey')}>
+        <button className='button' onClick={handleNext}>
           Next
         </button>
       </div>
