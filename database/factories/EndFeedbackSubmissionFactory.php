@@ -22,8 +22,8 @@ class EndFeedbackSubmissionFactory extends Factory
     public function definition()
     {
         return [
-            'improve_project' => $this->faker->sentence,
-            'favourite_activities' => $this->faker->sentence,
+            'improve_project' => rand(0,1) ? $this->faker->sentence : null,
+            'favourite_activities' => rand(0,1) ? $this->faker->sentence : null,
         ];
     }
 }
