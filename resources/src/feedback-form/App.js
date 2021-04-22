@@ -2,6 +2,7 @@ import React from 'react';
 import {Redirect, Route, Switch, Link} from 'react-router-dom';
 
 import coopLogo from '../img/coop-logo.svg';
+import Links from './Links';
 import Session from './Session/Session';
 import Project from './Project/Project';
 
@@ -13,6 +14,12 @@ const Home = () => {
         (This screen will not exist when the tool is being used for real, it just makes testing
         easier!)
       </p>
+      <div>
+        <h2>Generate Links</h2>
+        <div>
+          - <Link to='/links'>Generate Links for a Cohort (all link types)</Link>
+        </div>
+      </div>
       <div>
         <h2>Project</h2>
         <div>
@@ -50,6 +57,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Home />
+          </Route>
+          <Route path='/links'>
+            <Links />
           </Route>
           <Route path='/project'>
             <Project />
