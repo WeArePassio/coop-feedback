@@ -155,7 +155,7 @@ const Submissions = () => {
         <h2>No Submissions</h2>
       ) : (
         <>
-          <SubmissionHeader text='[TODO: Project Name]' />
+          <SubmissionHeader text='Project Feedback' />
           <SectionAccordion
             headerContent={<h3>Start of Project</h3>}
             bodyContent={
