@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectFeedbackSubmission extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'submission_type', 'submission_id'];
+    protected $fillable = ['cohort_id', 'name', 'submission_type', 'submission_id'];
     protected $with = ['submission', 'projectFeedbackRatings', 'projectFeedbackComments'];
 
     public function projectFeedbackRatings()
