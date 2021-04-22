@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react';
+import axios from 'axios';
 
 const LinkInput = ({linkValue}) => {
   const input = useRef(null);
@@ -7,6 +8,8 @@ const LinkInput = ({linkValue}) => {
       type='text'
       value={linkValue}
       ref={input}
+      readOnly={true}
+      style={{width: '100%'}}
       onClick={() => {
         input.current.select();
       }}
@@ -17,14 +20,13 @@ const LinkInput = ({linkValue}) => {
 const Links = () => {
   const [cohortID, setCohortID] = useState();
   const [links, setLinks] = useState();
-  const generateLinks = () => {
-    setLinks({
-      projectBeginningFeedback: 'https://google.com',
-      projectEndFeedback: 'https://google.com',
-      sessionFeedback: 'https://askjeeves.com',
-      projectSubmissions: 'https://passio.co.uk',
-      sessionSubmissions: 'https://passio.co.uk/services',
-    });
+  const generateLinks = async () => {
+    const response = await axios.post(`/api/cohorts/${cohortID}`);
+    if (response.status === 200 || response.status === 201) {
+      setLinks(response.data.links);
+    } else {
+      alert('Sorry, this request failed. Please try again later.');
+    }
   };
   return (
     <>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CohortController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\QuestionTheme;
@@ -22,6 +23,8 @@ use App\Models\SessionFeedbackSubmission;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/cohorts/{salesforce_id}', [CohortController::class, 'store']);
 
 Route::prefix('project')->group(function () {
     Route::get('/questions', function() {
