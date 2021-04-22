@@ -10,6 +10,7 @@ class Cohort extends Model
 {
     use HasFactory;
     protected $fillable = ['salesforce_id', 'token'];
+    protected $appends = ['links'];
 
     public function projectFeedbackSubmissions()
     {
@@ -24,5 +25,16 @@ class Cohort extends Model
     public static function generateToken()
     {
         return Str::uuid();
+    }
+
+    public function getLinksAttribute()
+    {
+        return [
+            'projectBeginningFeedback' => url('/project/beginning/'.$this->token),
+            'projectEndFeedback' => url('/project/end/'.$this->token),
+            'sessionFeedback' => url('/session/'.$this->token),
+            'projectSubmissions' => url('/project/submissions/'.$this->token),
+            'sessionSubmissions' => url('/session/submissions/'.$this->token),
+        ];
     }
 }
