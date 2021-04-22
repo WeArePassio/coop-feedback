@@ -95,17 +95,41 @@ const SessionDetails = ({session}) => {
           <RatingRow key={index} index={index} count={count} maxCount={maxRatingValue} />
         ))}
         <div className='divider' />
+
         <h3>What did you enjoy most about today's session?</h3>
-        {submissions.map(({enjoyed_most}, index) => (
-          <div key={index} className='submission-text-response'>
-            {enjoyed_most}
-          </div>
-        ))}
+        {submissions.map(({enjoyed_most}, index) =>
+          enjoyed_most ? (
+            <div key={index} className='submission-text-response'>
+              {enjoyed_most}
+            </div>
+          ) : null
+        )}
         <div className='divider' />
+
+        <h3>What changes would you make to today's session?</h3>
+        {submissions.map(({changes}, index) =>
+          changes ? (
+            <div key={index} className='submission-text-response'>
+              {changes}
+            </div>
+          ) : null
+        )}
+        <div className='divider' />
+
         <h3>What co-operative values did you learn from todays session?</h3>
         {Object.entries(valuesCounts).map(([valueName, valueCount], valueIndex) => (
           <ValueRow key={`value-${valueIndex}`} name={COOP_VALUES[valueName]} count={valueCount} />
         ))}
+        <div className='divider' />
+
+        <h3>What other topics would you like to discuss in future sessions?</h3>
+        {submissions.map(({other_topics}, index) =>
+          other_topics ? (
+            <div key={index} className='submission-text-response'>
+              {other_topics}
+            </div>
+          ) : null
+        )}
       </div>
     </>
   );
