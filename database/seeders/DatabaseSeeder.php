@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \Artisan::call('data:import');
-        ProjectFeedbackSubmission::factory(5)->beginning()
+        ProjectFeedbackSubmission::factory(50)->beginning()
             ->has(ProjectFeedbackRating::factory(15))
             ->has(ProjectFeedbackComment::factory(3))
             ->create();
-        ProjectFeedbackSubmission::factory(5)->end()
+        ProjectFeedbackSubmission::factory(50)->end()
             ->has(ProjectFeedbackRating::factory(15))
             ->has(ProjectFeedbackComment::factory(3))
             ->create();

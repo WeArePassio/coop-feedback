@@ -21,14 +21,14 @@ class CreateProjectFeedbackSubmissionsTables extends Migration
         });
         Schema::create('beginning_feedback_submissions', function (Blueprint $table) {
             $table->id();
-            $table->string('who_am_i');
-            $table->string('why_am_i_here');
+            $table->string('who_am_i')->nullable();
+            $table->string('why_am_i_here')->nullable();
             $table->timestamps();
         });
         Schema::create('end_feedback_submissions', function (Blueprint $table) {
             $table->id();
-            $table->string('improve_project');
-            $table->string('favourite_activities');
+            $table->string('improve_project')->nullable();
+            $table->string('favourite_activities')->nullable();
             $table->timestamps();
         });
     }

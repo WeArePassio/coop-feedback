@@ -101,7 +101,7 @@ const SessionFeedback = () => {
             </tr>
           </tbody>
         </table>
-        <label htmlFor='enjoyed-most'>What did you enjoy most about today’s session?</label>
+        <label htmlFor='enjoyed-most'>What did you enjoy most about today's session?</label>
         <textarea
           placeholder='Type here...'
           type='text'
@@ -109,7 +109,7 @@ const SessionFeedback = () => {
           id='enjoyed-most'
           value={enjoyedMost ?? ''}
           onChange={(event) => setEnjoyedMost(event.target.value)}></textarea>
-        <label htmlFor='changes'>What changes would you make to today’s session?</label>
+        <label htmlFor='changes'>What changes would you make to today's session?</label>
         <textarea
           placeholder='Type here...'
           type='text'
@@ -119,7 +119,7 @@ const SessionFeedback = () => {
           onChange={(event) => setChanges(event.target.value)}></textarea>
       </div>
       <div className='panel'>
-        <label htmlFor='values'>What co-operative values did you learn from todays session?</label>
+        <label htmlFor='values'>What co-operative values did you learn from today's session?</label>
         {Object.entries(coopValues).map(([key, {name, value}]) => (
           <div key={`value-${key}`} className='checkbox-container'>
             <input

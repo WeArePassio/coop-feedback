@@ -14,20 +14,20 @@ class ProjectFeedbackSubmissionController extends Controller
     public function submit(Request $request, $type)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'who_am_i' => 'string',
-            'why_am_i_here' => 'string',
+            'name' => 'required|string',
+            'who_am_i' => 'nullable|string',
+            'why_am_i_here' => 'nullable|string',
             'image' => 'nullable|image',
-            'improve_project' => 'string',
-            'favourite_activities' => 'string',
+            'improve_project' => 'nullable|string',
+            'favourite_activities' => 'nullable|string',
             'question_ratings' => 'required|json',
             'theme_comments' => 'required|json',
         ]);
 
         if ($type === 'beginning') {
             $submission = BeginningFeedbackSubmission::create([
-                'who_am_i' => $validatedData['who_am_i'],
-                'why_am_i_here' => $validatedData['why_am_i_here'],
+                'who_am_i' => isset($validatedData['who_am_i']) ? $validatedData['who_am_i'] : null,
+                'why_am_i_here' => isset($validatedData['why_am_i_here']) ? $validatedData['why_am_i_here'] : null,
             ]);
 
             if (isset($validatedData['image'])) {
@@ -37,8 +37,8 @@ class ProjectFeedbackSubmissionController extends Controller
             }
         } else {
             $submission = EndFeedbackSubmission::create([
-                'improve_project' => $validatedData['improve_project'],
-                'favourite_activities' => $validatedData['favourite_activities'],
+                'improve_project' => isset($validatedData['improve_project']) ? $validatedData['improve_project'] : null,
+                'favourite_activities' => isset($validatedData['favourite_activities']) ? $validatedData['favourite_activities'] : null,
             ]);
         }
         $projectSubmission = ProjectFeedbackSubmission::create([
