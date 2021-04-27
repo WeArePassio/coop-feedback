@@ -16,6 +16,7 @@ export const COOP_VALUES = {
 export const SessionContext = createContext();
 
 const SessionProvider = ({children}) => {
+  const [cohortToken, setCohortToken] = useState();
   const [enjoyRating, setEnjoyRating] = useState();
   const [enjoyedMost, setEnjoyedMost] = useState();
   const [coopValues, setCoopValues] = useState(
@@ -29,6 +30,7 @@ const SessionProvider = ({children}) => {
 
   const submitSubmission = async () => {
     const response = await axios.post('/api/session/submissions/', {
+      cohort_token: cohortToken,
       enjoyment_rating: enjoyRating,
       enjoyed_most: enjoyedMost,
       changes: changes,
@@ -46,13 +48,15 @@ const SessionProvider = ({children}) => {
   };
 
   const fetchSubmissions = async () => {
-    const response = await axios.get('/api/session/submissions');
+    const response = await axios.get(`/api/session/submissions/${cohortToken}`);
     setSubmissions(response.data);
   };
 
   return (
     <SessionContext.Provider
       value={{
+        cohortToken,
+        setCohortToken,
         enjoyRating,
         setEnjoyRating,
         enjoyedMost,

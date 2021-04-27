@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect, Route, Switch, useRouteMatch} from 'react-router-dom';
 
+import StoreTokenAndRedirect from './StoreTokenAndRedirect';
 import {ProjectProvider} from './ProjectProvider';
 import Beginning from './Beginning/Beginning';
 import End from './End/End';
@@ -17,8 +18,11 @@ function Project() {
         <Route path={`${path}/end`}>
           <End />
         </Route>
-        <Route path={`${path}/submissions`}>
+        <Route exact path={`${path}/submissions`}>
           <Submissions />
+        </Route>
+        <Route path={`${path}/submissions/:code`}>
+          <StoreTokenAndRedirect to={`${path}/submissions`} />
         </Route>
         <Redirect to={`${path}/beginning`} />
       </Switch>

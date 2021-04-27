@@ -3,8 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Question;
-use App\Models\QuestionTheme;
+use App\Models\Cohort;
 use App\Models\ProjectFeedbackSubmission;
 use App\Models\ProjectFeedbackRating;
 use App\Models\ProjectFeedbackComment;
@@ -20,14 +19,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \Artisan::call('data:import');
-        ProjectFeedbackSubmission::factory(50)->beginning()
-            ->has(ProjectFeedbackRating::factory(15))
-            ->has(ProjectFeedbackComment::factory(3))
-            ->create();
-        ProjectFeedbackSubmission::factory(50)->end()
-            ->has(ProjectFeedbackRating::factory(15))
-            ->has(ProjectFeedbackComment::factory(3))
-            ->create();
-        SessionFeedbackSubmission::factory(100)->create();
+        Cohort::factory(10)
+            ->has(
+                SessionFeedbackSubmission::factory(60)
+            )->has(
+                ProjectFeedbackSubmission::factory(10)->beginning()
+                    ->has(ProjectFeedbackRating::factory(15))
+                    ->has(ProjectFeedbackComment::factory(3))
+            )->has(
+                ProjectFeedbackSubmission::factory(10)->end()
+                    ->has(ProjectFeedbackRating::factory(15))
+                    ->has(ProjectFeedbackComment::factory(3))
+            )->create();
     }
 }

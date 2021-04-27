@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const ProjectContext = createContext();
 const ProjectProvider = ({children}) => {
+  const [cohortToken, setCohortToken] = useState();
   const [questionThemes, setQuestionThemes] = useState();
   const [ratings, setRatings] = useState({});
   const [comments, setComments] = useState({});
@@ -57,6 +58,7 @@ const ProjectProvider = ({children}) => {
     }));
     // The "beginning" submission includes an image, so we use multipart/form-data for this request
     const formData = new FormData();
+    formData.append('cohort_token', cohortToken);
     if (image) {
       formData.append('image', file);
     }
@@ -85,13 +87,15 @@ const ProjectProvider = ({children}) => {
   };
 
   const fetchSubmissions = async () => {
-    const response = await axios.get('/api/project/submissions');
+    const response = await axios.get(`/api/project/submissions/${cohortToken}`);
     setSubmissions(response.data);
   };
 
   return (
     <ProjectContext.Provider
       value={{
+        cohortToken,
+        setCohortToken,
         name,
         setName,
         whoAmI,
