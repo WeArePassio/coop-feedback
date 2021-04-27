@@ -60,11 +60,11 @@ const MyJourney = ({type}) => {
                 <th colSpan={5}>{`${themeIndex + 1}. ${theme.title}`}</th>
               </tr>
               <tr>
-                <th>Very Difficult</th>
-                <th>Difficult</th>
-                <th>Not Sure</th>
-                <th>Easy</th>
-                <th>Very Easy</th>
+                <th>{theme.question_theme_metric.label1}</th>
+                <th>{theme.question_theme_metric.label2}</th>
+                <th>{theme.question_theme_metric.label3}</th>
+                <th>{theme.question_theme_metric.label4}</th>
+                <th>{theme.question_theme_metric.label5}</th>
               </tr>
             </thead>
             <tbody>
@@ -86,11 +86,11 @@ const MyJourney = ({type}) => {
             <thead>
               <tr>
                 <th>{`${themeIndex + 1}. ${theme.title}`}</th>
-                <th>Very Difficult</th>
-                <th>Difficult</th>
-                <th>Not Sure</th>
-                <th>Easy</th>
-                <th>Very Easy</th>
+                <th>{theme.question_theme_metric.label1}</th>
+                <th>{theme.question_theme_metric.label2}</th>
+                <th>{theme.question_theme_metric.label3}</th>
+                <th>{theme.question_theme_metric.label4}</th>
+                <th>{theme.question_theme_metric.label5}</th>
               </tr>
             </thead>
             <tbody>
