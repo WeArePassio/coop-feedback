@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const ProjectContext = createContext();
 const ProjectProvider = ({children}) => {
-  const [cohortId, setCohortID] = useState();
+  const [cohortToken, setCohortToken] = useState();
   const [questionThemes, setQuestionThemes] = useState();
   const [ratings, setRatings] = useState({});
   const [comments, setComments] = useState({});
@@ -58,6 +58,7 @@ const ProjectProvider = ({children}) => {
     }));
     // The "beginning" submission includes an image, so we use multipart/form-data for this request
     const formData = new FormData();
+    formData.append('cohort_token', cohortToken);
     if (image) {
       formData.append('image', file);
     }
@@ -93,8 +94,8 @@ const ProjectProvider = ({children}) => {
   return (
     <ProjectContext.Provider
       value={{
-        cohortId,
-        setCohortID,
+        cohortToken,
+        setCohortToken,
         name,
         setName,
         whoAmI,

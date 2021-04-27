@@ -18,10 +18,10 @@ const LinkInput = ({linkValue}) => {
 };
 
 const Links = () => {
-  const [cohortID, setCohortID] = useState();
+  const [cohortSalesforceID, setCohortSalesforceID] = useState();
   const [links, setLinks] = useState();
   const generateLinks = async () => {
-    const response = await axios.post(`/api/cohorts/${cohortID}`);
+    const response = await axios.post(`/api/cohorts/${cohortSalesforceID}`);
     if (response.status === 200 || response.status === 201) {
       setLinks(response.data.links);
     } else {
@@ -48,13 +48,13 @@ const Links = () => {
           alignItems: 'center',
         }}>
         <div>
-          <label htmlFor='name'>Project Cohort ID *</label>
+          <label htmlFor='name'>Project Cohort Salesforce ID *</label>
           <input
             type='text'
             name='cohort-id'
             id='cohort-id'
-            value={cohortID ?? ''}
-            onChange={(event) => setCohortID(event.target.value)}
+            value={cohortSalesforceID ?? ''}
+            onChange={(event) => setCohortSalesforceID(event.target.value)}
           />
         </div>
         <button className='button' onClick={generateLinks}>

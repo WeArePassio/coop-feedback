@@ -7,13 +7,16 @@ use App\Models\BeginningFeedbackSubmission;
 use App\Models\EndFeedbackSubmission;
 use App\Models\ProjectFeedbackRating;
 use App\Models\ProjectFeedbackComment;
+use App\Models\Cohort;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ProjectFeedbackSubmissionController extends Controller
 {
     public function submit(Request $request, $type)
     {
         $validatedData = $request->validate([
+            'cohort_token' => 'required|string',
             'name' => 'required|string',
             'who_am_i' => 'nullable|string',
             'why_am_i_here' => 'nullable|string',
@@ -23,6 +26,13 @@ class ProjectFeedbackSubmissionController extends Controller
             'question_ratings' => 'required|json',
             'theme_comments' => 'required|json',
         ]);
+
+        $cohort = Cohort::where('token', $validatedData['cohort_token'])->first();
+        if (!$cohort) {
+            throw ValidationException::withMessages([
+                'cohort_token' => ['No matching cohort was found with this token'],
+            ]);
+        }
 
         if ($type === 'beginning') {
             $submission = BeginningFeedbackSubmission::create([
@@ -42,6 +52,7 @@ class ProjectFeedbackSubmissionController extends Controller
             ]);
         }
         $projectSubmission = ProjectFeedbackSubmission::create([
+            'cohort_id' => $cohort->id,
             'name' => $validatedData['name'],
             'submission_id' => $submission->id,
             'submission_type' => get_class($submission),
