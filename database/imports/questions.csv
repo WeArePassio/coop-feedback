@@ -1,18 +1,18 @@
 Category,Question,Metric
-Being youself and expressing your opinions,How confident are you speaking out in a group to express your opinion?,Confident -> nervous
-Being youself and expressing your opinions,How confident are you trying new things?,Confident -> nervous
-Being youself and expressing your opinions,How confident are you doing things on your own?,Confident -> nervous
-Being youself and expressing your opinions,How confident are you at being honest about what you think and how you feel?,Confident -> nervous
-Being youself and expressing your opinions,How confident are you sharing your ideas in a group?,Confident -> nervous
-Social life and support,How much do you enjoy meeting new people?,Alot -> not A lot
-Social life and support,How much do you enjoy helping in you community?,Alot -> not A lot
-Social life and support,How supported do you feel by your friends?,Alot -> not A lot
-Social life and support,How much do you feel you support your friends?,Alot -> not A lot
-Leadership,How confident do you feel inspiring others?,Confident -> nervous
-Leadership,How confident are you being a role model for others? ,Confident -> nervous
-Leadership,How confident are you at dealing with conflict?,Confident -> nervous
-Leadership,How confident are you at negotiating (your ability to reach an agreement or compromise by discussion)?,Confident -> nervous
-Leadership,How confident are you making decisions?,Confident -> nervous
+Being youself and expressing your opinions,How confident are you speaking out in a group to express your opinion?,Confidence
+Being youself and expressing your opinions,How confident are you trying new things?,Confidence
+Being youself and expressing your opinions,How confident are you doing things on your own?,Confidence
+Being youself and expressing your opinions,How confident are you at being honest about what you think and how you feel?,Confidence
+Being youself and expressing your opinions,How confident are you sharing your ideas in a group?,Confidence
+Social life and support,How much do you enjoy meeting new people?,A lot
+Social life and support,How much do you enjoy helping in you community?,A lot
+Social life and support,How supported do you feel by your friends?,A lot
+Social life and support,How much do you feel you support your friends?,A lot
+Leadership,How confident do you feel inspiring others?,Confidence
+Leadership,How confident are you being a role model for others? ,Confidence
+Leadership,How confident are you at dealing with conflict?,Confidence
+Leadership,How confident are you at negotiating (your ability to reach an agreement or compromise by discussion)?,Confidence
+Leadership,How confident are you making decisions?,Confidence
 Personal Skills,How easy do you find it to manage your own time?,Ease
 Personal Skills,How easy do you find it to solve problems?,Ease
 Personal Skills,How easy do you find it to be organised?,Ease
