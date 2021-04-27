@@ -31,14 +31,10 @@ Route::prefix('project')->group(function () {
         return QuestionTheme::all();
     });
     Route::post('/submissions/{type}', [ProjectFeedbackSubmissionController::class, 'submit']);
-    Route::get('/submissions', function() {
-        return ProjectFeedbackSubmission::all();
-    });
+    Route::get('/submissions/{cohort_token}', [ProjectFeedbackSubmissionController::class, 'submissions']);
 });
 
 Route::prefix('session')->group(function () {
     Route::post('/submissions', [SessionFeedbackSubmissionController::class, 'submit']);
-    Route::get('/submissions', function() {
-        return SessionFeedbackSubmission::all();
-    });
+    Route::get('/submissions/{cohort_token}', [SessionFeedbackSubmissionController::class, 'submissions']);
 });

@@ -74,4 +74,14 @@ class ProjectFeedbackSubmissionController extends Controller
         }
         return response()->json($projectSubmission->fresh());
     }
+
+    public function submissions($cohortToken) {
+        $cohort = Cohort::where('token', $cohortToken)->first();
+        if (!$cohort) {
+            throw ValidationException::withMessages([
+                'cohort_token' => ['No matching cohort was found with this token'],
+            ]);
+        }
+        return ProjectFeedbackSubmission::where('cohort_id', $cohort->id)->get();
+    }
 }

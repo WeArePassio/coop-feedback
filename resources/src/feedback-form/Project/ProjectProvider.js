@@ -87,7 +87,7 @@ const ProjectProvider = ({children}) => {
   };
 
   const fetchSubmissions = async () => {
-    const response = await axios.get('/api/project/submissions');
+    const response = await axios.get(`/api/project/submissions/${cohortToken}`);
     setSubmissions(response.data);
   };
 

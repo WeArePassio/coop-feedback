@@ -37,4 +37,14 @@ class SessionFeedbackSubmissionController extends Controller
         $sessionSubmission = SessionFeedbackSubmission::create($validatedData);
         return response()->json($sessionSubmission->fresh());
     }
+
+    public function submissions($cohortToken) {
+        $cohort = Cohort::where('token', $cohortToken)->first();
+        if (!$cohort) {
+            throw ValidationException::withMessages([
+                'cohort_token' => ['No matching cohort was found with this token'],
+            ]);
+        }
+        return SessionFeedbackSubmission::where('cohort_id', $cohort->id)->get();
+    }
 }

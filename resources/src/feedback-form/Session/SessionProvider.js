@@ -48,7 +48,7 @@ const SessionProvider = ({children}) => {
   };
 
   const fetchSubmissions = async () => {
-    const response = await axios.get('/api/session/submissions');
+    const response = await axios.get(`/api/session/submissions/${cohortToken}`);
     setSubmissions(response.data);
   };
 
