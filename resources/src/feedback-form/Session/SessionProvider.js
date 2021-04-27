@@ -16,6 +16,7 @@ export const COOP_VALUES = {
 export const SessionContext = createContext();
 
 const SessionProvider = ({children}) => {
+  const [cohortId, setCohortID] = useState();
   const [enjoyRating, setEnjoyRating] = useState();
   const [enjoyedMost, setEnjoyedMost] = useState();
   const [coopValues, setCoopValues] = useState(
@@ -53,6 +54,8 @@ const SessionProvider = ({children}) => {
   return (
     <SessionContext.Provider
       value={{
+        cohortId,
+        setCohortID,
         enjoyRating,
         setEnjoyRating,
         enjoyedMost,

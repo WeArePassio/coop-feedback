@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const ProjectContext = createContext();
 const ProjectProvider = ({children}) => {
+  const [cohortId, setCohortID] = useState();
   const [questionThemes, setQuestionThemes] = useState();
   const [ratings, setRatings] = useState({});
   const [comments, setComments] = useState({});
@@ -92,6 +93,8 @@ const ProjectProvider = ({children}) => {
   return (
     <ProjectContext.Provider
       value={{
+        cohortId,
+        setCohortID,
         name,
         setName,
         whoAmI,
