@@ -110,7 +110,7 @@ const MyJourney = ({type}) => {
           </table>
           <div className='panel'>
             <p>
-              {`Do you have any extra comments or pictures you would like to share on the topic of
+              {`Do you have any extra comments you would like to share on the topic of
               ${theme.title}?`}
             </p>
             <textarea
