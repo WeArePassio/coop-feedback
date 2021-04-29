@@ -1,8 +1,8 @@
 # Co-operative College - Feedback Tool
 
-This repository contains the feedback tool developed by Passio for Co-operative College.
+This tool was co-designed with coaches and students to provide an easy way for students to submit feedback after sessions, and for the Co-operative College to use this feedback to improve projects.
 
-It allows coaches from Co-operative college to generate unique links for each cohort, for:
+It allows coaches from Co-operative College to generate unique links for each cohort, for:
 
 - Students, to leave feedback at the start and end of the project
 - Students, to leave feedback at the end of each session for the duration of the project
