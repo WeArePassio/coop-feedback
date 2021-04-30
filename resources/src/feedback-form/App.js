@@ -34,9 +34,20 @@ const Home = () => {
       </ul>
 
       <h2>Features for coaches:</h2>
+      <div style={{marginBottom: 20}}>
+        <button
+          className='button'
+          onClick={() =>
+            window.open(
+              'https://docs.google.com/document/d/1_DO9Hoa-Pqv3JU7twSShkRQTbY-K6JCNEgRWRQ9nIpE/edit?usp=sharing'
+            )
+          }>
+          View Documentation
+        </button>
+      </div>
       <div>
-        <button className='button' onClick={() => history.push('/links')}>
-          Generate Links!
+        <button className='button' onClick={() => history.go('/links')}>
+          Generate Cohort Links!
         </button>
       </div>
     </>
