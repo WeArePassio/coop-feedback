@@ -158,8 +158,9 @@ const Session = ({session, setSelectedSession}) => {
   });
 
   const maxRatingCount = Math.max(...ratingCounts);
-  // Reverse ratingCounts so we get the highest rating
-  const maxRatingIndex = ratingCounts.reverse().indexOf(maxRatingCount);
+  // We want the rating with the highest count. If there's a tie, the higher rating should win
+  // So search the *reversed* list and subtract the index from 4 to get a 1-5 rating
+  const maxRatingIndex = 4 - ratingCounts.slice().reverse().indexOf(maxRatingCount);
 
   // Sort the valuesCounts by count, decreasing
   const valuesCountsSorted = Object.entries(valuesCounts).sort(
