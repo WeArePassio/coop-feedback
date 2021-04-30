@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect, Route, Switch, Link} from 'react-router-dom';
+import {Redirect, Route, Switch, Link, useHistory} from 'react-router-dom';
 
 import coopLogo from '../img/coop-logo.svg';
 import Links from './Links';
@@ -7,6 +7,7 @@ import Session from './Session/Session';
 import Project from './Project/Project';
 
 const Home = () => {
+  const history = useHistory();
   return (
     <>
       <h1>Co-operative College</h1>
@@ -20,21 +21,23 @@ const Home = () => {
       <p>
         It allows coaches from Co-operative College to generate unique links for each cohort, which
         are used by:
-        <ul>
-          <li>Students: to leave feedback at the start and end of the project </li>
-          <li>
-            Students: to leave feedback at the end of each session, for the duration of the project{' '}
-          </li>
-          <li>
-            Coaches: to view all feedback submitted, and compare submissions from the start/end of
-            the project
-          </li>
-        </ul>
       </p>
+      <ul>
+        <li>Students: to leave feedback at the start and end of the project </li>
+        <li>
+          Students: to leave feedback at the end of each session, for the duration of the project{' '}
+        </li>
+        <li>
+          Coaches: to view all feedback submitted, and compare submissions from the start/end of the
+          project
+        </li>
+      </ul>
 
-      <h2>Generate Links (for coaches)</h2>
+      <h2>Features for coaches:</h2>
       <div>
-        - <Link to='/links'>Generate Links for your Project Cohort</Link>
+        <button className='button' onClick={() => history.push('/links')}>
+          Generate Links!
+        </button>
       </div>
     </>
   );
