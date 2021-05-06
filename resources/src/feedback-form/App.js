@@ -46,7 +46,7 @@ const Home = () => {
         </button>
       </div>
       <div>
-        <button className='button' onClick={() => history.go('/links')}>
+        <button className='button' onClick={() => history.push('/links')}>
           Generate Cohort Links!
         </button>
       </div>
