@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {useSession} from './SessionProvider';
-import RatingRadio from '../Project/RatingRadio';
+import SessionRatingRadio from './SessionRatingRadio';
 import rating1 from '../../img/rating-1.svg';
 import rating1Checked from '../../img/rating-1-checked.svg';
 import rating2 from '../../img/rating-2.svg';
@@ -68,7 +68,7 @@ const SessionFeedback = () => {
           <table>
             <tbody>
               <tr>
-                <RatingRadio
+                <SessionRatingRadio
                   question_id='enjoy-rating'
                   radioValue={1}
                   icon={rating1}
@@ -77,7 +77,7 @@ const SessionFeedback = () => {
                   setValue={setEnjoyRating}
                   labelText='Very unhappy'
                 />
-                <RatingRadio
+                <SessionRatingRadio
                   question_id='enjoy-rating'
                   radioValue={2}
                   icon={rating2}
@@ -86,7 +86,7 @@ const SessionFeedback = () => {
                   setValue={setEnjoyRating}
                   labelText='Unhappy'
                 />
-                <RatingRadio
+                <SessionRatingRadio
                   question_id='enjoy-rating'
                   radioValue={3}
                   icon={rating3}
@@ -95,7 +95,7 @@ const SessionFeedback = () => {
                   setValue={setEnjoyRating}
                   labelText='Okay'
                 />
-                <RatingRadio
+                <SessionRatingRadio
                   question_id='enjoy-rating'
                   radioValue={4}
                   icon={rating4}
@@ -104,7 +104,7 @@ const SessionFeedback = () => {
                   setValue={setEnjoyRating}
                   labelText='Happy'
                 />
-                <RatingRadio
+                <SessionRatingRadio
                   question_id='enjoy-rating'
                   radioValue={5}
                   icon={rating5}
