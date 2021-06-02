@@ -20,7 +20,7 @@ input[type='checkbox'] {
 
 .question {
   margin-bottom: 28px;
-  padding-bottom: 28px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--purple);
 }
 .question-content {

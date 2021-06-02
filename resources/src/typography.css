@@ -48,6 +48,9 @@ label {
   color: var(--purple);
 }
 
+.regular {
+  font-weight: 400;
+}
 .bold {
   font-weight: 700;
 }
