@@ -48,10 +48,10 @@ const AboutMe = () => {
       <div className='panel'>
         <section>
           <h2>Tell us about yourself</h2>
+          <p>Please be as honest as possible.</p>
           <p>
-            In this section space has been provided for you to write, draw or stick in things that
-            explain who you are and what you hope to get from the project. This helps us make sure
-            you benefit from and enjoy the project.
+            Your answers will help us tailor the course to your interests and understand what is
+            important to you.
           </p>
         </section>
       </div>
@@ -92,8 +92,8 @@ const AboutMe = () => {
           style: {
             border: '2px solid gray',
             borderRadius: 3,
-            width: '232px',
-            height: '136px',
+            width: 164,
+            height: 130,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -119,7 +119,7 @@ const AboutMe = () => {
               textAlign: 'center',
             }}>
             <img src={addPicture} alt='' />
-            <div>Add a Picture</div>
+            <div className='purple semibold'>Add a Picture</div>
           </div>
         )}
       </div>
