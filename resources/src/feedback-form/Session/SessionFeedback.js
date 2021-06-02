@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {useSession} from './SessionProvider';
-import RatingRadioWithLabel from '../Project/RatingRadioWithLabel';
+import RatingRadio from '../Project/RatingRadio';
 import rating1 from '../../img/rating-1.svg';
 import rating1Checked from '../../img/rating-1-checked.svg';
 import rating2 from '../../img/rating-2.svg';
@@ -66,11 +66,11 @@ const SessionFeedback = () => {
       <div className='row question'>
         <div className='question-number'>1</div>
         <div>
-          <label htmlFor='enjoy-rating'>How much did you enjoy today’s session?</label>
+          <label htmlFor='enjoy-rating'>How did you feel about today’s session?</label>
           <table>
             <tbody>
               <tr>
-                <RatingRadioWithLabel
+                <RatingRadio
                   question_id='enjoy-rating'
                   radioValue={1}
                   icon={rating1}
@@ -79,7 +79,7 @@ const SessionFeedback = () => {
                   setValue={setEnjoyRating}
                   labelText='Very unhappy'
                 />
-                <RatingRadioWithLabel
+                <RatingRadio
                   question_id='enjoy-rating'
                   radioValue={2}
                   icon={rating2}
@@ -88,7 +88,7 @@ const SessionFeedback = () => {
                   setValue={setEnjoyRating}
                   labelText='Unhappy'
                 />
-                <RatingRadioWithLabel
+                <RatingRadio
                   question_id='enjoy-rating'
                   radioValue={3}
                   icon={rating3}
@@ -97,7 +97,7 @@ const SessionFeedback = () => {
                   setValue={setEnjoyRating}
                   labelText='Okay'
                 />
-                <RatingRadioWithLabel
+                <RatingRadio
                   question_id='enjoy-rating'
                   radioValue={4}
                   icon={rating4}
@@ -106,7 +106,7 @@ const SessionFeedback = () => {
                   setValue={setEnjoyRating}
                   labelText='Happy'
                 />
-                <RatingRadioWithLabel
+                <RatingRadio
                   question_id='enjoy-rating'
                   radioValue={5}
                   icon={rating5}
@@ -124,7 +124,10 @@ const SessionFeedback = () => {
       <div className='row question'>
         <div className='question-number'>2</div>
         <div className='question-content'>
-          <label htmlFor='enjoyed-most'>What did you enjoy most about today's session?</label>
+          <label htmlFor='enjoyed-most'>
+            What did you <span className='bold'>enjoy most</span> about today’s session? e.g the
+            activities, talking to other young people, being asked questions
+          </label>
           <textarea
             placeholder='Type here...'
             type='text'
@@ -140,7 +143,7 @@ const SessionFeedback = () => {
         <div className='question-number'>3</div>
         <div className='question-content'>
           <label htmlFor='changes'>
-            What would you <span className='bold'>improve</span> about today's session?
+            How could today's session be <span className='bold'>improved</span>?
           </label>
           <textarea
             placeholder='Type here...'
@@ -156,7 +159,9 @@ const SessionFeedback = () => {
       <div className='row question'>
         <div className='question-number'>4</div>
         <div className='question-content'>
-          <label htmlFor='values'>What co-operative values did you use in today's session?</label>
+          <label htmlFor='values'>
+            What <span className='bold'>co-operative values</span> did you use in today's session?
+          </label>
           {Object.entries(coopValues).map(([key, {name, value}]) => (
             <div key={`value-${key}`} className='checkbox-container'>
               <input
@@ -171,7 +176,9 @@ const SessionFeedback = () => {
                   });
                 }}
               />
-              <label htmlFor={key}>{name}</label>
+              <label htmlFor={key} className='regular'>
+                {name}
+              </label>
             </div>
           ))}
         </div>
@@ -182,7 +189,8 @@ const SessionFeedback = () => {
         <div className='question-number'>5</div>
         <div className='question-content'>
           <label htmlFor='other-topics'>
-            What other topics would you like to discuss in future sessions?
+            What <span className='bold'>other topics</span> would you like to discuss in future
+            sessions?
           </label>
           <textarea
             placeholder='Type here...'
