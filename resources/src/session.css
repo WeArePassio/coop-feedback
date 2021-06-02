@@ -18,15 +18,22 @@ input[type='checkbox'] {
   margin-left: 40px;
 }
 
-.question {
+.session-question {
   margin-bottom: 28px;
-  padding-bottom: 12px;
   border-bottom: 1px solid var(--purple);
 }
-.question-content {
+.session-question-content {
   flex: 1;
+  margin-bottom: 28px;
 }
-.question-number {
+/* textarea elements already have margin-bottom: 28px, so remove extra margins */
+.session-question-content.text {
+  margin-bottom: 0;
+}
+.session-question-content label {
+  margin-bottom: 16px;
+}
+.session-question-number {
   display: flex;
   justify-content: center;
   align-items: center;

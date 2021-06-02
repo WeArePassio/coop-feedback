@@ -63,9 +63,9 @@ const SessionFeedback = () => {
         </section>
         <img className='tell-us-what-you-think-icon' src={speechBubble} />
       </div>
-      <div className='row question'>
-        <div className='question-number'>1</div>
-        <div>
+      <div className='row session-question'>
+        <div className='session-question-number'>1</div>
+        <div className='session-question-content'>
           <label htmlFor='enjoy-rating'>How did you feel about today’s session?</label>
           <table>
             <tbody>
@@ -121,9 +121,9 @@ const SessionFeedback = () => {
         </div>
       </div>
 
-      <div className='row question'>
-        <div className='question-number'>2</div>
-        <div className='question-content'>
+      <div className='row session-question'>
+        <div className='session-question-number'>2</div>
+        <div className='session-question-content text'>
           <label htmlFor='enjoyed-most'>
             What did you <span className='bold'>enjoy most</span> about today’s session? e.g the
             activities, talking to other young people, being asked questions
@@ -139,9 +139,9 @@ const SessionFeedback = () => {
         <img className='tell-us-what-you-think-icon' src={question2Graphic} />
       </div>
 
-      <div className='row question'>
-        <div className='question-number'>3</div>
-        <div className='question-content'>
+      <div className='row session-question'>
+        <div className='session-question-number'>3</div>
+        <div className='session-question-content text'>
           <label htmlFor='changes'>
             How could today's session be <span className='bold'>improved</span>?
           </label>
@@ -156,9 +156,9 @@ const SessionFeedback = () => {
         <img className='tell-us-what-you-think-icon' src={question3Graphic} />
       </div>
 
-      <div className='row question'>
-        <div className='question-number'>4</div>
-        <div className='question-content'>
+      <div className='row session-question'>
+        <div className='session-question-number'>4</div>
+        <div className='session-question-content'>
           <label htmlFor='values'>
             What <span className='bold'>co-operative values</span> did you use in today's session?
           </label>
@@ -185,9 +185,9 @@ const SessionFeedback = () => {
         <img className='tell-us-what-you-think-icon' src={question4Graphic} />
       </div>
 
-      <div className='row question'>
-        <div className='question-number'>5</div>
-        <div className='question-content'>
+      <div className='row session-question'>
+        <div className='session-question-number'>5</div>
+        <div className='session-question-content text'>
           <label htmlFor='other-topics'>
             What <span className='bold'>other topics</span> would you like to discuss in future
             sessions?
