@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useHistory} from 'react-router-dom';
 
-import RatingRow from './RatingRow';
-import RatingRowMobile from './RatingRowMobile';
+// import RatingRow from './RatingRow';
+// import RatingRowMobile from './RatingRowMobile';
+import RatingRowGrid from './RatingRowGrid';
 import Progress from './Progress';
 import {useProject} from './ProjectProvider';
 
@@ -46,7 +47,7 @@ const MyJourney = ({type}) => {
       <h3>{theme.question_theme_metric.heading}</h3>
       {theme && (
         <>
-          <table className='rating-table rating-table-mobile'>
+          {/* <table className='rating-table rating-table-mobile'>
             <thead>
               <tr>
                 <th colSpan={5}></th>
@@ -99,7 +100,31 @@ const MyJourney = ({type}) => {
                   />
                 ))}
             </tbody>
-          </table>
+          </table> */}
+
+          <div className='grid-container'>
+            <div className='grid-row grid-row-header'>
+              <div className='grid-cell'></div>
+              <div className='grid-cell'>{theme.question_theme_metric.label1}</div>
+              <div className='grid-cell'>{theme.question_theme_metric.label2}</div>
+              <div className='grid-cell'>{theme.question_theme_metric.label3}</div>
+              <div className='grid-cell'>{theme.question_theme_metric.label4}</div>
+              <div className='grid-cell'>{theme.question_theme_metric.label5}</div>
+            </div>
+            {questions &&
+              questions.map(({id, title}) => (
+                <RatingRowGrid
+                  key={id}
+                  question={title}
+                  question_id={`question-${id}`}
+                  value={ratings?.[theme.id]?.[id]}
+                  setValue={(value) => {
+                    setResponse(theme.id, id, value);
+                  }}
+                />
+              ))}
+          </div>
+
           <div className='panel'>
             <p>
               {`Extra comments you would like to share on the topic of
