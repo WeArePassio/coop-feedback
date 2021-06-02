@@ -12,6 +12,7 @@ h1 {
   line-height: 1.4;
   font-size: 35pt;
   color: var(--purple);
+  text-align: center;
 }
 
 h2 {

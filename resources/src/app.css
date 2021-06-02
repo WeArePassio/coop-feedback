@@ -23,6 +23,7 @@ main {
 img.flag {
   display: block;
   margin: 0 auto;
+  margin-top: 20px;
   margin-bottom: 60px;
   max-width: 80%;
 }

@@ -8,21 +8,22 @@ const Intro = () => {
   return (
     <>
       <header>
-        <h1>Welcome to your Co-operative College course!</h1>
+        <h1>Welcome to your Co&#x2011;operative College course!</h1>
         <div className='line'></div>
       </header>
       <img src={start} className='flag' alt='A flag with the word Start' />
       <div className='panel'>
         <section>
-          <h2>Introduction Session</h2>
-          <p>
-            We would like to ask some questions to learn more more about you and what you would like
-            to gain from the course.
-          </p>
+          <h2>Welcome!</h2>
+          <p>Welcome to your Co-operative college course.</p>
         </section>
       </div>
       <div className='panel'>
         <section>
+          <p>
+            We would like to ask some questions to learn more more about you and what you would like
+            to gain from taking the course.
+          </p>
           <p>Please be as honest as possible.</p>
           <p>
             Your answers will help us tailor the course to your interests and understand what is
