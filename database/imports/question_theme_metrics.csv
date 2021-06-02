@@ -1,4 +1,4 @@
-name,label-1,label-2,label-3,label-4,label-5
-Confidence ,Very nervous,Somewhat nervous,Neither confident nor nervous,Confident,Very confident
-Ease,Very difficult,Somewhat difficult,Neither easy nor difficult,Somewhat easy,Very easy
-A lot,Not at all,Not very much,Slightly,Very much,Extremely
+name,heading,label-1,label-2,label-3,label-4,label-5
+Comfort,How comfortable are you:,Very uncomfortable,Uncomfortable,Not sure,Comfortable,Very comfortable
+Confidence,How confident are you: ,Very nervous,Somewhat nervous,Neither confident nor nervous,Confident,Very confident
+Knowledge,How much do you know about:,Nothing,Not very much,Not sure,Quite a lot,A lot
