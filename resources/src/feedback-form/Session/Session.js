@@ -18,7 +18,7 @@ const Session = () => {
           <SessionFeedback />
         </Route>
         <Route exact path={`${path}/complete`}>
-          <Complete text='Thank you for taking the time to answer these questions. We will ask you to rate these topics again at the end of your journey so you can see how the course has helped you to improve. We hope you enjoy your time with the Co-operative College!' />
+          <Complete text='Thank you for taking the time to answer these questions.' />
         </Route>
         <Route exact path={`${path}/submissions`}>
           <Submissions />
