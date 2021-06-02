@@ -45,7 +45,7 @@ input[type='checkbox'] {
 .session-question-content.text {
   margin-bottom: 0;
 }
-.session-question-content label {
+.session-question-content > label {
   margin-bottom: 16px;
 }
 .session-question-number {
