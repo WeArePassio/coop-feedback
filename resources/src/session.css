@@ -39,6 +39,9 @@ input[type='checkbox'] {
 }
 .session-question-content {
   flex: 1;
+}
+.session-question-content .checkbox-container:last-child,
+.session-question-content table {
   margin-bottom: 28px;
 }
 .session-question-content > label {
