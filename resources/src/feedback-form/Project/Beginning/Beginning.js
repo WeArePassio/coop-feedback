@@ -3,8 +3,9 @@ import {Route, Switch, useRouteMatch} from 'react-router-dom';
 
 import StoreTokenAndRedirect from '../StoreTokenAndRedirect';
 import Intro from './Intro';
-import MyJourney from '../MyJourney';
 import AboutMe from './AboutMe';
+import SkillsAndKnowledge from '../SkillsAndKnowledge';
+import MyJourney from '../MyJourney';
 import Complete from '../../Complete';
 import start from '../../../img/start.svg';
 
@@ -17,6 +18,9 @@ function Beginning() {
       </Route>
       <Route exact path={`${path}/about-me`}>
         <AboutMe />
+      </Route>
+      <Route exact path={`${path}/skills-knowledge`}>
+        <SkillsAndKnowledge />
       </Route>
       <Route exact path={`${path}/my-journey`}>
         <MyJourney type='beginning' />

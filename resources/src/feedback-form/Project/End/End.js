@@ -4,6 +4,7 @@ import {Route, Switch, useRouteMatch} from 'react-router-dom';
 import StoreTokenAndRedirect from '../StoreTokenAndRedirect';
 import Intro from './Intro';
 import FinalSession from './FinalSession';
+import SkillsAndKnowledge from '../SkillsAndKnowledge';
 import MyJourney from '../MyJourney';
 import Complete from '../../Complete';
 import finish from '../../../img/finish.svg';
@@ -17,6 +18,9 @@ function End() {
       </Route>
       <Route exact path={`${path}/final-session`}>
         <FinalSession />
+      </Route>
+      <Route exact path={`${path}/skills-knowledge`}>
+        <SkillsAndKnowledge />
       </Route>
       <Route exact path={`${path}/my-journey`}>
         <MyJourney type='end' />

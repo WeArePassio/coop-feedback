@@ -39,7 +39,7 @@ const MyJourney = ({type}) => {
 
   return (
     <>
-      <Progress stage={1 + themeIndex} numStages={questionThemes.length + 2} />
+      <Progress stage={2 + themeIndex} numStages={questionThemes.length + 2} />
       <div className='panel'>
         <section>
           <h2>Your skills and knowledge</h2>
