@@ -13,3 +13,28 @@ input[type='checkbox'] {
 .checkbox-container label {
   margin-bottom: 0px;
 }
+
+.tell-us-what-you-think-icon {
+  margin-left: 40px;
+}
+
+.question {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--purple);
+}
+.question-content {
+  flex: 1;
+}
+.question-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue);
+  color: var(--grey);
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  margin-right: 40px;
+  font-weight: bold;
+}
