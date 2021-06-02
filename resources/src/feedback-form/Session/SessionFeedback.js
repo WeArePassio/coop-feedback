@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {useSession} from './SessionProvider';
-import RatingRadio from '../Project/RatingRadio';
+import RatingRadioWithLabel from '../Project/RatingRadioWithLabel';
 import rating1 from '../../img/rating-1.svg';
 import rating1Checked from '../../img/rating-1-checked.svg';
 import rating2 from '../../img/rating-2.svg';
@@ -70,45 +70,50 @@ const SessionFeedback = () => {
           <table>
             <tbody>
               <tr>
-                <RatingRadio
+                <RatingRadioWithLabel
                   question_id='enjoy-rating'
                   radioValue={1}
                   icon={rating1}
                   iconChecked={rating1Checked}
                   value={enjoyRating}
                   setValue={setEnjoyRating}
+                  labelText='Very unhappy'
                 />
-                <RatingRadio
+                <RatingRadioWithLabel
                   question_id='enjoy-rating'
                   radioValue={2}
                   icon={rating2}
                   iconChecked={rating2Checked}
                   value={enjoyRating}
                   setValue={setEnjoyRating}
+                  labelText='Unhappy'
                 />
-                <RatingRadio
+                <RatingRadioWithLabel
                   question_id='enjoy-rating'
                   radioValue={3}
                   icon={rating3}
                   iconChecked={rating3Checked}
                   value={enjoyRating}
                   setValue={setEnjoyRating}
+                  labelText='Okay'
                 />
-                <RatingRadio
+                <RatingRadioWithLabel
                   question_id='enjoy-rating'
                   radioValue={4}
                   icon={rating4}
                   iconChecked={rating4Checked}
                   value={enjoyRating}
                   setValue={setEnjoyRating}
+                  labelText='Happy'
                 />
-                <RatingRadio
+                <RatingRadioWithLabel
                   question_id='enjoy-rating'
                   radioValue={5}
                   icon={rating5}
                   iconChecked={rating5Checked}
                   value={enjoyRating}
                   setValue={setEnjoyRating}
+                  labelText='Very happy'
                 />
               </tr>
             </tbody>
