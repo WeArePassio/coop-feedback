@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BeginningFeedbackSubmission extends Model
 {
     use HasFactory;
-    protected $fillable = ['who_am_i', 'why_am_i_here', 'why_am_i_here', 'image'];
+    protected $fillable = ['gain', 'interest', 'interest', 'image'];
     public function submission()
     {
         return $this->morphOne(ProjectFeedbackSubmission::class, 'submission');

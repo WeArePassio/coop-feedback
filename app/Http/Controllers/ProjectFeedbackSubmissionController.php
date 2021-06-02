@@ -18,8 +18,8 @@ class ProjectFeedbackSubmissionController extends Controller
         $validatedData = $request->validate([
             'cohort_token' => 'required|string',
             'name' => 'required|string',
-            'who_am_i' => 'nullable|string',
-            'why_am_i_here' => 'nullable|string',
+            'gain' => 'nullable|string',
+            'interest' => 'nullable|string',
             'image' => 'nullable|image',
             'improve_project' => 'nullable|string',
             'favourite_activities' => 'nullable|string',
@@ -36,8 +36,8 @@ class ProjectFeedbackSubmissionController extends Controller
 
         if ($type === 'beginning') {
             $submission = BeginningFeedbackSubmission::create([
-                'who_am_i' => isset($validatedData['who_am_i']) ? $validatedData['who_am_i'] : null,
-                'why_am_i_here' => isset($validatedData['why_am_i_here']) ? $validatedData['why_am_i_here'] : null,
+                'gain' => isset($validatedData['gain']) ? $validatedData['gain'] : null,
+                'interest' => isset($validatedData['interest']) ? $validatedData['interest'] : null,
             ]);
 
             if (isset($validatedData['image'])) {

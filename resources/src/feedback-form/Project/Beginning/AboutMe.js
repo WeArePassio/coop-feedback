@@ -11,10 +11,10 @@ const AboutMe = () => {
   const {
     name,
     setName,
-    whoAmI,
-    setWhoAmI,
-    whyAmIHere,
-    setWhyAmIHere,
+    gain,
+    setGain,
+    interest,
+    setInterest,
     questionThemes,
     image,
     setImage,
@@ -65,25 +65,23 @@ const AboutMe = () => {
         onChange={(event) => setName(event.target.value)}
       />
 
-      <label htmlFor='who-am-i'>Who am I? Where am I from? What is important to me?</label>
+      <label htmlFor='gain'>What would you like to gain from the project?</label>
       <textarea
         placeholder='Type here...'
         type='text'
-        name='who-am-i'
-        id='who-am-i'
-        value={whoAmI ?? ''}
-        onChange={(event) => setWhoAmI(event.target.value)}></textarea>
+        name='gain'
+        id='gain'
+        value={gain ?? ''}
+        onChange={(event) => setGain(event.target.value)}></textarea>
 
-      <label htmlFor='why-am-i-here'>
-        Why am I here and what would I like to get from the project?
-      </label>
+      <label htmlFor='interest'>What interests you about the project?</label>
       <textarea
         placeholder='Type here...'
         type='text'
-        name='why-am-i-here'
-        id='why-am-i-here'
-        value={whyAmIHere ?? ''}
-        onChange={(event) => setWhyAmIHere(event.target.value)}></textarea>
+        name='interest'
+        id='interest'
+        value={interest ?? ''}
+        onChange={(event) => setInterest(event.target.value)}></textarea>
 
       <h3>About Me</h3>
       <p>Please upload a photo, doodle or picture that represents who you are.</p>
