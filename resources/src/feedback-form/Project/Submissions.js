@@ -34,7 +34,7 @@ const ResponsesAccordion = ({headerText, bodyContent}) => {
       <div className='divider purple' />
       {isExpanded && (
         <div className='section-accordion-body'>
-          {bodyContent ? bodyContent : <h5>No respones</h5>}
+          {bodyContent ? bodyContent : <h5>No responses</h5>}
         </div>
       )}
     </>
