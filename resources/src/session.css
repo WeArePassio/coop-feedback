@@ -1,3 +1,16 @@
+.session-feedback-header {
+  margin-bottom: 80px;
+}
+.session-feedback-header h1 {
+  margin-bottom: 12px;
+}
+
+.session-feedback.panel {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 64px;
+}
+
 .checkbox-container {
   display: flex;
   align-items: center;
@@ -12,4 +25,34 @@ input[type='checkbox'] {
 
 .checkbox-container label {
   margin-bottom: 0px;
+}
+
+.tell-us-what-you-think-icon {
+  margin-left: 40px;
+}
+
+.session-question {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--purple);
+}
+.session-question-content {
+  flex: 1;
+  margin-bottom: 28px;
+}
+.session-question-content > label {
+  margin-bottom: 16px;
+}
+.session-question-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue);
+  color: var(--grey);
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  margin-right: 40px;
+  font-weight: bold;
 }

@@ -3,7 +3,7 @@
   --light-purple: #7646ba;
   --light-grey: #f4f4f6;
   --mid-grey: #a7aab4;
-  --grey: #50535e;
+  --grey: #383a42;
   --blue: #8ca9d9;
   --green: #95c11f;
   --blue: #8ca9d9;
@@ -84,7 +84,6 @@ textarea {
   max-width: 100%;
   border-radius: 3px;
   border: 1px solid var(--mid-grey);
-  margin-bottom: 28px;
 }
 input[type='text'] {
   width: 274px;
