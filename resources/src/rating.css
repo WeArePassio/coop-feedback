@@ -19,9 +19,14 @@
   border-bottom: 1px solid var(--mid-grey);
 }
 .rating-table thead {
-  background-color: var(--purple);
-  color: white;
+  font-size: 10pt;
+  color: var(--grey);
+  font-weight: 600;
 }
+.rating-table thead th:not(:first-child) {
+  background-color: var(--light-grey);
+}
+
 .rating-table th,
 .rating-table td {
   padding: 5px;

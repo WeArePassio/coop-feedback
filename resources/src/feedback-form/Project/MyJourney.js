@@ -40,24 +40,16 @@ const MyJourney = ({type}) => {
   return (
     <>
       <Progress stage={2 + themeIndex} numStages={questionThemes.length + 2} />
-      <div className='panel'>
-        <section>
-          <h2>Your skills and knowledge</h2>
-          <p>
-            Please rate the following questions. Be as honest as you can so we can see if the
-            project helps improve skills that are important to you.
-          </p>
-        </section>
-      </div>
-
       <div ref={topOfTableRef} />
-
+      <h2>{`${themeIndex + 1}. ${theme.title}`}</h2>
+      <div className='divider purple' />
+      <h3>{theme.question_theme_metric.heading}</h3>
       {theme && (
         <>
           <table className='rating-table rating-table-mobile'>
             <thead>
               <tr>
-                <th colSpan={5}>{`${themeIndex + 1}. ${theme.title}`}</th>
+                <th colSpan={5}></th>
               </tr>
               <tr>
                 <th>{theme.question_theme_metric.label1}</th>
@@ -85,7 +77,7 @@ const MyJourney = ({type}) => {
           <table className='rating-table rating-table-desktop'>
             <thead>
               <tr>
-                <th>{`${themeIndex + 1}. ${theme.title}`}</th>
+                <th></th>
                 <th>{theme.question_theme_metric.label1}</th>
                 <th>{theme.question_theme_metric.label2}</th>
                 <th>{theme.question_theme_metric.label3}</th>
@@ -110,7 +102,7 @@ const MyJourney = ({type}) => {
           </table>
           <div className='panel'>
             <p>
-              {`Do you have any extra comments you would like to share on the topic of
+              {`Extra comments you would like to share on the topic of
               ${theme.title}?`}
             </p>
             <textarea
