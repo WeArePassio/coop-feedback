@@ -43,13 +43,11 @@ const SessionFeedback = () => {
 
   return (
     <>
-      <header>
-        <h1 className='center-aligned' style={{marginBottom: 12}}>
-          Your Session is Finished!
-        </h1>
+      <header className='session-feedback-header'>
+        <h1 className='center-aligned'>Your Session is Finished!</h1>
         <div className='line'></div>
       </header>
-      <div className='panel row' style={{margin: '80px 0 64px 0'}}>
+      <div className='session-feedback panel'>
         <section>
           <h2 className='purple'>Tell us what you think...</h2>
           <p>
@@ -63,7 +61,7 @@ const SessionFeedback = () => {
         </section>
         <img className='tell-us-what-you-think-icon' src={speechBubble} />
       </div>
-      <div className='row session-question'>
+      <div className='session-question'>
         <div className='session-question-number'>1</div>
         <div className='session-question-content'>
           <label htmlFor='enjoy-rating'>How did you feel about today’s session?</label>
@@ -121,7 +119,7 @@ const SessionFeedback = () => {
         </div>
       </div>
 
-      <div className='row session-question'>
+      <div className='session-question'>
         <div className='session-question-number'>2</div>
         <div className='session-question-content text'>
           <label htmlFor='enjoyed-most'>
@@ -139,7 +137,7 @@ const SessionFeedback = () => {
         <img className='tell-us-what-you-think-icon' src={question2Graphic} />
       </div>
 
-      <div className='row session-question'>
+      <div className='session-question'>
         <div className='session-question-number'>3</div>
         <div className='session-question-content text'>
           <label htmlFor='changes'>
@@ -156,7 +154,7 @@ const SessionFeedback = () => {
         <img className='tell-us-what-you-think-icon' src={question3Graphic} />
       </div>
 
-      <div className='row session-question'>
+      <div className='session-question'>
         <div className='session-question-number'>4</div>
         <div className='session-question-content'>
           <label htmlFor='values'>
@@ -185,7 +183,7 @@ const SessionFeedback = () => {
         <img className='tell-us-what-you-think-icon' src={question4Graphic} />
       </div>
 
-      <div className='row session-question'>
+      <div className='session-question'>
         <div className='session-question-number'>5</div>
         <div className='session-question-content text'>
           <label htmlFor='other-topics'>

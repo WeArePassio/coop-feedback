@@ -95,8 +95,3 @@ textarea {
   padding: 10px 14px;
   resize: vertical;
 }
-
-.row {
-  display: flex;
-  align-items: flex-start;
-}
