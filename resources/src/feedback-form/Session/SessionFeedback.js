@@ -121,7 +121,7 @@ const SessionFeedback = () => {
 
       <div className='session-question'>
         <div className='session-question-number'>2</div>
-        <div className='session-question-content text'>
+        <div className='session-question-content'>
           <label htmlFor='enjoyed-most'>
             What did you <span className='bold'>enjoy most</span> about today’s session? e.g the
             activities, talking to other young people, being asked questions
@@ -139,7 +139,7 @@ const SessionFeedback = () => {
 
       <div className='session-question'>
         <div className='session-question-number'>3</div>
-        <div className='session-question-content text'>
+        <div className='session-question-content'>
           <label htmlFor='changes'>
             How could today's session be <span className='bold'>improved</span>?
           </label>
@@ -185,7 +185,7 @@ const SessionFeedback = () => {
 
       <div className='session-question'>
         <div className='session-question-number'>5</div>
-        <div className='session-question-content text'>
+        <div className='session-question-content'>
           <label htmlFor='other-topics'>
             What <span className='bold'>other topics</span> would you like to discuss in future
             sessions?
