@@ -12,6 +12,7 @@ h1 {
   line-height: 1.4;
   font-size: 35pt;
   color: var(--purple);
+  text-align: center;
 }
 
 h2 {
@@ -50,6 +51,9 @@ label {
 
 .regular {
   font-weight: 400;
+}
+.semibold {
+  font-weight: 600;
 }
 .bold {
   font-weight: 700;

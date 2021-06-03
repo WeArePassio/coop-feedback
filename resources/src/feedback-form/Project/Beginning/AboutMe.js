@@ -11,10 +11,10 @@ const AboutMe = () => {
   const {
     name,
     setName,
-    whoAmI,
-    setWhoAmI,
-    whyAmIHere,
-    setWhyAmIHere,
+    gain,
+    setGain,
+    interest,
+    setInterest,
     questionThemes,
     image,
     setImage,
@@ -39,7 +39,7 @@ const AboutMe = () => {
       alert('Please enter a Name');
       return;
     }
-    history.push('my-journey');
+    history.push('skills-knowledge');
   };
 
   return (
@@ -48,10 +48,10 @@ const AboutMe = () => {
       <div className='panel'>
         <section>
           <h2>Tell us about yourself</h2>
+          <p>Please be as honest as possible.</p>
           <p>
-            In this section space has been provided for you to write, draw or stick in things that
-            explain who you are and what you hope to get from the project. This helps us make sure
-            you benefit from and enjoy the project.
+            Your answers will help us tailor the course to your interests and understand what is
+            important to you.
           </p>
         </section>
       </div>
@@ -65,25 +65,23 @@ const AboutMe = () => {
         onChange={(event) => setName(event.target.value)}
       />
 
-      <label htmlFor='who-am-i'>Who am I? Where am I from? What is important to me?</label>
+      <label htmlFor='gain'>What would you like to gain from the project?</label>
       <textarea
         placeholder='Type here...'
         type='text'
-        name='who-am-i'
-        id='who-am-i'
-        value={whoAmI ?? ''}
-        onChange={(event) => setWhoAmI(event.target.value)}></textarea>
+        name='gain'
+        id='gain'
+        value={gain ?? ''}
+        onChange={(event) => setGain(event.target.value)}></textarea>
 
-      <label htmlFor='why-am-i-here'>
-        Why am I here and what would I like to get from the project?
-      </label>
+      <label htmlFor='interest'>What interests you about the project?</label>
       <textarea
         placeholder='Type here...'
         type='text'
-        name='why-am-i-here'
-        id='why-am-i-here'
-        value={whyAmIHere ?? ''}
-        onChange={(event) => setWhyAmIHere(event.target.value)}></textarea>
+        name='interest'
+        id='interest'
+        value={interest ?? ''}
+        onChange={(event) => setInterest(event.target.value)}></textarea>
 
       <h3>About Me</h3>
       <p>Please upload a photo, doodle or picture that represents who you are.</p>
@@ -92,8 +90,8 @@ const AboutMe = () => {
           style: {
             border: '2px solid gray',
             borderRadius: 3,
-            width: '232px',
-            height: '136px',
+            width: 164,
+            height: 130,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -119,7 +117,7 @@ const AboutMe = () => {
               textAlign: 'center',
             }}>
             <img src={addPicture} alt='' />
-            <div>Add a Picture</div>
+            <div className='purple semibold'>Add a Picture</div>
           </div>
         )}
       </div>

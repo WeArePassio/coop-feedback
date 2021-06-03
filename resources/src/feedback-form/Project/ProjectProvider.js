@@ -8,8 +8,8 @@ const ProjectProvider = ({children}) => {
   const [ratings, setRatings] = useState({});
   const [comments, setComments] = useState({});
   const [name, setName] = useState();
-  const [whoAmI, setWhoAmI] = useState();
-  const [whyAmIHere, setWhyAmIHere] = useState();
+  const [gain, setGain] = useState();
+  const [interest, setInterest] = useState();
   const [improveProject, setImproveProject] = useState();
   const [favouriteActivities, setfavouriteActivities] = useState();
   const [image, setImage] = useState(null);
@@ -65,11 +65,11 @@ const ProjectProvider = ({children}) => {
     if (name) {
       formData.append('name', name);
     }
-    if (whoAmI) {
-      formData.append('who_am_i', whoAmI);
+    if (gain) {
+      formData.append('gain', gain);
     }
-    if (whyAmIHere) {
-      formData.append('why_am_i_here', whyAmIHere);
+    if (interest) {
+      formData.append('interest', interest);
     }
     if (improveProject) {
       formData.append('improve_project', improveProject);
@@ -98,10 +98,10 @@ const ProjectProvider = ({children}) => {
         setCohortToken,
         name,
         setName,
-        whoAmI,
-        setWhoAmI,
-        whyAmIHere,
-        setWhyAmIHere,
+        gain,
+        setGain,
+        interest,
+        setInterest,
         improveProject,
         setImproveProject,
         favouriteActivities,

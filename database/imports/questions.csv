@@ -1,22 +1,20 @@
-Category,Question,Metric
-Being youself and expressing your opinions,How confident are you speaking out in a group to express your opinion?,Confidence
-Being youself and expressing your opinions,How confident are you trying new things?,Confidence
-Being youself and expressing your opinions,How confident are you doing things on your own?,Confidence
-Being youself and expressing your opinions,How confident are you at being honest about what you think and how you feel?,Confidence
-Being youself and expressing your opinions,How confident are you sharing your ideas in a group?,Confidence
-Social life and support,How much do you enjoy meeting new people?,A lot
-Social life and support,How much do you enjoy helping in you community?,A lot
-Social life and support,How supported do you feel by your friends?,A lot
-Social life and support,How much do you feel you support your friends?,A lot
-Leadership,How confident do you feel inspiring others?,Confidence
-Leadership,How confident are you being a role model for others? ,Confidence
-Leadership,How confident are you at dealing with conflict?,Confidence
-Leadership,How confident are you at negotiating (your ability to reach an agreement or compromise by discussion)?,Confidence
-Leadership,How confident are you making decisions?,Confidence
-Personal Skills,How easy do you find it to manage your own time?,Ease
-Personal Skills,How easy do you find it to solve problems?,Ease
-Personal Skills,How easy do you find it to be organised?,Ease
-Personal Skills,How easy do you find self-reflection (understanding your character and actions)?,Ease
-Personal Skills,How easy do you find listening to others?,Ease
-Personal Skills,How easy do you find it to be sensitive to other people's feelings?,Ease
-Personal Skills,How easy do you find it to be patient?,Ease
+Category,Question,Scale
+Being yourself and expressing your opinions,Sharing your ideas in a group,Comfort
+Being yourself and expressing your opinions,Trying new things,Comfort
+Being yourself and expressing your opinions,Doing things on your own,Comfort
+Being yourself and expressing your opinions,Being honest about your feelings,Comfort
+Social life and support,Meeting new people,Comfort
+Social life and support,Helping in your community,Comfort
+Social life and support,Getting support from your friends,Comfort
+Social life and support,Supporting your friends,Comfort
+Personal Skills,Managing your own time,Comfort
+Personal Skills,Noticing and solving problems,Comfort
+Personal Skills,Thinking about your behaviour and actions (self - reflection),Comfort
+Personal Skills,Listening to others,Comfort
+Personal Skills,Recognising other peoples feelings,Comfort
+Leadership,Being a role model for others,Confidence
+Leadership,Dealing with disagreements,Confidence
+Leadership,Making decisions,Confidence
+Leadership,Being patient,Confidence
+Co-op Knowledge,Co-operatives,Knowledge
+Co-op Knowledge,Co-operative values,Knowledge

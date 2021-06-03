@@ -34,7 +34,7 @@ const ResponsesAccordion = ({headerText, bodyContent}) => {
       <div className='divider purple' />
       {isExpanded && (
         <div className='section-accordion-body'>
-          {bodyContent ? bodyContent : <h5>No respones</h5>}
+          {bodyContent ? bodyContent : <h5>No responses</h5>}
         </div>
       )}
     </>
@@ -70,18 +70,18 @@ const Submissions = () => {
     init();
   }, []);
 
-  const whoAmIResponses = [];
-  const whyAmIHereResponses = [];
+  const gainResponses = [];
+  const interestResponses = [];
   const aboutMeImages = [];
   const improveProjectResponses = [];
   const favouriteActivitiesResponses = [];
   submissions.forEach((submission) => {
     if (submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`) {
-      if (submission.submission.who_am_i) {
-        whoAmIResponses.push(submission.submission.who_am_i);
+      if (submission.submission.gain) {
+        gainResponses.push(submission.submission.gain);
       }
-      if (submission.submission.why_am_i_here) {
-        whyAmIHereResponses.push(submission.submission.why_am_i_here);
+      if (submission.submission.interest) {
+        interestResponses.push(submission.submission.interest);
       }
       if (submission.submission.image) {
         aboutMeImages.push(submission.submission.image);
@@ -161,10 +161,10 @@ const Submissions = () => {
             bodyContent={
               <div className='submission-session'>
                 <ResponsesAccordion
-                  headerText='Who am I? Where am I from? What is important to me?'
+                  headerText='What would you like to gain from the project?'
                   bodyContent={
-                    whoAmIResponses.length > 0
-                      ? whoAmIResponses.map((text, index) => (
+                    gainResponses.length > 0
+                      ? gainResponses.map((text, index) => (
                           <div key={index} className='submission-text-response before'>
                             {text}
                           </div>
@@ -173,10 +173,10 @@ const Submissions = () => {
                   }
                 />
                 <ResponsesAccordion
-                  headerText='Why am I here and what would I like to get from the project?'
+                  headerText='What interests you about the project?'
                   bodyContent={
-                    whyAmIHereResponses.length > 0
-                      ? whyAmIHereResponses.map((text, index) => (
+                    interestResponses.length > 0
+                      ? interestResponses.map((text, index) => (
                           <div key={index} className='submission-text-response before'>
                             {text}
                           </div>

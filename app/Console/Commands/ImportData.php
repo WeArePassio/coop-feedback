@@ -63,7 +63,7 @@ class ImportData extends Command
     {
         $this->log_import('importing metrics...');
         $dataPath = "question_theme_metrics.csv";
-        $correctNumColumns = 6;
+        $correctNumColumns = 7;
         $row_index = 1;
         $path = getcwd() . "/$this->importsDir/$dataPath";
         if (file_exists($path) && ($handle = fopen($path, "r")) !== false) {
@@ -80,14 +80,17 @@ class ImportData extends Command
 
                 // Check if this stage exists already
                 $name = $row[0];
-                $label1 = $row[1];
-                $label2 = $row[2];
-                $label3 = $row[3];
-                $label4 = $row[4];
-                $label5 = $row[5];
+                $heading = $row[1];
+                $label1 = $row[2];
+                $label2 = $row[3];
+                $label3 = $row[4];
+                $label4 = $row[5];
+                $label5 = $row[6];
                 $theme = QuestionThemeMetric::updateOrCreate([
                     'name' => $name,
                 ], [
+                    'heading' => $heading,
+                    'label1' => $label1,
                     'label1' => $label1,
                     'label2' => $label2,
                     'label3' => $label3,

@@ -8,7 +8,7 @@ const Intro = () => {
   return (
     <>
       <header>
-        <h1>Welcome to your Co-operative College course!</h1>
+        <h1>You've completed your Co&#x2011;operative College course!</h1>
         <div className='line'></div>
       </header>
       <img src={finish} className='flag' alt='A flag with the word End' />

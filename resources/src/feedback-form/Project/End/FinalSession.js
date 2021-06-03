@@ -21,7 +21,7 @@ const FinalSession = () => {
       alert('Please enter a Name');
       return;
     }
-    history.push('my-journey');
+    history.push('skills-knowledge');
   };
 
   return (

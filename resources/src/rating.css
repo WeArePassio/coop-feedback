@@ -1,69 +1,3 @@
-@media only screen and (max-width: 767px) {
-  .rating-table-desktop {
-    display: none;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .rating-table-mobile {
-    display: none;
-  }
-}
-
-.rating-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-.rating-table-desktop tbody td,
-.rating-table-mobile tbody tr:nth-child(even) td {
-  border-bottom: 1px solid var(--mid-grey);
-}
-.rating-table thead {
-  background-color: var(--purple);
-  color: white;
-}
-.rating-table th,
-.rating-table td {
-  padding: 5px;
-}
-.rating-table thead tr {
-  height: 68px;
-}
-.rating-table td.rating-cell {
-  text-align: center;
-  width: 50px;
-}
-.rating-cell label,
-.rating-cell-with-label div {
-  margin-bottom: 0px;
-  padding: 6px;
-  background-color: var(--light-grey);
-}
-
-.rating-cell-with-label {
-  text-align: center;
-  vertical-align: middle;
-  width: 90px;
-}
-.rating-cell-with-label div {
-  width: 64px;
-  height: 64px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.rating-cell-with-label img {
-  width: 48px;
-  height: 48px;
-}
-
-.rating-table-desktop thead tr th:first-child,
-.rating-table-desktop tbody tr td:first-child {
-  text-align: left;
-}
-.rating-table-desktop tr td:not(:first-child) {
-  text-align: center;
-}
-
 /* Hide the actual radio  */
 input[type='radio'] {
   position: absolute;
@@ -78,4 +12,112 @@ input[type='radio'] + img {
 }
 input[type='radio']:focus + img {
   box-shadow: 0 0 5px var(--mid-grey);
+}
+
+.rating-theme {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.rating-theme-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--purple);
+  color: white;
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  font-weight: bold;
+}
+.rating-theme-title {
+  flex: 1;
+  margin: 0;
+  font-size: 16pt;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 68px;
+}
+
+.grid-row-header {
+  font-weight: 600;
+  line-height: 1.362;
+}
+.grid-row-header .grid-cell:not(:first-child) {
+  background-color: var(--light-grey);
+}
+.grid-cell {
+  display: flex;
+  align-items: center;
+}
+.grid-cell:not(:first-child) {
+  text-align: center;
+  justify-content: center;
+}
+.grid-cell label {
+  background-color: var(--light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 670px) {
+  .grid-row {
+    display: grid;
+    grid-template-areas:
+      'question question question question question'
+      'rating1 rating2 rating3 rating4 rating5';
+    padding: 4px 0px;
+  }
+  .grid-row-header {
+    font-size: 8pt;
+  }
+  .grid-row-header .grid-cell:nth-child(1) {
+    display: none;
+  }
+  .grid-cell label {
+    width: 42px;
+    height: 42px;
+  }
+  .grid-cell:nth-child(1) {
+    grid-area: question;
+    margin: 5px;
+  }
+  .grid-cell:nth-child(2) {
+    grid-area: rating1;
+  }
+  .grid-cell:nth-child(3) {
+    grid-area: rating2;
+  }
+  .grid-cell:nth-child(4) {
+    grid-area: rating3;
+  }
+  .grid-cell:nth-child(5) {
+    grid-area: rating4;
+  }
+  .grid-cell:nth-child(6) {
+    grid-area: rating5;
+  }
+}
+@media only screen and (min-width: 671px) {
+  .grid-row {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 100px);
+    padding: 8px 0px;
+  }
+  .grid-row-header {
+    font-size: 9pt;
+  }
+  .grid-cell label {
+    width: 48px;
+    height: 48px;
+  }
+  .grid-row-header .grid-cell:not(:first-child) {
+    margin: 0px 5px;
+  }
 }

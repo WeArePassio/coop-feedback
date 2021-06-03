@@ -22,8 +22,8 @@ class BeginningFeedbackSubmissionFactory extends Factory
     public function definition()
     {
         return [
-            'who_am_i' => rand(0,1) ? $this->faker->sentence : null,
-            'why_am_i_here' =>  rand(0,1) ? $this->faker->sentence : null,
+            'gain' => rand(0,1) ? $this->faker->sentence : null,
+            'interest' =>  rand(0,1) ? $this->faker->sentence : null,
         ];
     }
 }
