@@ -59,7 +59,7 @@ const MyJourney = ({type}) => {
       <div className='rating-theme'>
         <div className='rating-theme-number'>{themeIndex + 1}</div>
         <h3 className='rating-theme-title purple bold'>{theme.title}</h3>
-        <img src={headerGraphics[themeIndex + 1]} />
+        <img src={headerGraphics[themeIndex + 1]} alt='' />
       </div>
       <div className='divider purple' />
       <h3>{theme.question_theme_metric.heading}</h3>
