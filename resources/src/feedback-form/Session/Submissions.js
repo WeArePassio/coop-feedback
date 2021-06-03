@@ -78,6 +78,7 @@ const SessionDetails = ({session}) => {
     openness: 0,
     honesty: 0,
     social_responsibility: 0,
+    caring_for_others: 0,
   };
   submissions.forEach((submission) => {
     ratingCounts[submission.enjoyment_rating - 1] += 1;
@@ -149,6 +150,7 @@ const Session = ({session, setSelectedSession}) => {
     openness: 0,
     honesty: 0,
     social_responsibility: 0,
+    caring_for_others: 0,
   };
   submissions.forEach((submission) => {
     ratingCounts[submission.enjoyment_rating - 1] += 1;

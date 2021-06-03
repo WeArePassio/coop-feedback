@@ -11,6 +11,7 @@ export const COOP_VALUES = {
   openness: 'Openness',
   honesty: 'Honesty',
   social_responsibility: 'Social responsibility',
+  caring_for_others: 'Caring for others',
 };
 
 export const SessionContext = createContext();
@@ -44,6 +45,7 @@ const SessionProvider = ({children}) => {
       openness: coopValues.openness.value,
       honesty: coopValues.honesty.value,
       social_responsibility: coopValues.social_responsibility.value,
+      caring_for_others: coopValues.caring_for_others.value,
     });
   };
 

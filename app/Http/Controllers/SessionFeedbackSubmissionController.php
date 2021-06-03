@@ -26,6 +26,7 @@ class SessionFeedbackSubmissionController extends Controller
             'openness' => 'boolean',
             'honesty' => 'boolean',
             'social_responsibility' => 'boolean',
+            'caring_for_others' => 'boolean',
         ]);
         $cohort = Cohort::where('token', $validatedData['cohort_token'])->first();
         if (!$cohort) {

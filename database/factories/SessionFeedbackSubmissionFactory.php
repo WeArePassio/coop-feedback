@@ -35,6 +35,7 @@ class SessionFeedbackSubmissionFactory extends Factory
             'openness' => $this->faker->boolean(),
             'honesty' => $this->faker->boolean(),
             'social_responsibility' => $this->faker->boolean(),
+            'caring_for_others' => $this->faker->boolean(),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-6 months', $endDate = 'now'),
         ];
     }
