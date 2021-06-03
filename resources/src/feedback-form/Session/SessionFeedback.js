@@ -59,7 +59,7 @@ const SessionFeedback = () => {
             We welcome constructive criticism to improve the course.
           </p>
         </section>
-        <img className='tell-us-what-you-think-icon' src={speechBubble} />
+        <img className='tell-us-what-you-think-icon' src={speechBubble} alt='' />
       </div>
       <div className='session-question'>
         <div className='session-question-number'>1</div>
@@ -134,7 +134,7 @@ const SessionFeedback = () => {
             value={enjoyedMost ?? ''}
             onChange={(event) => setEnjoyedMost(event.target.value)}></textarea>
         </div>
-        <img className='tell-us-what-you-think-icon' src={question2Graphic} />
+        <img className='tell-us-what-you-think-icon' src={question2Graphic} alt='' />
       </div>
 
       <div className='session-question'>
@@ -151,7 +151,7 @@ const SessionFeedback = () => {
             value={changes ?? ''}
             onChange={(event) => setChanges(event.target.value)}></textarea>
         </div>
-        <img className='tell-us-what-you-think-icon' src={question3Graphic} />
+        <img className='tell-us-what-you-think-icon' src={question3Graphic} alt='' />
       </div>
 
       <div className='session-question'>
@@ -180,7 +180,7 @@ const SessionFeedback = () => {
             </div>
           ))}
         </div>
-        <img className='tell-us-what-you-think-icon' src={question4Graphic} />
+        <img className='tell-us-what-you-think-icon' src={question4Graphic} alt='' />
       </div>
 
       <div className='session-question'>
@@ -198,7 +198,7 @@ const SessionFeedback = () => {
             value={otherTopics ?? ''}
             onChange={(event) => setOtherTopics(event.target.value)}></textarea>
         </div>
-        <img className='tell-us-what-you-think-icon' src={question5Graphic} />
+        <img className='tell-us-what-you-think-icon' src={question5Graphic} alt='' />
       </div>
 
       <div className='button-row'>
