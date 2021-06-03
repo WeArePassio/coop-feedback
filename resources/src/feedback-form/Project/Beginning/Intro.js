@@ -14,12 +14,6 @@ const Intro = () => {
       <img src={start} className='flag' alt='A flag with the word Start' />
       <div className='panel'>
         <section>
-          <h2>Welcome!</h2>
-          <p>Welcome to your Co-operative college course.</p>
-        </section>
-      </div>
-      <div className='panel'>
-        <section>
           <p>
             We would like to ask some questions to learn more more about you and what you would like
             to gain from taking the course.
