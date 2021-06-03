@@ -7,7 +7,21 @@ import RatingRowGrid from './RatingRowGrid';
 import Progress from './Progress';
 import {useProject} from './ProjectProvider';
 
+import ratingGraphic1 from '../../img/rating-graphic-1.svg';
+import ratingGraphic2 from '../../img/rating-graphic-2.svg';
+import ratingGraphic3 from '../../img/rating-graphic-3.svg';
+import ratingGraphic4 from '../../img/rating-graphic-4.svg';
+import ratingGraphic5 from '../../img/rating-graphic-5.svg';
+
 import '../../rating.css';
+
+const headerGraphics = {
+  1: ratingGraphic1,
+  2: ratingGraphic2,
+  3: ratingGraphic3,
+  4: ratingGraphic4,
+  5: ratingGraphic5,
+};
 
 const MyJourney = ({type}) => {
   const topOfTableRef = useRef(null);
@@ -42,7 +56,11 @@ const MyJourney = ({type}) => {
     <>
       <Progress stage={2 + themeIndex} numStages={questionThemes.length + 2} />
       <div ref={topOfTableRef} />
-      <h2>{`${themeIndex + 1}. ${theme.title}`}</h2>
+      <div className='rating-theme'>
+        <div className='rating-theme-number'>{themeIndex + 1}</div>
+        <h3 className='rating-theme-title purple bold'>{theme.title}</h3>
+        <img src={headerGraphics[themeIndex + 1]} />
+      </div>
       <div className='divider purple' />
       <h3>{theme.question_theme_metric.heading}</h3>
       {theme && (
@@ -127,7 +145,7 @@ const MyJourney = ({type}) => {
 
           <div className='panel'>
             <p>
-              {`Extra comments you would like to share on the topic of
+              {`Extra comments on the topic of
               ${theme.title}?`}
             </p>
             <textarea

@@ -124,6 +124,29 @@ input[type='radio']:focus + img {
   cursor: pointer;
 }
 
+.rating-theme {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.rating-theme-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--purple);
+  color: white;
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  font-weight: bold;
+}
+.rating-theme-title {
+  flex: 1;
+  margin: 0;
+  font-size: 16pt;
+}
+
 @media only screen and (max-width: 767px) {
   .grid-row {
     display: grid;
