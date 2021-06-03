@@ -146,6 +146,54 @@
   margin-left: 30px;
 }
 
+.rating-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.rating-table thead {
+  font-size: 10pt;
+  color: var(--grey);
+  font-weight: 600;
+}
+.rating-table thead th:not(:first-child) {
+  background-color: var(--light-grey);
+}
+
+.rating-table th,
+.rating-table td {
+  padding: 5px;
+}
+.rating-table thead tr {
+  height: 68px;
+}
+.rating-table td.rating-cell {
+  text-align: center;
+  width: 50px;
+}
+.rating-cell label,
+.rating-cell-with-label div {
+  margin-bottom: 0px;
+  padding: 6px;
+  background-color: var(--light-grey);
+}
+
+.rating-cell-with-label {
+  text-align: center;
+  vertical-align: middle;
+  width: 90px;
+}
+.rating-cell-with-label div {
+  width: 64px;
+  height: 64px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rating-cell-with-label img {
+  width: 48px;
+  height: 48px;
+}
+
 .rating-table.submission-table {
   font-size: 12pt;
 }

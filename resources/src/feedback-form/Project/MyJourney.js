@@ -65,61 +65,6 @@ const MyJourney = ({type}) => {
       <h3>{theme.question_theme_metric.heading}</h3>
       {theme && (
         <>
-          {/* <table className='rating-table rating-table-mobile'>
-            <thead>
-              <tr>
-                <th colSpan={5}></th>
-              </tr>
-              <tr>
-                <th>{theme.question_theme_metric.label1}</th>
-                <th>{theme.question_theme_metric.label2}</th>
-                <th>{theme.question_theme_metric.label3}</th>
-                <th>{theme.question_theme_metric.label4}</th>
-                <th>{theme.question_theme_metric.label5}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {questions &&
-                questions.map(({id, title}) => (
-                  <RatingRowMobile
-                    key={id}
-                    question={title}
-                    question_id={`question-${id}`}
-                    value={ratings?.[theme.id]?.[id]}
-                    setValue={(value) => {
-                      setResponse(theme.id, id, value);
-                    }}
-                  />
-                ))}
-            </tbody>
-          </table>
-          <table className='rating-table rating-table-desktop'>
-            <thead>
-              <tr>
-                <th></th>
-                <th>{theme.question_theme_metric.label1}</th>
-                <th>{theme.question_theme_metric.label2}</th>
-                <th>{theme.question_theme_metric.label3}</th>
-                <th>{theme.question_theme_metric.label4}</th>
-                <th>{theme.question_theme_metric.label5}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {questions &&
-                questions.map(({id, title}) => (
-                  <RatingRow
-                    key={id}
-                    question={title}
-                    question_id={`question-${id}`}
-                    value={ratings?.[theme.id]?.[id]}
-                    setValue={(value) => {
-                      setResponse(theme.id, id, value);
-                    }}
-                  />
-                ))}
-            </tbody>
-          </table> */}
-
           <div className='grid-container'>
             <div className='grid-row grid-row-header'>
               <div className='grid-cell'></div>
