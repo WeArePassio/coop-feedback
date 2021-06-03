@@ -86,6 +86,7 @@ input[type='radio']:focus + img {
   }
   .grid-cell:nth-child(1) {
     grid-area: question;
+    margin: 5px;
   }
   .grid-cell:nth-child(2) {
     grid-area: rating1;
