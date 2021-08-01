@@ -12,10 +12,9 @@ const Intro = () => {
         <div className='line'></div>
       </header>
       <img src={finish} className='flag' alt='A flag with the word End' />
-      <h2 className='purple'>You did it - you completed the course!</h2>
       <div className='panel'>
         <section>
-          <h2>Final Session</h2>
+          <h2>You did it - you completed the course!</h2>
           <p>
             It would be really useful to hear about your experiences such as what you liked and
             disliked about the course. This will help us improve the course for future groups.

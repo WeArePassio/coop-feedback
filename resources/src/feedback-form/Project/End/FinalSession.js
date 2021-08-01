@@ -29,7 +29,7 @@ const FinalSession = () => {
       <Progress stage={0} numStages={(questionThemes?.length ?? 0) + 2} />
       <div className='panel'>
         <section>
-          <h2>Final Session</h2>
+          <h2>You did it - you completed the course!</h2>
           <p>
             It would be really useful to hear about your experiences such as what you liked and
             disliked about the course. This will help us improve the course for future groups.
