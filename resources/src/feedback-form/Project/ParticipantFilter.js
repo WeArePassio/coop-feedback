@@ -19,16 +19,9 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
   const showEndName = startFilterName && !hasMatchingEndName(startFilterName);
 
   return (
-    <div
-      style={{
-        marginTop: 20,
-        marginBottom: 20,
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-      }}>
-      <div>
-        <div>Filter by student:</div>
+    <div className='filters'>
+      <label>
+        Filter by student:
         <select
           onChange={(event) => {
             const startName = event.target.value;
@@ -52,9 +45,16 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
             </option>
           ))}
         </select>
-        {showEndName && (
-          <>
-            <div>No matching end-of-project feedback was found, please select a name</div>
+      </label>
+      {showEndName && (
+        <>
+          {filterNames.length !== 2 && (
+            <div className='no-match'>
+              No match for this name was found, please select one below:
+            </div>
+          )}
+          <label>
+            Select match:
             <select
               onChange={(event) => {
                 const endName = event.target.value;
@@ -75,23 +75,22 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
                 </option>
               ))}
             </select>
-          </>
-        )}
-        {filterNames.length > 0 && (
-          <>
-            <p>
-              Showing results for {filterNames.join(', ')}
-              <button
-                onClick={() => {
-                  onChangeParticipantFilter([]);
-                  setStartFilterName();
-                }}>
-                Clear
-              </button>
-            </p>
-          </>
-        )}
-      </div>
+          </label>
+        </>
+      )}
+      {filterNames.length > 0 && (
+        <>
+          <p>Showing results for {filterNames[0]}</p>
+          <button
+            className='button'
+            onClick={() => {
+              onChangeParticipantFilter([]);
+              setStartFilterName();
+            }}>
+            Clear filter
+          </button>
+        </>
+      )}
     </div>
   );
 };
