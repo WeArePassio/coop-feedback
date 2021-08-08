@@ -13,7 +13,10 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
     }
   });
 
-  const showEndName = startFilterName && !endNames.includes(startFilterName);
+  const hasMatchingEndName = (startName) =>
+    endNames.map((name) => name.toLowerCase()).includes(startName.toLowerCase());
+
+  const showEndName = startFilterName && !hasMatchingEndName(startFilterName);
 
   return (
     <div
@@ -34,7 +37,7 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
               onChangeParticipantFilter([]);
             } else {
               setStartFilterName(startName);
-              if (endNames.includes(startName)) {
+              if (hasMatchingEndName(startName)) {
                 onChangeParticipantFilter([startName]);
               } else {
                 onChangeParticipantFilter([]);
@@ -58,7 +61,7 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
                 if (endName !== '') {
                   onChangeParticipantFilter([startFilterName, endName]);
                 } else {
-                  if (endNames.includes(startFilterName)) {
+                  if (hasMatchingEndName(startFilterName)) {
                     onChangeParticipantFilter([startFilterName]);
                   } else {
                     onChangeParticipantFilter([]);

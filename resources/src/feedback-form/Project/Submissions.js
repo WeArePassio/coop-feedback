@@ -74,7 +74,9 @@ const Submissions = () => {
 
   const filteredSubmissions =
     filterNames.length > 0
-      ? submissions.filter((submission) => filterNames.includes(submission.name))
+      ? submissions.filter((submission) =>
+          filterNames.map((name) => name.toLowerCase()).includes(submission.name.toLowerCase())
+        )
       : submissions;
 
   const gainResponses = [];
