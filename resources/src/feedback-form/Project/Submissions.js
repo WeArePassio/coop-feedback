@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {useProject} from './ProjectProvider';
 
 import SubmissionHeader from '../SubmissionHeader';
+import ParticipantFilter from './ParticipantFilter';
 
 import expandDark from '../../img/expand-dark.svg';
 import collapseDark from '../../img/collapse-dark.svg';
@@ -61,6 +62,7 @@ const SectionAccordion = ({headerContent, bodyContent}) => {
 
 const Submissions = () => {
   const {submissions, questionThemes, fetchQuestions, fetchSubmissions} = useProject();
+  const [filterNames, setFilterNames] = useState([]);
 
   useEffect(() => {
     const init = async () => {
@@ -70,12 +72,19 @@ const Submissions = () => {
     init();
   }, []);
 
+  const filteredSubmissions =
+    filterNames.length > 0
+      ? submissions.filter((submission) =>
+          filterNames.map((name) => name.toLowerCase()).includes(submission.name.toLowerCase())
+        )
+      : submissions;
+
   const gainResponses = [];
   const interestResponses = [];
   const aboutMeImages = [];
   const improveProjectResponses = [];
   const favouriteActivitiesResponses = [];
-  submissions.forEach((submission) => {
+  filteredSubmissions.forEach((submission) => {
     if (submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`) {
       if (submission.submission.gain) {
         gainResponses.push(submission.submission.gain);
@@ -100,7 +109,7 @@ const Submissions = () => {
   const questionThemeRatingCounts = {};
   const themeTextResponses = {};
 
-  if (questionThemes && submissions.length > 0) {
+  if (questionThemes && filteredSubmissions.length > 0) {
     questionThemes.forEach((theme) => {
       questionThemeRatingCounts[theme.id] = {};
       themeTextResponses[theme.id] = {
@@ -110,7 +119,7 @@ const Submissions = () => {
       theme.questions.forEach((question) => {
         const before = [0, 0, 0, 0, 0];
         const after = [0, 0, 0, 0, 0];
-        submissions.forEach((submission) => {
+        filteredSubmissions.forEach((submission) => {
           const rating = submission.project_feedback_ratings.find(
             (rating) => rating.question_id === question.id
           );
@@ -137,7 +146,7 @@ const Submissions = () => {
         };
       });
     });
-    submissions.forEach((submission) => {
+    filteredSubmissions.forEach((submission) => {
       submission.project_feedback_comments.forEach((comment) => {
         if (submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`) {
           themeTextResponses[comment.question_theme_id].before.push(comment.text);
@@ -151,7 +160,12 @@ const Submissions = () => {
   return (
     <>
       <h1>Submissions</h1>
-      {submissions.length === 0 ? (
+      <ParticipantFilter
+        submissions={submissions}
+        filterNames={filterNames}
+        onChangeParticipantFilter={setFilterNames}
+      />
+      {filteredSubmissions.length === 0 ? (
         <h2>No Submissions</h2>
       ) : (
         <>

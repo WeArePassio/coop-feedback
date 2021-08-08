@@ -240,3 +240,19 @@
   height: 24px;
   width: 24px;
 }
+
+.filters {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.filters select {
+  margin-left: 10px;
+  border: 1px solid var(--mid-grey);
+}
+
+.filters .no-match {
+    width: 280px;
+    margin-bottom: 10px;
+}
