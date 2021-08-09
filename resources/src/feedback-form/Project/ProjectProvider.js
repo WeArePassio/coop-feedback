@@ -91,6 +91,10 @@ const ProjectProvider = ({children}) => {
     setSubmissions(response.data);
   };
 
+  const exportSubmissions = async () => {
+    window.open(`/api/project/submissions/${cohortToken}/export`, '_blank');
+  };
+
   return (
     <ProjectContext.Provider
       value={{
@@ -119,6 +123,7 @@ const ProjectProvider = ({children}) => {
         submitSubmission,
         fetchSubmissions,
         submissions,
+        exportSubmissions,
       }}>
       {children}
     </ProjectContext.Provider>

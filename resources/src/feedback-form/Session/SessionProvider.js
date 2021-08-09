@@ -54,6 +54,10 @@ const SessionProvider = ({children}) => {
     setSubmissions(response.data);
   };
 
+  const exportSubmissions = async () => {
+    window.open(`/api/session/submissions/${cohortToken}/export`, '_blank');
+  };
+
   return (
     <SessionContext.Provider
       value={{
@@ -72,6 +76,7 @@ const SessionProvider = ({children}) => {
         submitSubmission,
         fetchSubmissions,
         submissions,
+        exportSubmissions,
       }}>
       {children}
     </SessionContext.Provider>
