@@ -13,12 +13,12 @@ class ProjectFeedbackSubmission extends Model
 
     public function projectFeedbackRatings()
     {
-        return $this->hasMany(ProjectFeedbackRating::class);
+        return $this->hasMany(ProjectFeedbackRating::class)->orderBy('question_id');
     }
 
     public function projectFeedbackComments()
     {
-        return $this->hasMany(ProjectFeedbackComment::class);
+        return $this->hasMany(ProjectFeedbackComment::class)->orderBy('question_theme_id');
     }
 
     public function submission()
