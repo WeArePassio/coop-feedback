@@ -12,6 +12,8 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
       endNames.push(submission.name);
     }
   });
+  console.log('submissions', submissions.length);
+  console.log('endNames', endNames);
 
   const hasMatchingEndName = (startName) =>
     endNames.map((name) => name.toLowerCase()).includes(startName.toLowerCase());
@@ -39,8 +41,8 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
           }}
           value={startFilterName ?? ''}>
           <option value=''>All Students</option>
-          {startNames.map((name) => (
-            <option value={name} key={name}>
+          {startNames.map((name, index) => (
+            <option value={name} key={`${name}-${index}`}>
               {name}
             </option>
           ))}
@@ -69,8 +71,8 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
                 }
               }}>
               <option value=''>Select</option>
-              {endNames.map((name) => (
-                <option value={name} key={name}>
+              {endNames.map((name, index) => (
+                <option value={name} key={`${name}-${index}`}>
                   {name}
                 </option>
               ))}
