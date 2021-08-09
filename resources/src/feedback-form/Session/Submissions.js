@@ -203,7 +203,7 @@ const Session = ({session, setSelectedSession}) => {
 };
 
 const Submissions = () => {
-  const {fetchSubmissions, submissions} = useSession();
+  const {fetchSubmissions, submissions, exportSubmissions} = useSession();
   const [selectedSession, setSelectedSession] = useState();
 
   useEffect(() => {
@@ -247,6 +247,13 @@ const Submissions = () => {
         </button>
       )}
       <h1>Submissions</h1>
+      <div className='submissions-controls-row'>
+        <div>
+          <button onClick={exportSubmissions} className='button'>
+            Export submissions
+          </button>
+        </div>
+      </div>
       {submissions.length === 0 ? (
         <h2>No Submissions</h2>
       ) : (

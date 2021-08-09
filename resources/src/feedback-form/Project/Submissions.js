@@ -61,7 +61,13 @@ const SectionAccordion = ({headerContent, bodyContent}) => {
 };
 
 const Submissions = () => {
-  const {submissions, questionThemes, fetchQuestions, fetchSubmissions} = useProject();
+  const {
+    submissions,
+    questionThemes,
+    fetchQuestions,
+    fetchSubmissions,
+    exportSubmissions,
+  } = useProject();
   const [filterNames, setFilterNames] = useState([]);
 
   useEffect(() => {
@@ -160,11 +166,18 @@ const Submissions = () => {
   return (
     <>
       <h1>Submissions</h1>
-      <ParticipantFilter
-        submissions={submissions}
-        filterNames={filterNames}
-        onChangeParticipantFilter={setFilterNames}
-      />
+      <div className='submissions-controls-row'>
+        <div>
+          <button onClick={exportSubmissions} className='button'>
+            Export submissions
+          </button>
+        </div>
+        <ParticipantFilter
+          submissions={submissions}
+          filterNames={filterNames}
+          onChangeParticipantFilter={setFilterNames}
+        />
+      </div>
       {filteredSubmissions.length === 0 ? (
         <h2>No Submissions</h2>
       ) : (
