@@ -110,7 +110,7 @@ class ProjectFeedbackSubmissionController extends Controller
             array_push($columns, "theme_" . $theme->id . "_comment");
         }
 
-        $callback = function () use ($cohort_token, $submissions, $columns, $questions) {
+        $callback = function () use ($cohort_token, $submissions, $columns) {
             $file = fopen('php://output', 'w');
             fputcsv($file, $columns);
             foreach ($submissions as $submission) {
