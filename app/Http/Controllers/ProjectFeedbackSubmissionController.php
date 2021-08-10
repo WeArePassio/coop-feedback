@@ -99,7 +99,7 @@ class ProjectFeedbackSubmissionController extends Controller
         $fileName = 'project-feedback.csv';
         $submissions = $cohort->projectFeedbackSubmissions;
 
-        $columns = array('cohort_token', 'beginning/end', 'name', 'created_at', 'beginning_gain', 'beginning_interest', 'end_improve_project', 'end_favourite_activities');
+        $columns = array('cohort_token', 'name', 'created_at', 'beginning/end', 'beginning_gain', 'beginning_interest', 'end_improve_project', 'end_favourite_activities');
         // Add a column for each question
         $questions = Question::all();
         foreach ($questions as $question) {
