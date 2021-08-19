@@ -36,8 +36,8 @@ const Links = () => {
         review their submissions.
       </p>
       <p>
-        Just type in the ID of the project cohort (from Salesforce), and your links will be shown
-        below:
+        Copy the name of the project cohort into the text box below e.g "YCA - Greater Manchester",
+        then click Generate Links
       </p>
 
       <div
@@ -48,7 +48,7 @@ const Links = () => {
           alignItems: 'center',
         }}>
         <div>
-          <label htmlFor='name'>Project Cohort Salesforce ID *</label>
+          <label htmlFor='name'>Project Cohort Name *</label>
           <input
             type='text'
             name='cohort-id'

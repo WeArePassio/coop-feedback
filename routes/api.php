@@ -24,7 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/cohorts/{salesforce_id}', [CohortController::class, 'store']);
+Route::post('/cohorts/{salesforce_name}', [CohortController::class, 'store']);
 
 Route::prefix('project')->group(function () {
     Route::get('/questions', function () {
