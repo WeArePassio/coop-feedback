@@ -58,7 +58,7 @@ class SessionFeedbackSubmissionController extends Controller
                 'cohort_token' => ['No matching cohort was found with this token'],
             ]);
         }
-        $fileName = 'project-feedback.csv';
+        $fileName = 'session-feedback.csv';
         $submissions = $cohort->sessionFeedbackSubmissions;
 
         $columns = array('cohort_token', 'created_at', 'enjoyment_rating', 'enjoyed_most', 'changes', 'other_topics', 'democracy', 'self_help', 'self_responsibility', 'equality', 'equity', 'solidarity', 'openness', 'honesty', 'social_responsibility', 'caring_for_others');
