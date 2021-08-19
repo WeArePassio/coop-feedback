@@ -1,10 +1,17 @@
-body,
-input,
-textarea,
-textarea::placeholder {
+body, input, textarea, textarea::placeholder {
   font-family: 'Open Sans', sans-serif;
   color: var(--grey);
   font-size: 12pt;
+}
+
+@media print {
+  /* If printing forms, hide placeholder */
+  textarea::placeholder {
+    color: transparent;
+  }
+  textarea {
+    height: 200px;
+  }
 }
 
 h1 {
@@ -57,9 +64,11 @@ select {
 .regular {
   font-weight: 400;
 }
+
 .semibold {
   font-weight: 600;
 }
+
 .bold {
   font-weight: 700;
 }
