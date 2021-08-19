@@ -39,7 +39,7 @@ const Home = () => {
           className='button'
           onClick={() =>
             window.open(
-              'https://docs.google.com/document/d/1_DO9Hoa-Pqv3JU7twSShkRQTbY-K6JCNEgRWRQ9nIpE/edit?usp=sharing'
+              'https://docs.google.com/document/d/1EIzla2ac6RleXVdE1pvXPB-aAPWgxv-mwbyBgUJSkw8/edit?usp=sharing'
             )
           }>
           View Documentation
