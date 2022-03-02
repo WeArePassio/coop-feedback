@@ -366,10 +366,6 @@ const Submissions = () => {
                           <React.Fragment key={`question-${questionIndex}`}>
                             <tr>
                               <td className='bold'>{question.title}</td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td style={{textAlign: 'right'}}>Before:</td>
                               {questionThemeRatingCounts[theme.id][question.id].before.map(
                                 (beforeCount, countIndex) => (
                                   <td key={countIndex}>
@@ -384,8 +380,7 @@ const Submissions = () => {
                               </td>
                             </tr>
                             <tr className='question-row-border-bottom'>
-                              <td style={{textAlign: 'right'}}>
-                                After:
+                              <td>
                                 {/* <div>
                                   Percent of students improved:{` `}
                                   <span className='bold'>
