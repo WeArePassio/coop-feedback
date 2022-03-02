@@ -90,6 +90,9 @@ const Submissions = () => {
   const aboutMeImages = [];
   const improveProjectResponses = [];
   const favouriteActivitiesResponses = [];
+
+  const submissionsByName = {};
+
   filteredSubmissions.forEach((submission) => {
     if (submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`) {
       if (submission.submission.gain) {
@@ -109,11 +112,32 @@ const Submissions = () => {
         favouriteActivitiesResponses.push(submission.submission.favourite_activities);
       }
     }
+    const type =
+      submission.submission_type === `App\\Models\\BeginningFeedbackSubmission`
+        ? 'before'
+        : 'after';
+    const name = submission.name.toLowerCase();
+    if (!submissionsByName[name]) {
+      submissionsByName[name] = {
+        [type]: submission,
+      };
+    } else {
+      submissionsByName[name][type] = submission;
+    }
   });
+  const submissionsWithMatches = Object.fromEntries(
+    Object.entries(submissionsByName).filter(
+      ([name, submissions]) => Object.keys(submissions).length === 2
+    )
+  );
 
   // For each theme question, we need the counts for each rating
   const questionThemeRatingCounts = {};
   const themeTextResponses = {};
+
+  // For each theme, compute each matched student's total before/after score
+  // so we can work out what % of students were more confident about that theme
+  const themeRatingTotal = {};
 
   if (questionThemes && filteredSubmissions.length > 0) {
     questionThemes.forEach((theme) => {
@@ -137,6 +161,17 @@ const Submissions = () => {
             }
           }
         });
+
+        let numImproved = Object.values(submissionsWithMatches).filter(({before, after}) => {
+          const beforeRating = before.project_feedback_ratings.find(
+            (rating) => rating.question_id === question.id
+          );
+          const afterRating = after.project_feedback_ratings.find(
+            (rating) => rating.question_id === question.id
+          );
+          return (afterRating.rating ?? 0) >= (beforeRating.rating ?? 0);
+        }).length;
+
         // Work out average rating for each question, to closest integer
         questionThemeRatingCounts[theme.id][question.id] = {
           before,
@@ -149,6 +184,7 @@ const Submissions = () => {
             (1 * after[0] + 2 * after[1] + 3 * after[2] + 4 * after[3] + 5 * after[4]) /
               after.reduce((accumulator, currentValue) => accumulator + currentValue)
           ),
+          percentImproved: (numImproved * 100) / Object.keys(submissionsWithMatches).length,
         };
       });
     });
@@ -301,12 +337,12 @@ const Submissions = () => {
                       </thead>
                       <tbody>
                         {theme.questions.map((question, questionIndex) => (
-                          <>
-                            <tr key={`question-${questionIndex}`}>
+                          <React.Fragment key={`question-${questionIndex}`}>
+                            <tr>
                               <td className='bold'>{question.title}</td>
                               <td></td>
                             </tr>
-                            <tr key={`question-${questionIndex}-before-average`}>
+                            <tr>
                               <td>
                                 Average before:{' '}
                                 <span className='bold'>
@@ -323,14 +359,23 @@ const Submissions = () => {
                                 )
                               )}
                             </tr>
-                            <tr
-                              key={`question-${questionIndex}-after`}
-                              className='question-row-border-bottom'>
+                            <tr className='question-row-border-bottom'>
                               <td>
-                                Average after:{' '}
-                                <span className='bold'>
-                                  {questionThemeRatingCounts[theme.id][question.id].afterAverage}
-                                </span>
+                                <div>
+                                  Average after:{' '}
+                                  <span className='bold'>
+                                    {questionThemeRatingCounts[theme.id][question.id].afterAverage}
+                                  </span>
+                                </div>
+                                <div>
+                                  Percent of students improved:{` `}
+                                  <span className='bold'>
+                                    {`${
+                                      questionThemeRatingCounts[theme.id][question.id]
+                                        .percentImproved
+                                    }%`}
+                                  </span>
+                                </div>
                               </td>
                               {questionThemeRatingCounts[theme.id][question.id].after.map(
                                 (afterCount, countIndex) => {
@@ -344,7 +389,7 @@ const Submissions = () => {
                                 }
                               )}
                             </tr>
-                          </>
+                          </React.Fragment>
                         ))}
                       </tbody>
                     </table>

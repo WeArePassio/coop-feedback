@@ -12,9 +12,6 @@ const ParticipantFilter = ({submissions, filterNames, onChangeParticipantFilter}
       endNames.push(submission.name);
     }
   });
-  console.log('submissions', submissions.length);
-  console.log('endNames', endNames);
-
   const hasMatchingEndName = (startName) =>
     endNames.map((name) => name.toLowerCase()).includes(startName.toLowerCase());
 
