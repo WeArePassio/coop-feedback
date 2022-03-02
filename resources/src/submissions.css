@@ -1,7 +1,7 @@
-.submissions-controls-row {
+.submissions-controls {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
   margin: 20px 0px;
 }
 .submission-header {
@@ -122,8 +122,6 @@
   justify-content: center;
   font-size: 10pt;
   color: var(--grey);
-  margin-left: 5px;
-  margin-right: 5px;
 }
 .submission-rating-cell.before {
   border-color: var(--green);
@@ -207,16 +205,15 @@
   color: initial;
   background-color: transparent;
 }
+.rating-table.submission-table th {
+  text-align: left;
+}
 .rating-table.submission-table thead tr {
   height: initial;
-}
-.rating-table.submission-table tr {
   border-bottom: 1px solid var(--mid-grey);
 }
-
-.rating-table.submission-table .submission-rating-cell {
-  margin-top: 4px;
-  margin-bottom: 10px;
+.rating-table.submission-table tr.question-row-border-bottom {
+  border-bottom: 1px solid var(--mid-grey);
 }
 
 .images-container {
@@ -258,6 +255,6 @@
 }
 
 .filters .no-match {
-    width: 280px;
-    margin-bottom: 10px;
+  width: 280px;
+  margin-bottom: 10px;
 }

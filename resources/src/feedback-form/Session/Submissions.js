@@ -247,7 +247,7 @@ const Submissions = () => {
         </button>
       )}
       <h1>Submissions</h1>
-      <div className='submissions-controls-row'>
+      <div className='submissions-controls'>
         <div>
           <button onClick={exportSubmissions} className='button'>
             Export submissions

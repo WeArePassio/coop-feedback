@@ -166,7 +166,7 @@ const Submissions = () => {
   return (
     <>
       <h1>Submissions</h1>
-      <div className='submissions-controls-row'>
+      <div className='submissions-controls'>
         <div>
           <button onClick={exportSubmissions} className='button'>
             Export submissions
@@ -279,14 +279,6 @@ const Submissions = () => {
               <div className='submission-rating-cell after'>0</div>
               <div>After Project</div>
             </div>
-            <div className='ratings-key-item'>
-              <div className='submission-rating-cell before is-average'>0</div>
-              <div>Average before</div>
-            </div>
-            <div className='ratings-key-item'>
-              <div className='submission-rating-cell after is-average'>0</div>
-              <div>Average after</div>
-            </div>
           </div>
 
           {Object.keys(questionThemeRatingCounts).length > 0 &&
@@ -309,41 +301,50 @@ const Submissions = () => {
                       </thead>
                       <tbody>
                         {theme.questions.map((question, questionIndex) => (
-                          <tr key={`question-${questionIndex}`}>
-                            <td>{question.title}</td>
-                            {questionThemeRatingCounts[theme.id][question.id].before.map(
-                              (beforeCount, countIndex) => {
-                                const afterCount =
-                                  questionThemeRatingCounts[theme.id][question.id].after[
-                                    countIndex
-                                  ];
-                                return (
+                          <>
+                            <tr key={`question-${questionIndex}`}>
+                              <td className='bold'>{question.title}</td>
+                              <td></td>
+                            </tr>
+                            <tr key={`question-${questionIndex}-before-average`}>
+                              <td>
+                                Average before:{' '}
+                                <span className='bold'>
+                                  {questionThemeRatingCounts[theme.id][question.id].beforeAverage}
+                                </span>
+                              </td>
+                              {questionThemeRatingCounts[theme.id][question.id].before.map(
+                                (beforeCount, countIndex) => (
                                   <td key={countIndex}>
-                                    <div
-                                      className={`submission-rating-cell before ${
-                                        questionThemeRatingCounts[theme.id][question.id]
-                                          .beforeAverage ===
-                                        countIndex + 1
-                                          ? 'is-average'
-                                          : ''
-                                      }`}>
+                                    <div className='submission-rating-cell before'>
                                       {beforeCount}
                                     </div>
-                                    <div
-                                      className={`submission-rating-cell after ${
-                                        questionThemeRatingCounts[theme.id][question.id]
-                                          .afterAverage ===
-                                        countIndex + 1
-                                          ? 'is-average'
-                                          : ''
-                                      }`}>
-                                      {afterCount}
-                                    </div>
                                   </td>
-                                );
-                              }
-                            )}
-                          </tr>
+                                )
+                              )}
+                            </tr>
+                            <tr
+                              key={`question-${questionIndex}-after`}
+                              className='question-row-border-bottom'>
+                              <td>
+                                Average after:{' '}
+                                <span className='bold'>
+                                  {questionThemeRatingCounts[theme.id][question.id].afterAverage}
+                                </span>
+                              </td>
+                              {questionThemeRatingCounts[theme.id][question.id].after.map(
+                                (afterCount, countIndex) => {
+                                  return (
+                                    <td key={countIndex}>
+                                      <div className='submission-rating-cell after'>
+                                        {afterCount}
+                                      </div>
+                                    </td>
+                                  );
+                                }
+                              )}
+                            </tr>
+                          </>
                         ))}
                       </tbody>
                     </table>
