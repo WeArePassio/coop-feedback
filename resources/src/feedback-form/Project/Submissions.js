@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import {CSVLink} from 'react-csv';
 
 import {useProject} from './ProjectProvider';
 
@@ -16,6 +17,15 @@ import rating2 from '../../img/rating-2.svg';
 import rating3 from '../../img/rating-3.svg';
 import rating4 from '../../img/rating-4.svg';
 import rating5 from '../../img/rating-5.svg';
+
+const csvHeaders = [
+  {label: 'Theme ID', key: 'themeId'},
+  {label: 'Theme Title', key: 'themeTitle'},
+  {
+    label: '% students who gave higher ratings after completing the project',
+    key: 'percentageImproved',
+  },
+];
 
 const RATING_ICONS = [rating1, rating2, rating3, rating4, rating5];
 
@@ -69,6 +79,7 @@ const Submissions = () => {
     exportSubmissions,
   } = useProject();
   const [filterNames, setFilterNames] = useState([]);
+  const csvLink = useRef();
 
   useEffect(() => {
     const init = async () => {
@@ -218,11 +229,26 @@ const Submissions = () => {
     <>
       <h1>Submissions</h1>
       <div className='submissions-controls'>
-        <div>
+        <div className='export-buttons-container'>
           <button onClick={exportSubmissions} className='button'>
             Export submissions
           </button>
+          <CSVLink
+            data={Object.entries(themeNumImproved).map(([themeId, percentageImproved]) => ({
+              themeId: parseInt(themeId),
+              themeTitle: questionThemes.find((theme) => theme.id === parseInt(themeId))?.title,
+              percentageImproved,
+            }))}
+            headers={csvHeaders}
+            filename='project_progress_summary.csv'
+            ref={csvLink}
+            target='_blank'>
+            <button onClick={() => csvLink.current?.link.click()} className='button'>
+              Export summary
+            </button>
+          </CSVLink>
         </div>
+
         <ParticipantFilter
           submissions={submissions}
           filterNames={filterNames}
