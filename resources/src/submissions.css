@@ -4,6 +4,10 @@
   gap: 10px;
   margin: 20px 0px;
 }
+.submissions-controls .export-buttons-container {
+  display: flex;
+  gap: 10px;
+}
 .submission-header {
   background-color: var(--purple);
   color: white;
