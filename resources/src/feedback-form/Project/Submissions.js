@@ -243,9 +243,7 @@ const Submissions = () => {
             filename='project_progress_summary.csv'
             ref={csvLink}
             target='_blank'>
-            <button onClick={() => csvLink.current?.link.click()} className='button'>
-              Export summary
-            </button>
+            <button className='button'>Export summary</button>
           </CSVLink>
         </div>
 
